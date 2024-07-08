@@ -1,0 +1,110 @@
+\newcommand{\Cass}{\mathrm{Ca}_{\mathrm{ss}}}
+\newcommand{\Cai}{\mathrm{Ca}_{\mathrm{i}}}
+\newcommand{\Ca}{Ca$^{2+}$\;}
+%\newcommand{\dt}{\Delta t}
+
+% \allowdisplaybreaks
+
+
+\newcommand{\dokken}[1]{\todo[inline,color=red!50, caption={2do}]{
+    \begin{minipage}{\textwidth-4pt}
+      \underline{Dokken:} #1
+    \end{minipage}}}
+
+\newcommand{\A}[1]{{\textcolor{red}{#1}}}        %Aslak
+\definecolor{mollygreen}{rgb}{0.0,0.5,0.0}
+\definecolor{mollyred}{rgb}{0.5,0,0}
+\newcommand{\M}[1]{{\textcolor{mollygreen}{#1}}}        %Molly 
+\newcommand{\Mred}[1]{{\textcolor{mollyred}{#1}}} %Mollyquestion
+
+\makeatletter
+\renewcommand{\algocf@makecaption}[2]{% no singleline check
+  \parbox[t]{\columnwidth}{\algocf@captiontext{#1}{#2}}%
+}%
+\renewcommand{\algocf@makecaption@boxed}[2]{%
+  \global\sbox\algocf@capbox{\algocf@makecaption{#1}{#2}}%
+}%
+\renewcommand{\algocf@caption@boxed}{\vskip\AlCapSkip
+  \leavevmode\hskip-\leftskip\box\algocf@capbox\hskip-\rightskip}
+\makeatother
+
+
+\newcommand{\emp}[1]{\texttt{#1}}
+
+\newcommand{\button}[1]{\ovalbox{{#1}}}
+
+
+%\newenvironment{programcode2}[1]{\newline \ignorespaces\def\stmtopen##1{##1}%{\small{#1}}}%
+
+\newenvironment{programcode2}[1]{\ignorespaces\def\stmtopen##1{##1}{\vspace*{0.5cm}\par \small{#1}}}{\noindent\textcolor{programcode}{\rule{\columnwidth}{0pt}}\par\addvspace{\baselineskip}}%
+
+
+
+\newcommand{\ubuntu}[1]{
+  \vspace{-1em}
+  \begin{programcode}{}
+    \colorbox{blue!10}{\parbox{0.98\textwidth}{\textcolor{black}{\texttt{#1 \hfill (Ubuntu)}}}}
+  \end{programcode}
+  \vspace{-0.5em}
+}
+
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{codebox}{gray}{0.92}
+\usepackage{accsupp}
+
+\lstdefinestyle{BashStyle}{
+  language=bash,
+  basicstyle=\ttfamily,
+  otherkeywords={self},
+  keywordstyle=\color{deepblue},
+  emphstyle=\ttb\color{deepred},
+  stringstyle=\color{deepgreen},
+  commentstyle=\color{blue},
+  frame=tb,
+  showstringspaces=false,
+  backgroundcolor = \color{codebox},
+  breaklines=true,
+  columns=fullflexible,
+  breakatwhitespace=true,
+  prebreak=\textbackslash,
+  postbreak=\raisebox{0ex}[0ex][0ex]{\BeginAccSupp{ActualText={}}\ensuremath{\color{red}\hookrightarrow}\EndAccSupp{}}
+}
+
+% Custom terminal environment which puts dollars in front of commands
+\newcommand\dollarasnumber[1]{\ttfamily\$}
+\lstdefinestyle{TerminalStyle}{
+  xleftmargin=2.0em,
+  framexleftmargin=2.0em,
+  language=bash,
+  basicstyle=\ttfamily,
+  otherkeywords={self},
+  keywordstyle=\color{deepblue},
+  emphstyle=\ttb\color{deepred},
+  stringstyle=\color{deepgreen},
+  commentstyle=\color{blue},
+  showstringspaces=false,
+  backgroundcolor = \color{blue!10},
+  breaklines=true,
+  columns=fullflexible,
+  breakatwhitespace=true,
+  prebreak=\textbackslash,
+  numbers=left,
+  numberstyle=\dollarasnumber,
+  %postbreak=\raisebox{0ex}[0ex][0ex]{\BeginAccSupp{ActualText={}}\ensuremath{\color{red}\hookrightarrow}\EndAccSupp{}}
+}
+
+
+\def\fenics{FEniCS}
+\def\svmtk{SVM-Tk}
+\def\svmtkfull{Surface-Volume-Meshing Toolkit}
+\def\btk{BrainToolKit}
+\def\freesurfer{FreeSurfer }
+\def\paraview{ParaView}
+\def\ftetwild{fTetWild}
+\def\pyvista{PyVista}
+\def\kdfull{K$3$D Jupyter}
+\def\k3d{K$3$D}
+\def\multiphenics{Multiphenics}
+\def\freeview{Freeview}

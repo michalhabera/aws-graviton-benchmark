@@ -1,0 +1,28 @@
+name: Build latex book and upload artifact
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+  workflow_dispatch:
+
+jobs:
+  build-book:
+    runs-on: ubuntu-latest
+    container: ghcr.io/scientificcomputing/latex-full:2023-11-07a
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build PDF
+        working-directory: book
+        run: |
+          make clean
+          make
+      - name: Upload book as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: book
+          path: book/book.pdf
+          if-no-files-found: error
+          retention-days: 2
