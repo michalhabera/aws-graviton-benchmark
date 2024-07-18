@@ -7,27 +7,26 @@
 \author{M.~Habera and J.~S.~Hale}
 \authorrunning{Habera et al.}
 
-\institute{M.~Habera \email{michal.habera@rafinex.com} \at Rafinex SARL\\ J.~S.~Hale \email{jack.hale@uni.lu} \at University of Luxembourg}
+\institute{M.~Habera \email{michal.habera@rafinex.com} \at Rafinex SARL\\
+J.~S.~Hale \email{jack.hale@uni.lu} \at University of Luxembourg}
 
 \maketitle
 
 \abstract{
 We show initial performance results executing the FEniCS Project finite element
-software on Amazon Web Services (AWS) c7g instances with Graviton3
-processors. Graviton3 processors are based on the ARM64 instruction set
-and provide Scalable Vector Extensions (SVE) for single instruction,
-multiple data (SIMD) operations. The c7g instances include a fast
-Elastic Fabric Adaptor (EFA) interconnect for low-latency
-high-bandwidth Message Passing Interface (MPI) based parallel
-communication. Comparing clang 15 and GCC 12 series compilers for
-compiling a high-order elasticity finite element kernel our results
-show that GCC emitted more vectorised loops with variable width SVE
-instructions than clang. The runtime performance of the GCC compiled
-kernel was 20 \% faster than the clang compiled kernel. We also tested
-multi-node weak scalability of a Poisson solver on the EFA interconnect
-up to 512 MPI processes. We find that overall performance and weak
-scalability of the AWS provisioned cluster is similar to a dedicated AMD
-EPYC x86-64 HPC installed at the University of Luxembourg.
+software on Amazon Web Services (AWS) c7g instances with Graviton3 processors.
+Graviton3 processors are based on the ARM64 instruction set and provide Scalable
+Vector Extensions (SVE) for single instruction, multiple data (SIMD) operations.
+The c7g instances include a fast Elastic Fabric Adaptor (EFA) interconnect for
+low-latency high-bandwidth Message Passing Interface (MPI) based parallel
+communication. Comparing clang 15 and GCC 12 series compilers for compiling a
+high-order elasticity finite element kernel our results show that GCC emitted
+more vectorised loops with variable width SVE instructions than clang. The
+runtime performance of the GCC compiled kernel was 20 \% faster than the clang
+compiled kernel. We also tested multi-node weak scalability of a Poisson solver
+on the EFA interconnect up to 512 MPI processes. We find that overall
+performance and weak scalability of the AWS provisioned cluster is similar to a
+dedicated AMD EPYC x86-64 HPC installed at the University of Luxembourg.
 }
 
 \section*{Introduction}
@@ -41,10 +40,10 @@ A key enabling technology in the FEniCS Project is the use of automatic code
 generation (compilation) to reduce the tedious and error-prone work associated
 with building a finite element solver for a given problem. The user is able to
 express their finite element problem in a high-level domain specific language
-and have it automatically translated into a low-level C kernel that computes
-the finite element tensor on any given cell of the problem mesh. An important
-aspect for achieving good runtime performance is the ability of the C compiler
-to produce highly efficient assembly code from the C kernel. In order to take
+and have it automatically translated into a low-level C kernel that computes the
+finite element tensor on any given cell of the problem mesh. An important aspect
+for achieving good runtime performance is the ability of the C compiler to
+produce highly efficient assembly code from the C kernel. In order to take
 advantage of the single instruction multiple data (SIMD) capabilities of modern
 CPUs the compiler should emit assembly code with appropriate intrinsics using
 automatic vectorisation.
@@ -55,19 +54,19 @@ and each process is responsible for assembling contributions from its own
 partition of the mesh. Communication between is then required to ensure a
 consistent representation of the finite element linear system across processes.
 
-AWS Graviton3-based instances aim to provide a cost effective compute
-resources, particularly for scientific computing and machine-learning
-applications. Particularly appealing for running scientific computing codes
-such as the FEniCS Project are Graviton3's support for Scalable Vector
-Extension (SVE) instructions and inclusion of Elastic Fabric Adaptor (EFA)
-interconnect for high-bandwidth low-latency communications between instances.
+AWS Graviton3-based instances aim to provide a cost effective compute resources,
+particularly for scientific computing and machine-learning applications.
+Particularly appealing for running scientific computing codes such as the FEniCS
+Project are Graviton3's support for Scalable Vector Extension (SVE) instructions
+and inclusion of Elastic Fabric Adaptor (EFA) interconnect for high-bandwidth
+low-latency communications between instances.
 
 In this report we show results that aim to answer the following questions:
 \begin{enumerate}
-\item Do the latest compilers automatically emit ARM SIMD instructions
-      (Scalable Vector Extensions (SVE) and/or Neon) when compiling the
-      generated C finite element kernels, and what is the runtime
-      performance of the compiled finite element kernels?
+\item Do the latest compilers automatically emit ARM SIMD instructions (Scalable
+      Vector Extensions (SVE) and/or Neon) when compiling the generated C finite
+      element kernels, and what is the runtime performance of the compiled
+      finite element kernels?
 \item Does a Poisson solver implemented using the FEniCS Project scale when
       running with MPI-based distributed memory parallelism across the AWS
       Elastic Fabric Adapter?
@@ -90,7 +89,7 @@ We built the FEniCS Project with the Spack package manager using GCC 12.2.0. We
 setup Spack to use a version of OpenMPI provided by AWS which includes the
 appropriate libfabric with support for the EFA interconnect. For the finite
 element kernel benchmarks we also built LLVM/clang 15.0.7 for the purpose of
-comparing the performance against assembly code generated with GCC 12.2.0. 
+comparing the performance against assembly code generated with GCC 12.2.0.
 
 \begin{table}
   \footnotesize
@@ -116,19 +115,19 @@ dominates the time taken to compute the finite element cell tensor itself.
 Understanding the memory bandwidth characteristics of a processor is therefore
 important for ensuring optimal performance.
 
-STREAM and STREAM MPI \cite{McCalpin1995,McCalpin2007} are the industry
-standard benchmarks for measuring sustained memory bandwidth performance. It
-estimates memory bandwidth from memory intense operations (copy, scale, add) on
-large arrays. In \autoref{fig:stream-single} results for the copy operation for
+STREAM and STREAM MPI \cite{McCalpin1995,McCalpin2007} are the industry standard
+benchmarks for measuring sustained memory bandwidth performance. It estimates
+memory bandwidth from memory intense operations (copy, scale, add) on large
+arrays. In \autoref{fig:stream-single} results for the copy operation for
 single-node benchmark are shown. For the single-node benchmark theoretical peak
 memory bandwidth of $\SI{400}{\giga\byte\per\second}$ for Aion and
-$\SI{300}{\giga\byte\per\second}$ for AWS c7g are reached within 80 \%, which
-is considered a reasonable outcome of the STREAM benchmark. Bandwidth
-saturation is observed around 20 \% of the node utilisation. Both curves show
-different characteristics of the saturation point due to different memory
-access configuration. On the Aion instances there are 8 non-unified memory
-access (NUMA) nodes of 16 cores each, while AWS c7g was setup with unified
-memory access.
+$\SI{300}{\giga\byte\per\second}$ for AWS c7g are reached within 80 \%, which is
+considered a reasonable outcome of the STREAM benchmark. Bandwidth saturation is
+observed around 20 \% of the node utilisation. Both curves show different
+characteristics of the saturation point due to different memory access
+configuration. On the Aion instances there are 8 non-unified memory access
+(NUMA) nodes of 16 cores each, while AWS c7g was setup with unified memory
+access.
 
 In terms of multi-node scalability, low utilisation (8 processes on 8 nodes
 each) helps to escape the bandwidth limitations as expected, see
@@ -153,12 +152,12 @@ each) helps to escape the bandwidth limitations as expected, see
 
 In order to measure the performance of a standard FEniCS user finite element
 code we used the Local Finite Element Operator Benchmarks repository
-\cite{Baratta2023}. The benchmark measures execution time for local finite element
-kernel generated by the FEniCS Form Compiler (FFCx), \cite{Habera2020}. Two types
-of kernels were generated for the purpose of this paper. Matrix-free
+\cite{Baratta2023}. The benchmark measures execution time for local finite
+element kernel generated by the FEniCS Form Compiler (FFCx), \cite{Habera2020}.
+Two types of kernels were generated for the purpose of this paper. Matrix-free
 three-dimensional elasticity kernel represents a finite element discretisation
-of the action of elasticity (stiffness) operator with spatially varying
-material property $\kappa(x)$, i.e.
+of the action of elasticity (stiffness) operator with spatially varying material
+property $\kappa(x)$, i.e.
 \begin{align}
     v_i = \sum_j A_{ij} w_j = \sum_j w_j \int_K \kappa(x) \text{sym}(\nabla \phi_i) : \text{sym} (\nabla \phi_j) \mathrm dx,
 \end{align}
@@ -166,12 +165,12 @@ where $K$ is a fixed reference tetrahedron and $w_j \in \mathbb{R}^{n}$ is a
 fixed, prescribed vector. The generated kernel assembles a double precision
 vector $v_i \in \mathbb{R}^{n}$, where $n = 30$ for second-order discretization
 (low-order) and $n = 84$ for sixth-order discretization (high-order). Low-order
-kernels are expected to be memory bandwidth limited, while high-order kernels have
-higher arithmetic intesity. In addition, the matrix-free version requires fewer copy
-operations in comparison to the assembly of a matrix, increasing the ratio of
-floating-point operations to memory loads and stores. Consequently for the higher-order
-kernels there is the scope for significant performance increases if the compiler 
-can automatically emit SIMD instructions.
+kernels are expected to be memory bandwidth limited, while high-order kernels
+have higher arithmetic intesity. In addition, the matrix-free version requires
+fewer copy operations in comparison to the assembly of a matrix, increasing the
+ratio of floating-point operations to memory loads and stores. Consequently for
+the higher-order kernels there is the scope for significant performance
+increases if the compiler can automatically emit SIMD instructions.
 
 Different compilers and compiler options were used to assess the performance
 differences on the AWS c7g instances, see \autoref{tab:compilers-kernels}.
@@ -199,15 +198,15 @@ setup. On the other hand, AWS c7g shows 1.3x speed-up over Aion due to higher
 memory bandwidth for a single process (DDR5 vs. DDR4).
 
 High-order kernels, which are expected to benefit from compiler optimization,
-show this trend clearly. GCC 12.2.0 has the most consistent performance for
-both tested instances. Both Clang and GCC auto-vectorizers perform well,
-producing a noticeable speed-up (> 2x) in the most optimized setting. Clang
-15.0.7 appears to deliver sub-optimal loop auto-vectorization compared to GCC
-12.2.0. Optimization reports (\texttt{-Rpass=loop-vectorize} for Clang and
-\texttt{-fopt-info-vec-optimized}) revealed that GCC managed to produce
-Scalable Vector Extensions (SVE) with variable width for three loops in the
-generated kernel, while Clang produced only one. The other two loops were
-vectorized, but using fixed vectorization width of two.
+show this trend clearly. GCC 12.2.0 has the most consistent performance for both
+tested instances. Both Clang and GCC auto-vectorizers perform well, producing a
+noticeable speed-up (> 2x) in the most optimized setting. Clang 15.0.7 appears
+to deliver sub-optimal loop auto-vectorization compared to GCC 12.2.0.
+Optimization reports (\texttt{-Rpass=loop-vectorize} for Clang and
+\texttt{-fopt-info-vec-optimized}) revealed that GCC managed to produce Scalable
+Vector Extensions (SVE) with variable width for three loops in the generated
+kernel, while Clang produced only one. The other two loops were vectorized, but
+using fixed vectorization width of two.
 
 \begin{figure}
     \begin{subfigure}{.5\textwidth}
@@ -251,28 +250,27 @@ Results for the parallel scalability were produced using performance test codes
 for FEniCSx \cite{Wells2023} built against DOLFINx 0.6.0 and PETSc 3.18
 \cite{petsc}.
 
-The Poisson equation solver benchmark consists of the following measured
-steps:
+The Poisson equation solver benchmark consists of the following measured steps:
 \begin{enumerate}
     \item Create mesh. Create a unit cube mesh and discretise using linear
-    tetrahedral cells. Partition the mesh with Parmetis
-    partitioner and distribute. Compute cell-to-edge connectivities.
+    tetrahedral cells. Partition the mesh with Parmetis partitioner and
+    distribute. Compute cell-to-edge connectivities.
     \item Create function space. Create scalar-valued, globally continuous,
     piecewise linear function space on the mesh.
-    \item Assemble matrix. Execute the local Poisson equation kernel over
-    the mesh and assemble PETSc MATMPIAIJ (distributed compressed sparse row)
+    \item Assemble matrix. Execute the local Poisson equation kernel over the
+    mesh and assemble PETSc MATMPIAIJ (distributed compressed sparse row)
     matrix.
     \item Solve. Run Conjugate Gradient (CG) solver with a classical algebraic
     multigrid (BoomerAMG \cite{hypre}) preconditioner.
 \end{enumerate}
 %
-Weak scaling results (constant workload of approx. \SI{5e+5}
-degrees-of-freedom per process) are shown in \autoref{fig:weak-scaling}.
-Both Aion and AWS c7g show almost constant times for mesh and function
-space creation. Moreover, matrix assembly has the most ideal weak parallel
-scalability due to the cell-local nature of the assembly loop and negligible
-amount of MPI communication during matrix finalisation. The solution step shows
-small increase (30 \%) for both benchmarked instances.
+Weak scaling results (constant workload of approx. \SI{5e+5} degrees-of-freedom
+per process) are shown in \autoref{fig:weak-scaling}. Both Aion and AWS c7g show
+almost constant times for mesh and function space creation. Moreover, matrix
+assembly has the most ideal weak parallel scalability due to the cell-local
+nature of the assembly loop and negligible amount of MPI communication during
+matrix finalisation. The solution step shows small increase (30 \%) for both
+benchmarked instances.
 
 \begin{figure}
     \begin{subfigure}{.7\textwidth}
@@ -299,8 +297,8 @@ scalability of Poisson solver were executed on nodes Aion and on AWS c7g
 instances.
 
 Memory bandwidth measured using STREAM MPI confirms higher memory transfer rate
-of AWS c7g, but superior total bandwidth of ~\SI{310}{\giga\byte\per\second}
-per Aion node.
+of AWS c7g, but superior total bandwidth of ~\SI{310}{\giga\byte\per\second} per
+Aion node.
 
 In terms of auto-vectorization capabilities of GCC and clang, both produced
 optimized instructions for the targeted microarchitectures (Zen 2 for Aion and
@@ -311,8 +309,8 @@ emitted different loop vectorization based on variable width vector instructions
 (SVE) than clang 15.0.7.
 
 MPI-based distributed memory Poisson equation solver shows good weak scaling on
-both instances, with results comparable to the in-house University of
-Luxembourg Aion system.
+both instances, with results comparable to the in-house University of Luxembourg
+Aion system.
 
 Executing the FEniCS Project on ARM64, and more specifically on the Graviton3
 CPU, has proved to be straightforward. There were no ARM64, or Graviton3,
