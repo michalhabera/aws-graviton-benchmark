@@ -5,7 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 plt.rcParams["font.family"] = "sans-serif"
-plt.rcParams["font.sans-serif"] = "Avenir"
+plt.rcParams["font.sans-serif"] = "Times"
 plt.rcParams["font.size"] = 7
 
 runs = ["19", "20", "21", "26"]

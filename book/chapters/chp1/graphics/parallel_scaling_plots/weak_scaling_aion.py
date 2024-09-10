@@ -5,7 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 plt.rcParams["font.family"] = "sans-serif"
-plt.rcParams["font.sans-serif"] = "Avenir"
+plt.rcParams["font.sans-serif"] = "Times"
 plt.rcParams["font.size"] = 7
 
 runs = ["720166", "720167", "720168", "720169"]
@@ -16,7 +16,7 @@ metrics = ["Create boundary conditions",
            "Assemble vector", "Create Mesh",
            "FunctionSpace", "Solve"]
 
-files = [f"results/poisson-aion-upgrade/slurm-{run}.out" for run in runs]
+files = [f"output/slurm-{run}.out" for run in runs]
 
 results = []
 for f in files:
