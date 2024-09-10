@@ -158,8 +158,8 @@ three-dimensional laplace kernel represents a finite element discretisation of
 the action of laplace (stiffness) operator with spatially varying material
 property $\kappa(x)$, i.e.
 \begin{align}
-    v_i = \sum_j A_{ij} w_j, \quad
-    A_{ij} = \int_K \kappa J_{ik} \nabla \phi_k : J_{jk} \nabla \phi_k |\det J| \mathrm dx,
+    v_i = A_{ij} w_j, \quad
+    A_{ij} = \int_K \kappa J_{mk} J_{mn} \nabla_k \phi_i \nabla_n \phi_j |\det J| \mathrm dx,
 \end{align}
 where $K$ is a fixed reference tetrahedron, $w_j \in \mathbb{R}^{n}$ is a fixed,
 prescribed vector and $J$ is a Jacobian transformation matrix. The generated
@@ -169,7 +169,7 @@ discretization (high-order). Low-order kernels are expected to be memory
 bandwidth limited, while high-order kernels have higher arithmetic intesity. In
 addition, the matrix-free version requires fewer copy operations in comparison
 to the assembly of a matrix, increasing the ratio of floating-point operations
-to memory loads and stores. Consequently for the higher-order kernels there is
+to memory loads and stores. Consequently for the high-order kernels there is
 the scope for significant performance increases if the compiler can
 automatically emit SIMD instructions.
 
@@ -248,9 +248,9 @@ vectorization setup. On the other hand, AWS c7g shows 1.3x speed-up over
 Aion due to higher memory bandwidth for a single process (DDR5 vs. DDR4).
 
 High-order kernels, which are expected to benefit from compiler optimization,
-show this trend clearly. GCC 13.2.0 has the most consistent performance for both
-tested instances. Both Clang and GCC auto-vectorizers perform well, producing a
-noticeable speed-up (> 2x) in the most optimized setting.
+show this trend clearly. Both Clang and GCC auto-vectorizers perform well,
+producing a noticeable speed-up (\textgreater 2x) in the most optimized setting. The
+vectorization speed-up (\textgreater 4x) is more significant of the Aion instance.
 
 \begin{figure}
     \begin{subfigure}{.5\textwidth}
@@ -287,12 +287,33 @@ noticeable speed-up (> 2x) in the most optimized setting.
 \end{figure}
 
 Optimization reports (\texttt{-Rpass=loop-vectorize} for Clang,
-\texttt{-fopt-info-vec-optimized}) for GCC and the inspection of
-the generated assembly reveal:
+\texttt{-fopt-info-vec-optimized}) for GCC and the inspection of the generated
+assembly reveal:
 \begin{itemize}
-    \item Both GCC and Clang generate SVE FMLA (fused multiply-add)
-    instructions for both the coefficient evaluation and tensor assignment
-    loops.
+    \item On Graviton3, both GCC and Clang generate SVE FMLA and FMAD (fused
+    Multiply-Add) instructions for both the coefficient evaluation and tensor
+    assignment loops. Assembly excerpt for the coeffient evaluation is show
+    below. As expected, there are two contiguous loads LD1D into two of the
+    available SVE Z0-Z31 registers followed by a Multiply-Add instruction.
+\begin{lstlisting}[
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\ttb\color{deepblue}\footnotesize]
+ld1d    {z0.d}, p0/z, [x7, x0, lsl #3]
+ld1d    {z25.d}, p0/z, [x3, x0, lsl #3]
+fmla    z3.d, p0/m, z25.d, z0.d
+...
+faddv   d1, p1, z1.d
+\end{lstlisting}
+    The result is accumulated into an SVE register Z3 which is then horizontally
+    summed outside of the vectorized loop. Here P0 is a predicate
+    register without any constraints on the available elements.
+    \item On Aion, both GCC and clang vectorize both coefficient evaluation and
+    tensor assignment loops and rely on the \lstinline{VFMADD231PD} instructions
+    on the YMM registers, i.e. vectorization width of 4 doubles.
+    \item  We have verified that Graviton3 c7g instances offer the expected
+    \SI{256}{bit} maximum vector width using \lstinline{svcntb()} function from
+    the ARM C SVE header library. This matches the AVX2 vector width on the
+    Aion instaces.
 \end{itemize}
 
 \subsection*{Parallel scalability}
