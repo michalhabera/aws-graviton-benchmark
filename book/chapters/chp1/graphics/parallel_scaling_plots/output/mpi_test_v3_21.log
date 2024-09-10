@@ -1,0 +1,393 @@
+2023-04-25 09:10:38.568 (   0.832s) [RANK: 0         ]              utils.cpp:616   INFO| Compute partition of cells across ranks
+2023-04-25 09:10:38.568 (   0.832s) [RANK: 0         ]         graphbuild.cpp:533   INFO| Building mesh dual graph
+2023-04-25 09:10:38.568 (   0.832s) [RANK: 0         ]         graphbuild.cpp:396   INFO| Build local part of mesh dual graph
+2023-04-25 09:10:38.607 (   0.871s) [RANK: 0         ]         graphbuild.cpp:89    INFO| Build nonlocal part of mesh dual graph
+2023-04-25 09:10:38.609 (   0.873s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 4
+2023-04-25 09:10:38.622 (   0.885s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 2
+2023-04-25 09:10:38.622 (   0.885s) [RANK: 0         ]         graphbuild.cpp:203   INFO| Number of destination and source ranks in non-local dual graph construction, and ratio to total number of ranks: 4, 2, 0.015625, 0.0078125
+2023-04-25 09:10:38.637 (   0.900s) [RANK: 0         ]         graphbuild.cpp:545   INFO| Graph edges (local: 154288, non-local: 15756)
+2023-04-25 09:10:38.637 (   0.900s) [RANK: 0         ]       partitioners.cpp:523   INFO| Compute graph partition using ParMETIS
+2023-04-25 09:10:38.797 (   1.060s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 22
+2023-04-25 09:10:38.798 (   1.061s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 17
+2023-04-25 09:10:38.827 (   1.090s) [RANK: 0         ]         graphbuild.cpp:396   INFO| Build local part of mesh dual graph
+2023-04-25 09:10:38.854 (   1.117s) [RANK: 0         ]           ordering.cpp:203   INFO| GPS pseudo-diameter:(165) 4063-45085
+
+2023-04-25 09:10:38.857 (   1.120s) [RANK: 0         ]           Topology.cpp:889   INFO| Create topology
+2023-04-25 09:10:38.865 (   1.129s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 18
+2023-04-25 09:10:38.866 (   1.129s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 22
+2023-04-25 09:10:38.876 (   1.139s) [RANK: 0         ]          partition.cpp:233   INFO| Compute ghost indices
+2023-04-25 09:10:38.876 (   1.139s) [RANK: 0         ]                MPI.cpp:98    INFO| Computing communication graph edges (using PCX algorithm). Number of input edges: 0
+2023-04-25 09:10:38.882 (   1.145s) [RANK: 0         ]                MPI.cpp:155   INFO| Finished graph edge discovery using PCX algorithm. Number of discovered edges 0
+2023-04-25 09:10:38.885 (   1.149s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 0
+2023-04-25 09:10:38.886 (   1.149s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-25 09:10:38.897 (   1.161s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:38.898 (   1.161s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:38.898 (   1.162s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:38.899 (   1.162s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:38.901 (   1.165s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:38.902 (   1.165s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:38.902 (   1.166s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 0
+2023-04-25 09:10:38.903 (   1.166s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-25 09:10:38.906 (   1.170s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:38.907 (   1.171s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:38.912 (   1.175s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 0
+2023-04-25 09:10:38.913 (   1.176s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-25 09:10:38.913 (   1.176s) [RANK: 0         ]                  MPI.h:375   INFO| Number of neighbourhood source ranks in distribute_to_postoffice: 0
+2023-04-25 09:10:38.913 (   1.177s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 17
+2023-04-25 09:10:38.914 (   1.177s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 21
+2023-04-25 09:10:38.914 (   1.177s) [RANK: 0         ]                  MPI.h:514   INFO| Neighbourhood destination ranks from post office in distribute_data (rank, num dests, num dests/mpi_size): 0, 21, 0.0820312
+UnitCube (125x126x126) to be refined 2 times
+2023-04-25 09:10:38.927 (   1.190s) [RANK: 0         ]topologycomputation.cpp:739   INFO| Computing mesh entities of dimension 1
+2023-04-25 09:10:38.937 (   1.200s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:38.937 (   1.200s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:39.073 (   1.336s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:39.109 (   1.372s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:39.111 (   1.374s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 1
+2023-04-25 09:10:39.111 (   1.374s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:39.112 (   1.375s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:39.119 (   1.382s) [RANK: 0         ]topologycomputation.cpp:739   INFO| Computing mesh entities of dimension 2
+2023-04-25 09:10:39.127 (   1.390s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:39.128 (   1.392s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:39.218 (   1.481s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:39.237 (   1.501s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:39.240 (   1.503s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 2 - 1
+2023-04-25 09:10:39.259 (   1.523s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 1 - 3
+2023-04-25 09:10:39.259 (   1.523s) [RANK: 0         ]topologycomputation.cpp:643   INFO| Computing mesh connectivity 1 - 3 from transpose.
+2023-04-25 09:10:39.260 (   1.523s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 2
+2023-04-25 09:10:39.272 (   1.535s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 1 - 3
+2023-04-25 09:10:39.272 (   1.535s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 1 - 0
+2023-04-25 09:10:39.272 (   1.535s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 0
+2023-04-25 09:10:39.386 (   1.650s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 1
+2023-04-25 09:10:39.387 (   1.650s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 1
+2023-04-25 09:10:39.488 (   1.751s) [RANK: 0         ]         graphbuild.cpp:396   INFO| Build local part of mesh dual graph
+2023-04-25 09:10:39.905 (   2.169s) [RANK: 0         ]           ordering.cpp:203   INFO| GPS pseudo-diameter:(352) 328991-332712
+
+2023-04-25 09:10:39.961 (   2.225s) [RANK: 0         ]           Topology.cpp:889   INFO| Create topology
+2023-04-25 09:10:40.066 (   2.329s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 11
+2023-04-25 09:10:40.066 (   2.330s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 6
+2023-04-25 09:10:40.139 (   2.403s) [RANK: 0         ]          partition.cpp:233   INFO| Compute ghost indices
+2023-04-25 09:10:40.139 (   2.403s) [RANK: 0         ]                MPI.cpp:98    INFO| Computing communication graph edges (using PCX algorithm). Number of input edges: 0
+2023-04-25 09:10:40.149 (   2.413s) [RANK: 0         ]                MPI.cpp:155   INFO| Finished graph edge discovery using PCX algorithm. Number of discovered edges 0
+2023-04-25 09:10:40.175 (   2.438s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 0
+2023-04-25 09:10:40.176 (   2.439s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-25 09:10:40.277 (   2.541s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:40.288 (   2.552s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:40.289 (   2.552s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:40.289 (   2.552s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:40.306 (   2.569s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:40.307 (   2.571s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:40.308 (   2.571s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 0
+2023-04-25 09:10:40.309 (   2.573s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-25 09:10:40.317 (   2.580s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:40.320 (   2.584s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:40.356 (   2.620s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 1
+2023-04-25 09:10:40.358 (   2.621s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-25 09:10:40.358 (   2.621s) [RANK: 0         ]                  MPI.h:375   INFO| Number of neighbourhood source ranks in distribute_to_postoffice: 0
+2023-04-25 09:10:40.359 (   2.622s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 10
+2023-04-25 09:10:40.361 (   2.625s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:40.361 (   2.625s) [RANK: 0         ]                  MPI.h:514   INFO| Neighbourhood destination ranks from post office in distribute_data (rank, num dests, num dests/mpi_size): 0, 5, 0.0195312
+2023-04-25 09:10:40.392 (   2.656s) [RANK: 0         ]             refine.cpp:31    INFO| Number of cells increased from 11907000 to 95256000 (700%% increase).
+2023-04-25 09:10:40.393 (   2.656s) [RANK: 0         ]topologycomputation.cpp:739   INFO| Computing mesh entities of dimension 1
+2023-04-25 09:10:40.499 (   2.762s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:40.518 (   2.781s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:41.056 (   3.320s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:41.175 (   3.438s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:41.204 (   3.468s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 1
+2023-04-25 09:10:41.204 (   3.468s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:41.209 (   3.472s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:41.242 (   3.505s) [RANK: 0         ]topologycomputation.cpp:739   INFO| Computing mesh entities of dimension 2
+2023-04-25 09:10:41.344 (   3.607s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:41.357 (   3.620s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:41.702 (   3.966s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:41.778 (   4.041s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:41.796 (   4.059s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 2 - 1
+2023-04-25 09:10:42.129 (   4.393s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 1 - 3
+2023-04-25 09:10:42.129 (   4.393s) [RANK: 0         ]topologycomputation.cpp:643   INFO| Computing mesh connectivity 1 - 3 from transpose.
+2023-04-25 09:10:42.136 (   4.399s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 2
+2023-04-25 09:10:42.247 (   4.510s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 1 - 3
+2023-04-25 09:10:42.247 (   4.510s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 1 - 0
+2023-04-25 09:10:42.247 (   4.510s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 0
+2023-04-25 09:10:43.236 (   5.499s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 1
+2023-04-25 09:10:43.239 (   5.502s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 1
+2023-04-25 09:10:44.183 (   6.446s) [RANK: 0         ]         graphbuild.cpp:396   INFO| Build local part of mesh dual graph
+2023-04-25 09:10:48.757 (  11.020s) [RANK: 0         ]           ordering.cpp:203   INFO| GPS pseudo-diameter:(708) 2986488-0
+
+2023-04-25 09:10:49.324 (  11.587s) [RANK: 0         ]           Topology.cpp:889   INFO| Create topology
+2023-04-25 09:10:50.429 (  12.692s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 10
+2023-04-25 09:10:50.429 (  12.692s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 6
+2023-04-25 09:10:50.993 (  13.256s) [RANK: 0         ]          partition.cpp:233   INFO| Compute ghost indices
+2023-04-25 09:10:50.993 (  13.256s) [RANK: 0         ]                MPI.cpp:98    INFO| Computing communication graph edges (using PCX algorithm). Number of input edges: 0
+2023-04-25 09:10:51.191 (  13.455s) [RANK: 0         ]                MPI.cpp:155   INFO| Finished graph edge discovery using PCX algorithm. Number of discovered edges 0
+2023-04-25 09:10:51.414 (  13.677s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 0
+2023-04-25 09:10:51.445 (  13.708s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-25 09:10:52.199 (  14.462s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:52.526 (  14.789s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:52.527 (  14.790s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:52.527 (  14.790s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:52.751 (  15.014s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:52.762 (  15.025s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:52.768 (  15.031s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 0
+2023-04-25 09:10:52.773 (  15.037s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-25 09:10:52.804 (  15.067s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:52.818 (  15.081s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:53.292 (  15.555s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 1
+2023-04-25 09:10:53.296 (  15.560s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-25 09:10:53.296 (  15.560s) [RANK: 0         ]                  MPI.h:375   INFO| Number of neighbourhood source ranks in distribute_to_postoffice: 0
+2023-04-25 09:10:53.299 (  15.562s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 9
+2023-04-25 09:10:53.311 (  15.574s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:53.311 (  15.574s) [RANK: 0         ]                  MPI.h:514   INFO| Neighbourhood destination ranks from post office in distribute_data (rank, num dests, num dests/mpi_size): 0, 5, 0.0195312
+2023-04-25 09:10:53.610 (  15.873s) [RANK: 0         ]             refine.cpp:31    INFO| Number of cells increased from 95256000 to 762048000 (700%% increase).
+2023-04-25 09:10:53.610 (  15.873s) [RANK: 0         ]topologycomputation.cpp:739   INFO| Computing mesh entities of dimension 2
+2023-04-25 09:10:54.865 (  17.129s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:55.026 (  17.289s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:56.443 (  18.706s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:56.715 (  18.979s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:57.007 (  19.270s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 2 - 3
+2023-04-25 09:10:57.007 (  19.270s) [RANK: 0         ]topologycomputation.cpp:643   INFO| Computing mesh connectivity 2 - 3 from transpose.
+2023-04-25 09:10:57.217 (  19.480s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:57.270 (  19.534s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:57.274 (  19.537s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:57.283 (  19.546s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:57.289 (  19.552s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 0
+2023-04-25 09:10:57.297 (  19.560s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-25 09:10:57.336 (  19.600s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 5
+2023-04-25 09:10:57.350 (  19.614s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 5
+2023-04-25 09:10:57.430 (  19.693s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 0
+2023-04-25 09:10:57.456 (  19.719s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 0
+2023-04-25 09:10:57.456 (  19.719s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 2 - 0
+2023-04-25 09:10:57.470 (  19.734s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 2 - 3
+2023-04-25 09:10:59.136 (  21.399s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 2 - 3
+2023-04-25 09:10:59.136 (  21.399s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 2
+2023-04-25 09:11:00.442 (  22.705s) [RANK: 0         ]    SparsityPattern.cpp:389   INFO| Column ghost size increased from 11629 to 36163
+
+----------------------------------------------------------------
+Test problem summary
+  dolfinx version: 0.6.0.0
+  dolfinx hash:    bea5606640992070d624e28b1d6fe712d56217f4
+  ufl hash:        db986a93fe3cd8fb732c605125031ae9cf8d3d05
+  petsc version:   Petsc Release Version 3.18.1, Oct 26, 2022 
+  Problem type:    poisson
+  Scaling type:    weak
+  Num processes:   256
+  Num cells:       762048000 (762 million)
+  Total degrees of freedom:               127767525 (128 million)
+  Average degrees of freedom per process: 499091
+----------------------------------------------------------------
+2023-04-25 09:11:03.510 (  25.773s) [RANK: 0         ]              petsc.cpp:675   INFO| PETSc Krylov solver starting to solve system.
+KSP Object: 256 MPI processes
+  type: cg
+  maximum iterations=10000, initial guess is zero
+  tolerances:  relative=1e-08, absolute=1e-50, divergence=10000.
+  left preconditioning
+  using PRECONDITIONED norm type for convergence test
+PC Object: 256 MPI processes
+  type: hypre
+    HYPRE BoomerAMG preconditioning
+      Cycle type V
+      Maximum number of levels 25
+      Maximum number of iterations PER hypre call 1
+      Convergence tolerance PER hypre call 0.
+      Threshold for strong coupling 0.7
+      Interpolation truncation factor 0.
+      Interpolation: max elements per row 0
+      Number of levels of aggressive coarsening 4
+      Number of paths for aggressive coarsening 2
+      Maximum row sums 0.9
+      Sweeps down         1
+      Sweeps up           1
+      Sweeps on coarse    1
+      Relax down          symmetric-SOR/Jacobi
+      Relax up            symmetric-SOR/Jacobi
+      Relax on coarse     Gaussian-elimination
+      Relax weight  (all)      1.
+      Outer relax weight (all) 1.
+      Using CF-relaxation
+      Not using more complex smoothers.
+      Measure type        local
+      Coarsen type        Falgout
+      Interpolation type  classical
+      SpGEMM type         cusparse
+  linear system matrix = precond matrix:
+  Mat Object: 256 MPI processes
+    type: mpiaij
+    rows=127767525, cols=127767525
+    total: nonzeros=1910430637, allocated nonzeros=1910430637
+    total number of mallocs used during MatSetValues calls=0
+      not using I-node (on process 0) routines
+
+[MPI_MAX] Summary of timings                                                |  reps   wall avg   wall tot
+---------------------------------------------------------------------------------------------------------
+Build BoxMesh                                                               |     1   0.361858   0.361858
+Build dofmap data                                                           |     4   0.188730   0.754919
+Build sparsity                                                              |     1   0.942001   0.942001
+Compute connectivity 1-3                                                    |     2   0.004329   0.008659
+Compute connectivity 2-1                                                    |     2   0.184223   0.368447
+Compute connectivity 2-3                                                    |     1   0.114332   0.114332
+Compute dof reordering map                                                  |     4   0.008515   0.034061
+Compute entities of dim = 1                                                 |     2   0.500802   1.001603
+Compute entities of dim = 2                                                 |     3   1.368838   4.106513
+Compute graph partition (ParMETIS)                                          |     1   0.154134   0.154134
+Compute local part of mesh dual graph                                       |     4   1.189993   4.759973
+Compute local-to-local map                                                  |     3   0.034332   0.102997
+Compute non-local part of mesh dual graph                                   |     1   0.035468   0.035468
+Compute-local-to-global links for global/local adjacency list               |     3   0.013505   0.040516
+Distribute AdjacencyList nodes to destination ranks                         |     3   0.400198   1.200595
+Distribute row-wise data (scalable)                                         |     3   0.028724   0.086171
+GPS: create_level_structure                                                 |    11   0.099132   1.246427
+Gibbs-Poole-Stockmeyer ordering                                             |     3   0.551940   1.655821
+Init MPI                                                                    |     1   0.806422   0.806422
+Init PETSc                                                                  |     1   0.027497   0.027497
+Init dofmap from element dofmap                                             |     4   0.063803   0.255211
+Init logging                                                                |     1   0.000055   0.000055
+PETSc Krylov solver                                                         |     1   8.756555   8.756555
+PLAZA: refine                                                               |     2   0.979647   1.959293
+ParMETIS: call ParMETIS_V3_PartKway                                         |     1   0.151270   0.151270
+SparsityPattern::assemble                                                   |     1   1.210207   1.210207
+Topology: create                                                            |     3   1.591644   4.774932
+Topology: determine shared index ownership                                  |     3   0.705984   2.117953
+Topology: determine vertex ownership groups (owned, undetermined, unowned)  |     3   0.130302   0.390906
+ZZZ Assemble                                                                |     1   5.968489   5.968489
+ZZZ Assemble matrix                                                         |     1   2.135780   2.135780
+ZZZ Assemble vector                                                         |     1   0.405307   0.405307
+ZZZ Create Mesh                                                             |     1  15.047415  15.047415
+ZZZ Create RHS function                                                     |     1   1.724561   1.724561
+ZZZ Create boundary conditions                                              |     1   0.088108   0.088108
+ZZZ Create facets and facet->cell connectivity                              |     1   3.535514   3.535514
+ZZZ FunctionSpace                                                           |     1   0.456332   0.456332
+ZZZ Solve                                                                   |     1   8.836074   8.836074
+*** Number of Krylov iterations: 19
+*** Solution norm:  2404.95
+****************************************************************************************************************************************************************
+***                                WIDEN YOUR WINDOW TO 160 CHARACTERS.  Use 'enscript -r -fCourier9' to print this document                                 ***
+****************************************************************************************************************************************************************
+
+------------------------------------------------------------------ PETSc Performance Summary: ------------------------------------------------------------------
+
+src/dolfinx-scaling-test on a  named c7gn-dy-cg7n-1 with 256 processors, by jhale Tue Apr 25 09:11:12 2023
+Using Petsc Release Version 3.18.1, Oct 26, 2022 
+
+                         Max       Max/Min     Avg       Total
+Time (sec):           3.398e+01     1.000   3.398e+01
+Objects:              3.200e+01     1.000   3.200e+01
+Flops:                4.336e+08     1.118   4.272e+08  1.094e+11
+Flops/sec:            1.276e+07     1.118   1.257e+07  3.218e+09
+MPI Msg Count:        5.720e+02     5.500   3.036e+02  7.772e+04
+MPI Msg Len (bytes):  1.926e+07     2.557   4.699e+04  3.652e+09
+MPI Reductions:       1.030e+02     1.000
+
+Flop counting convention: 1 flop = 1 real number operation of type (multiply/divide/add/subtract)
+                            e.g., VecAXPY() for real vectors of length N --> 2N flops
+                            and VecAXPY() for complex vectors of length N --> 8N flops
+
+Summary of Stages:   ----- Time ------  ----- Flop ------  --- Messages ---  -- Message Lengths --  -- Reductions --
+                        Avg     %Total     Avg     %Total    Count   %Total     Avg         %Total    Count   %Total
+ 0:      Main Stage: 3.3980e+01 100.0%  1.0936e+11 100.0%  7.772e+04 100.0%  4.699e+04      100.0%  8.500e+01  82.5%
+
+------------------------------------------------------------------------------------------------------------------------
+See the 'Profiling' chapter of the users' manual for details on interpreting output.
+Phase summary info:
+   Count: number of times phase was executed
+   Time and Flop: Max - maximum over all processors
+                  Ratio - ratio of maximum to minimum over all processors
+   Mess: number of messages sent
+   AvgLen: average message length (bytes)
+   Reduct: number of global reductions
+   Global: entire computation
+   Stage: stages of a computation. Set stages with PetscLogStagePush() and PetscLogStagePop().
+      %T - percent time in this phase         %F - percent flop in this phase
+      %M - percent messages in this phase     %L - percent message lengths in this phase
+      %R - percent reductions in this phase
+   Total Mflop/s: 10e-6 * (sum of flop over all processors)/(max time over all processors)
+------------------------------------------------------------------------------------------------------------------------
+Event                Count      Time (sec)     Flop                              --- Global ---  --- Stage ----  Total
+                   Max Ratio  Max     Ratio   Max  Ratio  Mess   AvgLen  Reduct  %T %F %M %L %R  %T %F %M %L %R Mflop/s
+------------------------------------------------------------------------------------------------------------------------
+
+--- Event Stage 0: Main Stage
+
+BuildTwoSided          4 1.0 4.4822e-0123.8 0.00e+00 0.0 9.0e+03 4.0e+00 4.0e+00  1  0 12  0  4   1  0 12  0  5     0
+BuildTwoSidedF         2 1.0 4.5115e-01 6.3 0.00e+00 0.0 6.0e+03 1.6e+05 2.0e+00  1  0  8 27  2   1  0  8 27  2     0
+MatMult               19 1.0 3.4477e-01 1.2 2.77e+08 1.1 6.3e+04 4.2e+04 1.0e+00  1 64 81 71  1   1 64 81 71  1 203521
+MatConvert             1 1.0 1.5410e-01 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 2.0e+00  0  0  0  0  2   0  0  0  0  2     0
+MatAssemblyBegin       3 1.0 5.0062e-01 3.4 0.00e+00 0.0 6.0e+03 1.6e+05 2.0e+00  1  0  8 27  2   1  0  8 27  2     0
+MatAssemblyEnd         3 1.0 2.4320e-01 1.7 1.90e+05 2.5 0.0e+00 0.0e+00 6.0e+00  1  0  0  0  6   1  0  0  0  7   149
+MatGetRowIJ            2 1.0 6.7040e-0612.1 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+MatView                1 1.0 2.8277e-04 2.5 0.00e+00 0.0 0.0e+00 0.0e+00 1.0e+00  0  0  0  0  1   0  0  0  0  1     0
+VecTDot               38 1.0 7.5448e-02 2.6 3.88e+07 1.1 0.0e+00 0.0e+00 3.8e+01  0  9  0  0 37   0  9  0  0 45 128703
+VecNorm               20 1.0 1.7576e-0137.5 2.04e+07 1.1 0.0e+00 0.0e+00 2.0e+01  0  5  0  0 19   0  5  0  0 24 29078
+VecCopy                2 1.0 2.1912e-03 1.2 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecSet                21 1.0 9.7548e-03 5.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecAXPY               38 1.0 6.4079e-02 1.2 3.88e+07 1.1 0.0e+00 0.0e+00 0.0e+00  0  9  0  0  0   0  9  0  0  0 151538
+VecAYPX               18 1.0 2.6887e-02 1.2 1.84e+07 1.1 0.0e+00 0.0e+00 0.0e+00  0  4  0  0  0   0  4  0  0  0 171075
+VecScatterBegin       20 1.0 4.2656e-02 4.1 0.00e+00 0.0 7.2e+04 3.7e+04 2.0e+00  0  0 92 73  2   0  0 92 73  2     0
+VecScatterEnd         20 1.0 5.7765e-0213.1 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFSetGraph             3 1.0 1.3827e-03 2.7 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFSetUp                2 1.0 1.7958e-02 5.0 0.00e+00 0.0 1.2e+04 7.4e+03 2.0e+00  0  0 15  2  2   0  0 15  2  2     0
+SFPack                20 1.0 1.1799e-02 2.3 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFUnpack              20 1.0 6.0436e-05 2.9 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+KSPSetUp               1 1.0 1.8359e-03 1.4 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+KSPSolve               1 1.0 4.8655e+00 1.0 3.94e+08 1.1 6.3e+04 4.2e+04 5.9e+01 14 91 81 71 57  14 91 81 71 69 20409
+PCSetUp                1 1.0 3.8790e+00 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 2.0e+00 11  0  0  0  2  11  0  0  0  2     0
+PCApply               20 1.0 4.4007e+00 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00 13  0  0  0  0  13  0  0  0  0     0
+
+--- Event Stage 1: Unknown
+
+------------------------------------------------------------------------------------------------------------------------
+
+Object Type          Creations   Destructions. Reports information only for process 0.
+
+--- Event Stage 0: Main Stage
+
+              Matrix     4              4
+           Index Set     6              6
+   IS L to G Mapping     3              3
+              Vector    12             12
+   Star Forest Graph     3              3
+       Krylov Solver     1              1
+      Preconditioner     1              1
+              Viewer     2              1
+
+--- Event Stage 1: Unknown
+
+========================================================================================================================
+Average time to get PetscTime(): 4.19e-08
+Average time for MPI_Barrier(): 8.48502e-05
+Average time for zero size MPI_Send(): 3.40259e-06
+#PETSc Option Table entries:
+--ndofs 500000
+--problem_type poisson
+--scaling_type weak
+-ksp_rtol 1.0e-8
+-ksp_type cg
+-ksp_view
+-log_view
+-pc_hypre_boomeramg_agg_nl 4
+-pc_hypre_boomeramg_agg_num_paths 2
+-pc_hypre_boomeramg_strong_threshold 0.7
+-pc_hypre_type boomeramg
+-pc_type hypre
+#End of PETSc Option Table entries
+Compiled without FORTRAN kernels
+Compiled with full precision matrices (default)
+sizeof(short) 2 sizeof(int) 4 sizeof(long) 8 sizeof(void*) 8 sizeof(PetscScalar) 8 sizeof(PetscInt) 4
+Configure options: --prefix=/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/petsc-3.18.1-txitgxfv637he6tuei4n6qiij35vijrn --with-ssl=0 --download-c2html=0 --download-sowing=0 --download-hwloc=0 --with-cc=/opt/amazon/openmpi/bin/mpicc --with-cxx=/opt/amazon/openmpi/bin/mpic++ --with-fc=/opt/amazon/openmpi/bin/mpif90 --with-precision=double --with-scalar-type=real --with-shared-libraries=1 --with-debugging=0 --with-openmp=0 --with-64-bit-indices=0 --with-blaslapack-lib=/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/openblas-0.3.21-tbvr4bn67qxndsshpds7gx3soqe2hq62/lib/libopenblas.so --with-x=0 --with-clanguage=C --with-cuda=0 --with-hip=0 --with-metis=1 --with-metis-include=/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/metis-5.1.0-lpw3g5apiz2ng7cjvnjempxjee4unfuh/include --with-metis-lib=/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/metis-5.1.0-lpw3g5apiz2ng7cjvnjempxjee4unfuh/lib/libmetis.so --with-hypre=1 --with-hypre-include=/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/hypre-2.26.0-3rzb4fzt3fg73d7pck6qzpvnfl3pyyvx/include --with-hypre-lib=/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/hypre-2.26.0-3rzb4fzt3fg73d7pck6qzpvnfl3pyyvx/lib/libHYPRE.so --with-parmetis=1 --with-parmetis-include=/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/parmetis-4.0.3-vbagcxtgunhly3er2wos63cmxu6a5nn5/include --with-parmetis-lib=/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/parmetis-4.0.3-vbagcxtgunhly3er2wos63cmxu6a5nn5/lib/libparmetis.so --with-kokkos=0 --with-kokkos-kernels=0 --with-superlu_dist=1 --with-superlu_dist-include=/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/superlu-dist-8.1.1-3rbympm25gjfmph6bazo5fhuknezdxl2/include --with-superlu_dist-lib=/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/superlu-dist-8.1.1-3rbympm25gjfmph6bazo5fhuknezdxl2/lib/libsuperlu_dist.so --with-ptscotch=0 --with-suitesparse=0 --with-hdf5=1 --with-hdf5-include=/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/hdf5-1.12.2-ivbwbhp3nomujldcqkr3n7ttazzhdrxk/include --with-hdf5-lib=/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/hdf5-1.12.2-ivbwbhp3nomujldcqkr3n7ttazzhdrxk/lib/libhdf5.so --with-zlib=1 --with-zlib-include=/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/zlib-1.2.13-wgainxox25zb7vq754jlb47f52majg26/include --with-zlib-lib=/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/zlib-1.2.13-wgainxox25zb7vq754jlb47f52majg26/lib/libz.so --with-mumps=0 --with-trilinos=0 --with-fftw=0 --with-valgrind=0 --with-gmp=0 --with-libpng=0 --with-giflib=0 --with-mpfr=0 --with-netcdf=0 --with-pnetcdf=0 --with-moab=0 --with-random123=0 --with-exodusii=0 --with-cgns=0 --with-memkind=0 --with-p4est=0 --with-saws=0 --with-yaml=0 --with-hwloc=0 --with-libjpeg=0 --with-scalapack=0 --with-strumpack=0 --with-mmg=0 --with-parmmg=0 --with-tetgen=0
+-----------------------------------------
+Libraries compiled on 2023-01-19 13:16:23 on small-dy-small-1 
+Machine characteristics: Linux-5.10.126-117.518.amzn2.aarch64-aarch64-with-glibc2.26
+Using PETSc directory: /home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/petsc-3.18.1-txitgxfv637he6tuei4n6qiij35vijrn
+Using PETSc arch: 
+-----------------------------------------
+
+Using C compiler: /opt/amazon/openmpi/bin/mpicc  -fPIC -Wall -Wwrite-strings -Wno-unknown-pragmas -Wno-lto-type-mismatch -Wno-stringop-overflow -fstack-protector -fvisibility=hidden -g -O   
+Using Fortran compiler: /opt/amazon/openmpi/bin/mpif90  -fPIC -Wall -ffree-line-length-none -ffree-line-length-0 -Wno-lto-type-mismatch -Wno-unused-dummy-argument -g -O     
+-----------------------------------------
+
+Using include paths: -I/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/petsc-3.18.1-txitgxfv637he6tuei4n6qiij35vijrn/include -I/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/hypre-2.26.0-3rzb4fzt3fg73d7pck6qzpvnfl3pyyvx/include -I/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/superlu-dist-8.1.1-3rbympm25gjfmph6bazo5fhuknezdxl2/include -I/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/hdf5-1.12.2-ivbwbhp3nomujldcqkr3n7ttazzhdrxk/include -I/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/parmetis-4.0.3-vbagcxtgunhly3er2wos63cmxu6a5nn5/include -I/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/metis-5.1.0-lpw3g5apiz2ng7cjvnjempxjee4unfuh/include -I/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/zlib-1.2.13-wgainxox25zb7vq754jlb47f52majg26/include
+-----------------------------------------
+
+Using C linker: /opt/amazon/openmpi/bin/mpicc
+Using Fortran linker: /opt/amazon/openmpi/bin/mpif90
+Using libraries: -Wl,-rpath,/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/petsc-3.18.1-txitgxfv637he6tuei4n6qiij35vijrn/lib -L/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/petsc-3.18.1-txitgxfv637he6tuei4n6qiij35vijrn/lib -lpetsc -Wl,-rpath,/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/hypre-2.26.0-3rzb4fzt3fg73d7pck6qzpvnfl3pyyvx/lib -L/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/hypre-2.26.0-3rzb4fzt3fg73d7pck6qzpvnfl3pyyvx/lib -Wl,-rpath,/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/superlu-dist-8.1.1-3rbympm25gjfmph6bazo5fhuknezdxl2/lib -L/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/superlu-dist-8.1.1-3rbympm25gjfmph6bazo5fhuknezdxl2/lib -Wl,-rpath,/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/openblas-0.3.21-tbvr4bn67qxndsshpds7gx3soqe2hq62/lib -L/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/openblas-0.3.21-tbvr4bn67qxndsshpds7gx3soqe2hq62/lib -Wl,-rpath,/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/hdf5-1.12.2-ivbwbhp3nomujldcqkr3n7ttazzhdrxk/lib -L/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/hdf5-1.12.2-ivbwbhp3nomujldcqkr3n7ttazzhdrxk/lib -Wl,-rpath,/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/parmetis-4.0.3-vbagcxtgunhly3er2wos63cmxu6a5nn5/lib -L/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/parmetis-4.0.3-vbagcxtgunhly3er2wos63cmxu6a5nn5/lib -Wl,-rpath,/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/metis-5.1.0-lpw3g5apiz2ng7cjvnjempxjee4unfuh/lib -L/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/metis-5.1.0-lpw3g5apiz2ng7cjvnjempxjee4unfuh/lib -Wl,-rpath,/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/zlib-1.2.13-wgainxox25zb7vq754jlb47f52majg26/lib -L/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-12.2.0/zlib-1.2.13-wgainxox25zb7vq754jlb47f52majg26/lib -Wl,-rpath,/opt/amazon/openmpi/lib64 -L/opt/amazon/openmpi/lib64 -Wl,-rpath,/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-7.3.1/gcc-12.2.0-huc2sescmw646r26mnp2vgu54rybd4kr/lib64 -Wl,-rpath,/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-7.3.1/gcc-12.2.0-huc2sescmw646r26mnp2vgu54rybd4kr/lib/gcc/aarch64-unknown-linux-gnu/12.2.0 -L/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-7.3.1/gcc-12.2.0-huc2sescmw646r26mnp2vgu54rybd4kr/lib/gcc/aarch64-unknown-linux-gnu/12.2.0 -L/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-7.3.1/gcc-12.2.0-huc2sescmw646r26mnp2vgu54rybd4kr/lib64 -Wl,-rpath,/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-7.3.1/gcc-12.2.0-huc2sescmw646r26mnp2vgu54rybd4kr/lib -L/home/jhale/spack/opt/spack/linux-amzn2-neoverse_v1/gcc-7.3.1/gcc-12.2.0-huc2sescmw646r26mnp2vgu54rybd4kr/lib -lHYPRE -lsuperlu_dist -lopenblas -lhdf5 -lparmetis -lmetis -lm -lz -lstdc++ -ldl -lmpi_usempif08 -lmpi_usempi_ignore_tkr -lmpi_mpifh -lmpi -lgfortran -lm -lgfortran -lm -lgcc_s -lpthread -lstdc++ -ldl
+-----------------------------------------
+
+2023-04-25 09:11:14.373 (  36.637s) [RANK: 0         ]             loguru.cpp:526   INFO| atexit

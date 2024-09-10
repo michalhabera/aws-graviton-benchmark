@@ -1,0 +1,862 @@
+srun: defined options
+srun: -------------------- --------------------
+srun: (null)              : aion-[0261-0262,0264-0265]
+srun: cpus-per-task       : 1
+srun: jobid               : 720167
+srun: job-name            : poisson-launcher.sh
+srun: mem-per-cpu         : 0?
+srun: mpi                 : pmix
+srun: nodes               : 4
+srun: ntasks              : 128
+srun: ntasks-per-node     : 32
+srun: verbose             : 2
+srun: -------------------- --------------------
+srun: end of defined options
+srun: debug:  propagating RLIMIT_CPU=18446744073709551615
+srun: debug:  propagating RLIMIT_FSIZE=18446744073709551615
+srun: debug:  propagating RLIMIT_DATA=18446744073709551615
+srun: debug:  propagating RLIMIT_STACK=8388608
+srun: debug:  propagating RLIMIT_CORE=0
+srun: debug:  propagating RLIMIT_RSS=18446744073709551615
+srun: debug:  propagating RLIMIT_NPROC=1029756
+srun: debug:  propagating RLIMIT_NOFILE=1024
+srun: debug:  propagating SLURM_PRIO_PROCESS=0
+srun: debug:  propagating UMASK=0022
+srun: debug:  auth/munge: init: Munge authentication plugin loaded
+srun: debug:  hash/k12: init: init: KangarooTwelve hash plugin loaded
+srun: jobid 720167: nodes(4):`aion-[0261-0262,0264-0265]', cpu counts: 128(x4)
+srun: Implicitly setting --exact, because -c/--cpus-per-task given.
+srun: debug:  requesting job 720167, user 5278, nodes 4 including ((null))
+srun: debug:  cpus 128, tasks 128, name dolfinx-scaling-test, relative 65534
+srun: launch/slurm: launch_p_step_launch: CpuBindType=(null type)
+srun: debug:  Entering slurm_step_launch
+srun: debug:  mpi/pmix_v4: pmixp_abort_agent_start: (null) [0]: pmixp_agent.c:382: Abort agent port: 40185
+srun: debug:  mpi/pmix_v4: mpi_p_client_prelaunch: (null) [0]: mpi_pmix.c:281: setup process mapping in srun
+srun: debug:  mpi/pmix_v4: _pmix_abort_thread: (null) [0]: pmixp_agent.c:353: Start abort thread
+srun: debug:  Entering _msg_thr_create()
+srun: debug:  initialized stdio listening socket, port 40187
+srun: debug:  Started IO server thread (140423927781120)
+srun: debug:  Entering _launch_tasks
+srun: launching StepId=720167.0 on host aion-0261, 32 tasks: [0-31]
+srun: launching StepId=720167.0 on host aion-0262, 32 tasks: [32-63]
+srun: launching StepId=720167.0 on host aion-0264, 32 tasks: [64-95]
+srun: launching StepId=720167.0 on host aion-0265, 32 tasks: [96-127]
+srun: route/default: init: route default plugin loaded
+srun: debug:  launch returned msg_rc=0 err=0 type=8001
+srun: debug:  launch returned msg_rc=0 err=0 type=8001
+srun: debug:  launch returned msg_rc=0 err=0 type=8001
+srun: debug:  launch returned msg_rc=0 err=0 type=8001
+srun: launch/slurm: _task_start: Node aion-0261, 32 tasks started
+srun: launch/slurm: _task_start: Node aion-0262, 32 tasks started
+srun: launch/slurm: _task_start: Node aion-0265, 32 tasks started
+srun: launch/slurm: _task_start: Node aion-0264, 32 tasks started
+srun: debug:  kvs_put processing time min=0, max=5 ave=1 (usec)
+srun: Sent KVS info to 4 nodes, up to 32 tasks per node
+srun: debug:  kvs_xmit time 27565 usec
+srun: debug:  kvs_put processing time min=1000000, max=0 ave=0 (usec)
+srun: Sent KVS info to 4 nodes, up to 32 tasks per node
+srun: debug:  kvs_xmit time 1399 usec
+2023-04-28 15:32:27.777 (   0.957s) [        AD8DF8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.957226, 0.030000, 0.370000 (Init MPI)
+2023-04-28 15:32:27.777 (   0.947s) [        4436F8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.947098, 0.030000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.778 (   0.943s) [         A7698C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.943824, 0.030000, 0.330000 (Init MPI)
+2023-04-28 15:32:27.778 (   0.901s) [        9B1CF8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.899040, 0.030000, 0.400000 (Init MPI)
+2023-04-28 15:32:27.778 (   0.944s) [        838808C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.944331, 0.030000, 0.320000 (Init MPI)
+2023-04-28 15:32:27.778 (   0.944s) [        C90D08C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.944718, 0.030000, 0.320000 (Init MPI)
+2023-04-28 15:32:27.778 (   0.947s) [        C3DFD8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.947625, 0.040000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.778 (   0.901s) [        84AF78C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.899501, 0.030000, 0.400000 (Init MPI)
+2023-04-28 15:32:27.779 (   0.926s) [        A852C8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.926202, 0.040000, 0.320000 (Init MPI)
+2023-04-28 15:32:27.778 (   0.933s) [        20D3E8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.933094, 0.030000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.778 (   0.902s) [         E9338C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.899937, 0.030000, 0.390000 (Init MPI)
+2023-04-28 15:32:27.779 (   0.944s) [        5CFAD8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.944412, 0.040000, 0.330000 (Init MPI)
+2023-04-28 15:32:27.779 (   0.932s) [        D092C8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.932525, 0.030000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.779 (   0.902s) [        8AE158C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.900512, 0.030000, 0.400000 (Init MPI)
+2023-04-28 15:32:27.780 (   0.944s) [        C5F798C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.944840, 0.030000, 0.330000 (Init MPI)
+2023-04-28 15:32:27.779 (   0.948s) [        3AD0C8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.948858, 0.040000, 0.400000 (Init MPI)
+2023-04-28 15:32:27.779 (   0.903s) [         C4518C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.900994, 0.030000, 0.400000 (Init MPI)
+2023-04-28 15:32:27.780 (   0.945s) [        D3AB08C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.945283, 0.040000, 0.320000 (Init MPI)
+2023-04-28 15:32:27.780 (   0.949s) [        B3D418C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.949143, 0.030000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.780 (   0.903s) [        8FB108C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.901372, 0.030000, 0.390000 (Init MPI)
+2023-04-28 15:32:27.781 (   0.947s) [        3B42C8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.947246, 0.030000, 0.330000 (Init MPI)
+2023-04-28 15:32:27.780 (   0.949s) [        F75AD8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.949725, 0.030000, 0.400000 (Init MPI)
+2023-04-28 15:32:27.780 (   0.904s) [        2BFB78C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.901885, 0.040000, 0.380000 (Init MPI)
+2023-04-28 15:32:27.781 (   0.648s) [         D6D18C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.648397, 0.020000, 0.120000 (Init MPI)
+2023-04-28 15:32:27.781 (   0.950s) [        BA3A88C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.950455, 0.020000, 0.400000 (Init MPI)
+2023-04-28 15:32:27.781 (   0.904s) [        84A878C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.902333, 0.020000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.782 (   0.948s) [        D7DBE8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.948107, 0.030000, 0.330000 (Init MPI)
+2023-04-28 15:32:27.781 (   0.950s) [         DC4C8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.950463, 0.020000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.781 (   0.905s) [        9971F8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.902787, 0.030000, 0.390000 (Init MPI)
+2023-04-28 15:32:27.782 (   0.948s) [        658808C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.948573, 0.030000, 0.330000 (Init MPI)
+2023-04-28 15:32:27.781 (   0.951s) [        5F5AB8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.951230, 0.020000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.782 (   0.905s) [         4BF78C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.903347, 0.020000, 0.400000 (Init MPI)
+2023-04-28 15:32:27.783 (   0.951s) [        D34C68C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.951556, 0.020000, 0.340000 (Init MPI)
+2023-04-28 15:32:27.782 (   0.951s) [        9EB9B8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.951336, 0.030000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.782 (   0.906s) [         F1328C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.903649, 0.030000, 0.400000 (Init MPI)
+2023-04-28 15:32:27.783 (   0.952s) [        7E2A68C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.952002, 0.030000, 0.300000 (Init MPI)
+2023-04-28 15:32:27.782 (   0.952s) [        BD3BE8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.952149, 0.030000, 0.400000 (Init MPI)
+2023-04-28 15:32:27.782 (   0.906s) [        415F88C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.904206, 0.030000, 0.400000 (Init MPI)
+2023-04-28 15:32:27.783 (   0.952s) [        6DD7E8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.952218, 0.030000, 0.310000 (Init MPI)
+2023-04-28 15:32:27.783 (   0.939s) [        131D78C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.939703, 0.040000, 0.400000 (Init MPI)
+2023-04-28 15:32:27.783 (   0.907s) [        8F23B8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.904671, 0.030000, 0.400000 (Init MPI)
+2023-04-28 15:32:27.784 (   0.645s) [        E40CD8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.645046, 0.020000, 0.140000 (Init MPI)
+2023-04-28 15:32:27.783 (   0.953s) [        F1DE78C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.953019, 0.030000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.783 (   0.907s) [        847668C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.905120, 0.040000, 0.390000 (Init MPI)
+2023-04-28 15:32:27.784 (   0.954s) [        E0F1B8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.953878, 0.040000, 0.320000 (Init MPI)
+2023-04-28 15:32:27.784 (   0.953s) [        9A83B8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.953462, 0.030000, 0.400000 (Init MPI)
+2023-04-28 15:32:27.784 (   0.907s) [        3E5768C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.905487, 0.030000, 0.390000 (Init MPI)
+2023-04-28 15:32:27.785 (   0.954s) [        45C4F8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.954327, 0.020000, 0.320000 (Init MPI)
+2023-04-28 15:32:27.784 (   0.954s) [        AA6D48C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.953953, 0.030000, 0.430000 (Init MPI)
+2023-04-28 15:32:27.784 (   0.908s) [        FBA238C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.905984, 0.030000, 0.360000 (Init MPI)
+2023-04-28 15:32:27.785 (   0.954s) [        819848C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.954761, 0.030000, 0.320000 (Init MPI)
+2023-04-28 15:32:27.785 (   0.954s) [        4DB278C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.954168, 0.020000, 0.430000 (Init MPI)
+2023-04-28 15:32:27.785 (   0.908s) [        E94FB8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.906495, 0.030000, 0.420000 (Init MPI)
+2023-04-28 15:32:27.786 (   0.951s) [         42C88C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.951747, 0.030000, 0.360000 (Init MPI)
+2023-04-28 15:32:27.785 (   0.954s) [        288AB8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.954628, 0.030000, 0.430000 (Init MPI)
+2023-04-28 15:32:27.785 (   0.909s) [        7D23D8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.906928, 0.030000, 0.420000 (Init MPI)
+2023-04-28 15:32:27.786 (   0.953s) [        3F1C88C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.953292, 0.020000, 0.350000 (Init MPI)
+2023-04-28 15:32:27.785 (   0.943s) [        B4D848C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.943659, 0.030000, 0.420000 (Init MPI)
+2023-04-28 15:32:27.786 (   0.909s) [        76D928C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.907444, 0.030000, 0.390000 (Init MPI)
+2023-04-28 15:32:27.787 (   0.953s) [        5B3C38C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.953740, 0.030000, 0.350000 (Init MPI)
+2023-04-28 15:32:27.786 (   0.955s) [         DB898C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.955448, 0.040000, 0.420000 (Init MPI)
+2023-04-28 15:32:27.786 (   0.910s) [        457908C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.907897, 0.030000, 0.420000 (Init MPI)
+2023-04-28 15:32:27.787 (   0.953s) [        3BCEE8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.953701, 0.030000, 0.350000 (Init MPI)
+2023-04-28 15:32:27.786 (   0.956s) [        C14098C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.955881, 0.040000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.787 (   0.910s) [        9FBC78C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.908395, 0.030000, 0.420000 (Init MPI)
+2023-04-28 15:32:27.787 (   0.934s) [        181BA8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.934501, 0.030000, 0.310000 (Init MPI)
+2023-04-28 15:32:27.787 (   0.941s) [        500E48C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.941707, 0.040000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.787 (   0.911s) [        347648C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.908825, 0.040000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.788 (   0.649s) [        4BE648C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.648873, 0.030000, 0.130000 (Init MPI)
+2023-04-28 15:32:27.787 (   0.942s) [        CB50B8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.942180, 0.020000, 0.420000 (Init MPI)
+2023-04-28 15:32:27.787 (   0.911s) [        FD0A68C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.909221, 0.030000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.788 (   0.952s) [        2BF328C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.952466, 0.030000, 0.340000 (Init MPI)
+2023-04-28 15:32:27.788 (   0.955s) [        5B2278C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.955462, 0.030000, 0.420000 (Init MPI)
+2023-04-28 15:32:27.788 (   0.912s) [        94D7A8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.909801, 0.030000, 0.420000 (Init MPI)
+2023-04-28 15:32:27.789 (   0.932s) [        66C148C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.932833, 0.020000, 0.320000 (Init MPI)
+2023-04-28 15:32:27.788 (   0.955s) [        92E938C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.955882, 0.020000, 0.430000 (Init MPI)
+2023-04-28 15:32:27.788 (   0.912s) [        2E3548C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.910208, 0.030000, 0.420000 (Init MPI)
+2023-04-28 15:32:27.789 (   0.956s) [        DB2998C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.956219, 0.030000, 0.420000 (Init MPI)
+2023-04-28 15:32:27.789 (   0.912s) [        339518C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.910606, 0.030000, 0.350000 (Init MPI)
+2023-04-28 15:32:27.789 (   0.957s) [        AC2548C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.957102, 0.030000, 0.430000 (Init MPI)
+2023-04-28 15:32:27.789 (   0.913s) [        8F5898C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.910980, 0.020000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.790 (   0.959s) [        E257D8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.959426, 0.020000, 0.430000 (Init MPI)
+2023-04-28 15:32:27.790 (   0.960s) [        52EB88C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.960512, 0.030000, 0.390000 (Init MPI)
+2023-04-28 15:32:27.778 (   0.957s) [        140218C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.957686, 0.040000, 0.370000 (Init MPI)
+2023-04-28 15:32:27.778 (   0.958s) [        9DAA08C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.958040, 0.030000, 0.380000 (Init MPI)
+2023-04-28 15:32:27.779 (   0.948s) [        9CC9F8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.947891, 0.030000, 0.370000 (Init MPI)
+2023-04-28 15:32:27.779 (   0.962s) [        C1E118C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.961956, 0.030000, 0.380000 (Init MPI)
+2023-04-28 15:32:27.779 (   0.962s) [        D9CFC8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.962326, 0.030000, 0.380000 (Init MPI)
+2023-04-28 15:32:27.780 (   0.949s) [        BF5AE8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.949224, 0.030000, 0.360000 (Init MPI)
+2023-04-28 15:32:27.780 (   0.963s) [        557918C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.963107, 0.040000, 0.370000 (Init MPI)
+2023-04-28 15:32:27.781 (   0.963s) [        2CBAF8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.963772, 0.030000, 0.380000 (Init MPI)
+2023-04-28 15:32:27.781 (   0.964s) [        C58758C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.964109, 0.030000, 0.380000 (Init MPI)
+2023-04-28 15:32:27.782 (   0.964s) [        8CDC88C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.964559, 0.030000, 0.380000 (Init MPI)
+2023-04-28 15:32:27.782 (   0.951s) [        2CDA88C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.951537, 0.030000, 0.360000 (Init MPI)
+2023-04-28 15:32:27.783 (   0.965s) [        DAAF68C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.965431, 0.030000, 0.370000 (Init MPI)
+2023-04-28 15:32:27.783 (   0.966s) [        8EB358C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.965901, 0.030000, 0.380000 (Init MPI)
+2023-04-28 15:32:27.783 (   0.966s) [        54EA28C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.966325, 0.030000, 0.360000 (Init MPI)
+2023-04-28 15:32:27.784 (   0.959s) [         3B428C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.959090, 0.030000, 0.370000 (Init MPI)
+2023-04-28 15:32:27.784 (   0.959s) [        DEF358C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.959538, 0.030000, 0.370000 (Init MPI)
+2023-04-28 15:32:27.785 (   0.960s) [        92DE98C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.960113, 0.040000, 0.360000 (Init MPI)
+2023-04-28 15:32:27.785 (   0.960s) [        9C1A78C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.960687, 0.030000, 0.360000 (Init MPI)
+2023-04-28 15:32:27.786 (   0.963s) [        778628C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.963291, 0.030000, 0.320000 (Init MPI)
+2023-04-28 15:32:27.786 (   0.963s) [        132B08C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.963737, 0.040000, 0.320000 (Init MPI)
+2023-04-28 15:32:27.787 (   0.964s) [        2C95E8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.964173, 0.030000, 0.320000 (Init MPI)
+2023-04-28 15:32:27.787 (   0.964s) [        791B68C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.964628, 0.030000, 0.320000 (Init MPI)
+2023-04-28 15:32:27.788 (   0.960s) [        F9D618C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.960628, 0.030000, 0.370000 (Init MPI)
+2023-04-28 15:32:27.788 (   0.961s) [        950328C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.961028, 0.030000, 0.370000 (Init MPI)
+2023-04-28 15:32:27.788 (   0.957s) [        A9EEB8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.957073, 0.040000, 0.360000 (Init MPI)
+2023-04-28 15:32:27.789 (   0.962s) [        B2C448C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.961963, 0.040000, 0.370000 (Init MPI)
+2023-04-28 15:32:27.789 (   0.964s) [        B14D18C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.964175, 0.030000, 0.370000 (Init MPI)
+2023-04-28 15:32:27.790 (   0.959s) [        79C5C8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.959067, 0.030000, 0.370000 (Init MPI)
+2023-04-28 15:32:27.790 (   0.965s) [        2E9FA8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.965041, 0.030000, 0.380000 (Init MPI)
+2023-04-28 15:32:27.791 (   0.962s) [        1230F8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.962065, 0.030000, 0.380000 (Init MPI)
+2023-04-28 15:32:27.801 (   0.970s) [        BC82F8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.969999, 0.100000, 0.390000 (Init MPI)
+2023-04-28 15:32:27.789 (   0.933s) [        C88CD8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.933290, 0.030000, 0.320000 (Init MPI)
+2023-04-28 15:32:27.791 (   0.960s) [        2E00F8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.960145, 0.030000, 0.370000 (Init MPI)
+2023-04-28 15:32:27.790 (   0.959s) [         9C678C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.959032, 0.030000, 0.340000 (Init MPI)
+2023-04-28 15:32:27.791 (   0.961s) [        947AE8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.961025, 0.100000, 0.430000 (Init MPI)
+2023-04-28 15:32:27.790 (   0.959s) [        A630D8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.959474, 0.030000, 0.340000 (Init MPI)
+2023-04-28 15:32:27.791 (   0.961s) [        4F4098C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.961029, 0.030000, 0.430000 (Init MPI)
+2023-04-28 15:32:27.790 (   0.959s) [        48C4A8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.959634, 0.030000, 0.340000 (Init MPI)
+2023-04-28 15:32:27.791 (   0.957s) [        A13EC8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.957169, 0.090000, 0.340000 (Init MPI)
+2023-04-28 15:32:27.791 (   0.960s) [        651168C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.960131, 0.030000, 0.340000 (Init MPI)
+2023-04-28 15:32:27.790 (   0.913s) [        6E6E68C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.911473, 0.020000, 0.420000 (Init MPI)
+2023-04-28 15:32:27.790 (   0.914s) [        5E0078C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.911918, 0.040000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.791 (   0.914s) [        F861D8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.912433, 0.040000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.791 (   0.915s) [        41FCC8C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.912851, 0.030000, 0.360000 (Init MPI)
+2023-04-28 15:32:27.791 (   0.915s) [         98D18C0]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.912919, 0.090000, 0.410000 (Init MPI)
+2023-04-28 15:32:27.829 (   0.997s) [RANK: 0         ]              utils.cpp:616   INFO| Compute partition of cells across ranks
+2023-04-28 15:32:27.829 (   0.997s) [RANK: 0         ]         graphbuild.cpp:533   INFO| Building mesh dual graph
+2023-04-28 15:32:27.829 (   0.998s) [RANK: 0         ]         graphbuild.cpp:396   INFO| Build local part of mesh dual graph
+2023-04-28 15:32:28.106 (   1.275s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.277014, 0.250000, 0.030000 (Compute local part of mesh dual graph)
+2023-04-28 15:32:28.106 (   1.275s) [RANK: 0         ]         graphbuild.cpp:89    INFO| Build nonlocal part of mesh dual graph
+2023-04-28 15:32:28.141 (   1.309s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 2
+2023-04-28 15:32:28.143 (   1.311s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 2
+2023-04-28 15:32:28.143 (   1.312s) [RANK: 0         ]         graphbuild.cpp:203   INFO| Number of destination and source ranks in non-local dual graph construction, and ratio to total number of ranks: 2, 2, 0.015625, 0.015625
+2023-04-28 15:32:28.188 (   1.356s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.081127, 0.080000, 0.010000 (Compute non-local part of mesh dual graph)
+2023-04-28 15:32:28.188 (   1.356s) [RANK: 0         ]         graphbuild.cpp:545   INFO| Graph edges (local: 1332924, non-local: 78402)
+2023-04-28 15:32:28.189 (   1.357s) [RANK: 0         ]       partitioners.cpp:523   INFO| Compute graph partition using ParMETIS
+2023-04-28 15:32:28.988 (   2.156s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.790193, 0.770000, 0.020000 (ParMETIS: call ParMETIS_V3_PartKway)
+2023-04-28 15:32:28.989 (   2.157s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.800383, 0.770000, 0.020000 (Compute graph partition (ParMETIS))
+2023-04-28 15:32:29.009 (   2.177s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 17
+2023-04-28 15:32:29.011 (   2.179s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 23
+2023-04-28 15:32:29.068 (   2.237s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.078304, 0.050000, 0.020000 (Distribute AdjacencyList nodes to destination ranks)
+2023-04-28 15:32:29.076 (   2.244s) [RANK: 0         ]         graphbuild.cpp:396   INFO| Build local part of mesh dual graph
+2023-04-28 15:32:29.281 (   2.450s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.205215, 0.200000, 0.000000 (Compute local part of mesh dual graph)
+2023-04-28 15:32:29.292 (   2.460s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.010323, 0.010000, 0.000000 (GPS: create_level_structure)
+2023-04-28 15:32:29.299 (   2.467s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.006600, 0.010000, 0.000000 (GPS: create_level_structure)
+2023-04-28 15:32:29.307 (   2.476s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.008233, 0.000000, 0.000000 (GPS: create_level_structure)
+2023-04-28 15:32:29.313 (   2.481s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.004935, 0.010000, 0.000000 (GPS: create_level_structure)
+2023-04-28 15:32:29.318 (   2.486s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.005121, 0.000000, 0.000000 (GPS: create_level_structure)
+2023-04-28 15:32:29.323 (   2.492s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.005225, 0.010000, 0.000000 (GPS: create_level_structure)
+2023-04-28 15:32:29.328 (   2.497s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.005013, 0.000000, 0.000000 (GPS: create_level_structure)
+2023-04-28 15:32:29.328 (   2.497s) [RANK: 0         ]           ordering.cpp:203   INFO| GPS pseudo-diameter:(268) 61820-221400
+
+2023-04-28 15:32:29.359 (   2.527s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.077301, 0.070000, 0.000000 (Gibbs-Poole-Stockmeyer ordering)
+2023-04-28 15:32:29.382 (   2.550s) [RANK: 0         ]           Topology.cpp:889   INFO| Create topology
+2023-04-28 15:32:29.414 (   2.582s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.031989, 0.030000, 0.000000 (Topology: determine vertex ownership groups (owned, undetermined, unowned))
+2023-04-28 15:32:29.438 (   2.606s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 24
+2023-04-28 15:32:29.441 (   2.609s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 17
+2023-04-28 15:32:29.447 (   2.615s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.033166, 0.030000, 0.000000 (Topology: determine shared index ownership)
+2023-04-28 15:32:29.541 (   2.709s) [RANK: 0         ]          partition.cpp:233   INFO| Compute ghost indices
+2023-04-28 15:32:29.541 (   2.709s) [RANK: 0         ]                MPI.cpp:98    INFO| Computing communication graph edges (using PCX algorithm). Number of input edges: 0
+2023-04-28 15:32:29.644 (   2.813s) [RANK: 0         ]                MPI.cpp:155   INFO| Finished graph edge discovery using PCX algorithm. Number of discovered edges 0
+2023-04-28 15:32:29.669 (   2.837s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 0
+2023-04-28 15:32:29.672 (   2.840s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-28 15:32:29.771 (   2.940s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:29.788 (   2.956s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:29.789 (   2.957s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:29.789 (   2.957s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:29.790 (   2.958s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.407805, 0.400000, 0.010000 (Topology: create)
+2023-04-28 15:32:29.805 (   2.973s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.015124, 0.010000, 0.000000 (Init dofmap from element dofmap)
+2023-04-28 15:32:29.807 (   2.975s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.002015, 0.010000, 0.000000 (Compute dof reordering map)
+2023-04-28 15:32:29.807 (   2.976s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:29.809 (   2.977s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:29.810 (   2.978s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 0
+2023-04-28 15:32:29.810 (   2.978s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-28 15:32:29.815 (   2.983s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:29.816 (   2.984s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:29.820 (   2.988s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.030208, 0.030000, 0.000000 (Build dofmap data)
+2023-04-28 15:32:29.859 (   3.027s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 0
+2023-04-28 15:32:29.860 (   3.028s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-28 15:32:29.860 (   3.028s) [RANK: 0         ]                  MPI.h:375   INFO| Number of neighbourhood source ranks in distribute_to_postoffice: 0
+2023-04-28 15:32:29.862 (   3.030s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 23
+2023-04-28 15:32:29.863 (   3.031s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 16
+2023-04-28 15:32:29.863 (   3.031s) [RANK: 0         ]                  MPI.h:514   INFO| Neighbourhood destination ranks from post office in distribute_data (rank, num dests, num dests/mpi_size): 0, 16, 0.125
+2023-04-28 15:32:29.873 (   3.041s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.014500, 0.000000, 0.000000 (Distribute row-wise data (scalable))
+2023-04-28 15:32:29.877 (   3.045s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.003653, 0.010000, 0.000000 (Compute-local-to-global links for global/local adjacency list)
+2023-04-28 15:32:29.885 (   3.053s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.007680, 0.000000, 0.000000 (Compute local-to-local map)
+UnitCube (200x195x204) to be refined 1 times
+2023-04-28 15:32:29.888 (   3.056s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 2.076998, 1.960000, 0.100000 (Build BoxMesh)
+2023-04-28 15:32:29.888 (   3.057s) [RANK: 0         ]topologycomputation.cpp:739   INFO| Computing mesh entities of dimension 1
+2023-04-28 15:32:30.019 (   3.187s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:30.028 (   3.197s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:30.419 (   3.587s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:30.426 (   3.594s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:30.447 (   3.615s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.558411, 0.550000, 0.000000 (Compute entities of dim = 1)
+2023-04-28 15:32:30.447 (   3.615s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 1
+2023-04-28 15:32:30.447 (   3.615s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:30.450 (   3.618s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:30.462 (   3.630s) [RANK: 0         ]topologycomputation.cpp:739   INFO| Computing mesh entities of dimension 2
+2023-04-28 15:32:30.581 (   3.749s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:30.595 (   3.763s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:30.844 (   4.012s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:30.849 (   4.017s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:30.869 (   4.038s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.407690, 0.400000, 0.000000 (Compute entities of dim = 2)
+2023-04-28 15:32:30.870 (   4.038s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 2 - 1
+2023-04-28 15:32:31.121 (   4.290s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.251148, 0.250000, 0.000000 (Compute connectivity 2-1)
+2023-04-28 15:32:31.122 (   4.290s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 1 - 3
+2023-04-28 15:32:31.122 (   4.290s) [RANK: 0         ]topologycomputation.cpp:643   INFO| Computing mesh connectivity 1 - 3 from transpose.
+2023-04-28 15:32:31.133 (   4.301s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.011039, 0.020000, 0.000000 (Compute connectivity 1-3)
+2023-04-28 15:32:31.133 (   4.301s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 2
+2023-04-28 15:32:31.247 (   4.415s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 1 - 3
+2023-04-28 15:32:31.247 (   4.415s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 1 - 0
+2023-04-28 15:32:31.247 (   4.415s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 0
+2023-04-28 15:32:31.898 (   5.066s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 1.450777, 1.360000, 0.080000 (PLAZA: refine)
+2023-04-28 15:32:32.130 (   5.298s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 1
+2023-04-28 15:32:32.131 (   5.299s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 1
+2023-04-28 15:32:32.540 (   5.708s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.545628, 0.260000, 0.250000 (Distribute AdjacencyList nodes to destination ranks)
+2023-04-28 15:32:32.606 (   5.774s) [RANK: 0         ]         graphbuild.cpp:396   INFO| Build local part of mesh dual graph
+2023-04-28 15:32:36.169 (   9.337s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 3.562857, 3.370000, 0.160000 (Compute local part of mesh dual graph)
+2023-04-28 15:32:36.275 (   9.443s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.102662, 0.090000, 0.010000 (GPS: create_level_structure)
+2023-04-28 15:32:36.348 (   9.516s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.072837, 0.070000, 0.010000 (GPS: create_level_structure)
+2023-04-28 15:32:36.443 (   9.611s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.092297, 0.090000, 0.000000 (GPS: create_level_structure)
+2023-04-28 15:32:36.521 (   9.689s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.074744, 0.070000, 0.000000 (GPS: create_level_structure)
+2023-04-28 15:32:36.525 (   9.693s) [RANK: 0         ]           ordering.cpp:203   INFO| GPS pseudo-diameter:(740) 2990912-13071
+
+2023-04-28 15:32:37.189 (  10.357s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 1.018746, 0.970000, 0.040000 (Gibbs-Poole-Stockmeyer ordering)
+2023-04-28 15:32:37.448 (  10.616s) [RANK: 0         ]           Topology.cpp:889   INFO| Create topology
+2023-04-28 15:32:37.749 (  10.917s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.301168, 0.250000, 0.050000 (Topology: determine vertex ownership groups (owned, undetermined, unowned))
+2023-04-28 15:32:38.103 (  11.271s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 21
+2023-04-28 15:32:38.104 (  11.272s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 14
+2023-04-28 15:32:38.485 (  11.653s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.735547, 0.430000, 0.300000 (Topology: determine shared index ownership)
+2023-04-28 15:32:39.396 (  12.564s) [RANK: 0         ]          partition.cpp:233   INFO| Compute ghost indices
+2023-04-28 15:32:39.396 (  12.564s) [RANK: 0         ]                MPI.cpp:98    INFO| Computing communication graph edges (using PCX algorithm). Number of input edges: 0
+2023-04-28 15:32:39.879 (  13.047s) [RANK: 0         ]                MPI.cpp:155   INFO| Finished graph edge discovery using PCX algorithm. Number of discovered edges 0
+2023-04-28 15:32:40.139 (  13.307s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 0
+2023-04-28 15:32:40.145 (  13.314s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-28 15:32:41.173 (  14.341s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:41.346 (  14.514s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:41.346 (  14.514s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:41.346 (  14.514s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:41.358 (  14.526s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 3.909694, 3.500000, 0.390000 (Topology: create)
+2023-04-28 15:32:41.493 (  14.662s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.125865, 0.120000, 0.000000 (Init dofmap from element dofmap)
+2023-04-28 15:32:41.511 (  14.679s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.017396, 0.020000, 0.000000 (Compute dof reordering map)
+2023-04-28 15:32:41.512 (  14.680s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:41.515 (  14.683s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:41.516 (  14.684s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 0
+2023-04-28 15:32:41.517 (  14.685s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-28 15:32:41.535 (  14.703s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:41.541 (  14.709s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:41.577 (  14.746s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.209926, 0.200000, 0.010000 (Build dofmap data)
+2023-04-28 15:32:41.932 (  15.100s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 1
+2023-04-28 15:32:41.934 (  15.103s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-28 15:32:41.934 (  15.103s) [RANK: 0         ]                  MPI.h:375   INFO| Number of neighbourhood source ranks in distribute_to_postoffice: 0
+2023-04-28 15:32:41.942 (  15.110s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 20
+2023-04-28 15:32:41.947 (  15.116s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:41.947 (  15.116s) [RANK: 0         ]                  MPI.h:514   INFO| Neighbourhood destination ranks from post office in distribute_data (rank, num dests, num dests/mpi_size): 0, 13, 0.101562
+2023-04-28 15:32:41.961 (  15.129s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.033743, 0.030000, 0.000000 (Distribute row-wise data (scalable))
+2023-04-28 15:32:41.992 (  15.160s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.030511, 0.030000, 0.000000 (Compute-local-to-global links for global/local adjacency list)
+2023-04-28 15:32:42.074 (  15.242s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.082516, 0.080000, 0.000000 (Compute local-to-local map)
+2023-04-28 15:32:42.122 (  15.290s) [RANK: 0         ]             refine.cpp:31    INFO| Number of cells increased from 47736000 to 381888000 (700%% increase).
+2023-04-28 15:32:42.160 (  15.328s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 14.348584, 12.940000, 1.270000 (ZZZ Create Mesh)
+2023-04-28 15:32:42.160 (  15.328s) [RANK: 0         ]topologycomputation.cpp:739   INFO| Computing mesh entities of dimension 2
+2023-04-28 15:32:43.648 (  16.816s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:43.718 (  16.887s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:44.800 (  17.968s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:44.816 (  17.985s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:45.013 (  18.181s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 2.853361, 2.640000, 0.200000 (Compute entities of dim = 2)
+2023-04-28 15:32:45.019 (  18.187s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 2 - 3
+2023-04-28 15:32:45.019 (  18.187s) [RANK: 0         ]topologycomputation.cpp:643   INFO| Computing mesh connectivity 2 - 3 from transpose.
+2023-04-28 15:32:45.115 (  18.283s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.096280, 0.090000, 0.010000 (Compute connectivity 2-3)
+2023-04-28 15:32:45.115 (  18.284s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 2.955482, 2.730000, 0.210000 (ZZZ Create facets and facet->cell connectivity)
+2023-04-28 15:32:45.237 (  18.406s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.121720, 0.110000, 0.010000 (Init dofmap from element dofmap)
+2023-04-28 15:32:45.254 (  18.423s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.016925, 0.020000, 0.000000 (Compute dof reordering map)
+2023-04-28 15:32:45.256 (  18.424s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:45.261 (  18.429s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:45.265 (  18.433s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:45.267 (  18.435s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:45.269 (  18.438s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 0
+2023-04-28 15:32:45.271 (  18.439s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 0
+2023-04-28 15:32:45.289 (  18.458s) [RANK: 0         ]                MPI.cpp:165   INFO| Computing communication graph edges (using NBX algorithm). Number of input edges: 13
+2023-04-28 15:32:45.295 (  18.464s) [RANK: 0         ]                MPI.cpp:236   INFO| Finished graph edge discovery using NBX algorithm. Number of discovered edges 13
+2023-04-28 15:32:45.338 (  18.506s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.222114, 0.190000, 0.020000 (Build dofmap data)
+2023-04-28 15:32:45.338 (  18.506s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.222439, 0.190000, 0.020000 (ZZZ FunctionSpace)
+2023-04-28 15:32:45.341 (  18.509s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 0
+2023-04-28 15:32:45.365 (  18.533s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 0
+2023-04-28 15:32:45.365 (  18.533s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 2 - 0
+2023-04-28 15:32:45.377 (  18.545s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 2 - 3
+2023-04-28 15:32:45.386 (  18.554s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.048020, 0.050000, 0.000000 (ZZZ Create boundary conditions)
+2023-04-28 15:32:46.480 (  19.648s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 1.094060, 0.820000, 0.270000 (ZZZ Create RHS function)
+2023-04-28 15:32:46.482 (  19.650s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 2 - 3
+2023-04-28 15:32:46.482 (  19.650s) [RANK: 0         ]topologycomputation.cpp:780   INFO| Requesting connectivity 3 - 2
+2023-04-28 15:32:46.850 (  20.018s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.355821, 0.340000, 0.020000 (Build sparsity)
+2023-04-28 15:32:47.801 (  20.970s) [RANK: 0         ]    SparsityPattern.cpp:389   INFO| Column ghost size increased from 19368 to 61625
+
+2023-04-28 15:32:47.807 (  20.975s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.956814, 0.890000, 0.060000 (SparsityPattern::assemble)
+2023-04-28 15:32:50.265 (  23.433s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 2.269728, 2.200000, 0.070000 (ZZZ Assemble matrix)
+2023-04-28 15:32:50.612 (  23.780s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 0.345089, 0.290000, 0.050000 (ZZZ Assemble vector)
+2023-04-28 15:32:50.612 (  23.780s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 5.274234, 4.780000, 0.470000 (ZZZ Assemble)
+----------------------------------------------------------------
+Test problem summary
+  dolfinx version: 0.6.0
+  dolfinx hash:    24f86a9ce57df6978070dbee22b3eae8bb77235f
+  ufl hash:        bd40e0d90b34a45b9ed243b4476e2919ca1e2979
+  petsc version:   Petsc Release Version 3.18.5, Feb 27, 2023 
+  Problem type:    poisson
+  Scaling type:    weak
+  Num processes:   128
+  Num cells:       381888000 (382 million)
+  Total degrees of freedom:               64127519 (64.1 million)
+  Average degrees of freedom per process: 500996
+----------------------------------------------------------------
+2023-04-28 15:32:50.636 (  23.805s) [RANK: 0         ]              petsc.cpp:675   INFO| PETSc Krylov solver starting to solve system.
+KSP Object: 128 MPI processes
+  type: cg
+  maximum iterations=10000, initial guess is zero
+  tolerances:  relative=1e-08, absolute=1e-50, divergence=10000.
+  left preconditioning
+  using PRECONDITIONED norm type for convergence test
+PC Object: 128 MPI processes
+  type: hypre
+    HYPRE BoomerAMG preconditioning
+      Cycle type V
+      Maximum number of levels 25
+      Maximum number of iterations PER hypre call 1
+      Convergence tolerance PER hypre call 0.
+      Threshold for strong coupling 0.7
+      Interpolation truncation factor 0.
+      Interpolation: max elements per row 0
+      Number of levels of aggressive coarsening 4
+      Number of paths for aggressive coarsening 2
+      Maximum row sums 0.9
+      Sweeps down         1
+      Sweeps up           1
+      Sweeps on coarse    1
+      Relax down          symmetric-SOR/Jacobi
+      Relax up            symmetric-SOR/Jacobi
+      Relax on coarse     Gaussian-elimination
+      Relax weight  (all)      1.
+      Outer relax weight (all) 1.
+      Using CF-relaxation
+      Not using more complex smoothers.
+      Measure type        local
+      Coarsen type        Falgout
+      Interpolation type  classical
+      SpGEMM type         cusparse
+  linear system matrix = precond matrix:
+  Mat Object: 128 MPI processes
+    type: mpiaij
+    rows=64127519, cols=64127519
+    total: nonzeros=958071835, allocated nonzeros=958071835
+    total number of mallocs used during MatSetValues calls=0
+      not using I-node (on process 0) routines
+
+[MPI_MAX] Summary of timings                                                |  reps   wall avg   wall tot
+---------------------------------------------------------------------------------------------------------
+Build BoxMesh                                                               |     1   2.077166   2.077166
+Build dofmap data                                                           |     3   0.166251   0.498754
+Build sparsity                                                              |     1   0.531495   0.531495
+Compute connectivity 1-3                                                    |     1   0.012638   0.012638
+Compute connectivity 2-1                                                    |     1   0.268553   0.268553
+Compute connectivity 2-3                                                    |     1   0.104139   0.104139
+Compute dof reordering map                                                  |     3   0.012873   0.038618
+Compute entities of dim = 1                                                 |     1   0.560902   0.560902
+Compute entities of dim = 2                                                 |     2   1.633735   3.267469
+Compute graph partition (ParMETIS)                                          |     1   0.800383   0.800383
+Compute local part of mesh dual graph                                       |     3   1.420916   4.262747
+Compute local-to-local map                                                  |     2   0.055091   0.110183
+Compute non-local part of mesh dual graph                                   |     1   0.093837   0.093837
+Compute-local-to-global links for global/local adjacency list               |     2   0.018685   0.037371
+Distribute AdjacencyList nodes to destination ranks                         |     2   0.320304   0.640608
+Distribute row-wise data (scalable)                                         |     2   0.025047   0.050094
+GPS: create_level_structure                                                 |    11   0.070807   0.718956
+Gibbs-Poole-Stockmeyer ordering                                             |     2   0.761242   1.522484
+Init MPI                                                                    |     1   0.969999   0.969999
+Init PETSc                                                                  |     1   0.033322   0.033322
+Init dofmap from element dofmap                                             |     3   0.090174   0.270523
+Init logging                                                                |     1   0.000229   0.000229
+PETSc Krylov solver                                                         |     1   7.345525   7.345525
+PLAZA: refine                                                               |     1   1.462112   1.462112
+ParMETIS: call ParMETIS_V3_PartKway                                         |     1   0.790344   0.790344
+SparsityPattern::assemble                                                   |     1   1.118138   1.118138
+Topology: create                                                            |     2   2.625195   5.250389
+Topology: determine shared index ownership                                  |     2   0.859554   1.719107
+Topology: determine vertex ownership groups (owned, undetermined, unowned)  |     2   0.192960   0.385919
+ZZZ Assemble                                                                |     1   5.277945   5.277945
+ZZZ Assemble matrix                                                         |     1   2.272734   2.272734
+ZZZ Assemble vector                                                         |     1   0.345865   0.345865
+ZZZ Create Mesh                                                             |     1  14.353563  14.353563
+ZZZ Create RHS function                                                     |     1   1.123978   1.123978
+ZZZ Create boundary conditions                                              |     1   0.057008   0.057008
+ZZZ Create facets and facet->cell connectivity                              |     1   2.962126   2.962126
+2023-04-28 15:32:57.981 (  31.149s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 7.344698, 7.180000, 0.090000 (PETSc Krylov solver)
+2023-04-28 15:32:57.988 (  31.157s) [RANK: 0         ]         TimeLogger.cpp:28    INFO| Elapsed wall, usr, sys time: 7.361799, 7.190000, 0.090000 (ZZZ Solve)
+ZZZ FunctionSpace                                                           |     1   0.261414   0.261414
+ZZZ Solve                                                                   |     1   7.363663   7.363663
+*** Number of Krylov iterations: 18
+*** Solution norm:  1703.83
+****************************************************************************************************************************************************************
+***                                WIDEN YOUR WINDOW TO 160 CHARACTERS.  Use 'enscript -r -fCourier9' to print this document                                 ***
+****************************************************************************************************************************************************************
+
+------------------------------------------------------------------ PETSc Performance Summary: ------------------------------------------------------------------
+
+/mnt/irisgpfs/users/jhale/performance-test/src/./build-r3/dolfinx-scaling-test on a  named aion-0261 with 128 processors, by jhale Fri Apr 28 15:32:58 2023
+Using Petsc Release Version 3.18.5, Feb 27, 2023 
+
+                         Max       Max/Min     Avg       Total
+Time (sec):           3.021e+01     1.000   3.021e+01
+Objects:              3.200e+01     1.000   3.200e+01
+Flops:                4.140e+08     1.147   4.081e+08  5.223e+10
+Flops/sec:            1.370e+07     1.147   1.351e+07  1.729e+09
+MPI Msg Count:        4.500e+02     6.000   2.655e+02  3.399e+04
+MPI Msg Len (bytes):  1.762e+07     2.779   4.956e+04  1.684e+09
+MPI Reductions:       1.000e+02     1.000
+
+Flop counting convention: 1 flop = 1 real number operation of type (multiply/divide/add/subtract)
+                            e.g., VecAXPY() for real vectors of length N --> 2N flops
+                            and VecAXPY() for complex vectors of length N --> 8N flops
+
+Summary of Stages:   ----- Time ------  ----- Flop ------  --- Messages ---  -- Message Lengths --  -- Reductions --
+                        Avg     %Total     Avg     %Total    Count   %Total     Avg         %Total    Count   %Total
+ 0:      Main Stage: 3.0212e+01 100.0%  5.2233e+10 100.0%  3.399e+04 100.0%  4.956e+04      100.0%  8.200e+01  82.0%
+
+------------------------------------------------------------------------------------------------------------------------
+See the 'Profiling' chapter of the users' manual for details on interpreting output.
+Phase summary info:
+   Count: number of times phase was executed
+   Time and Flop: Max - maximum over all processors
+                  Ratio - ratio of maximum to minimum over all processors
+   Mess: number of messages sent
+   AvgLen: average message length (bytes)
+   Reduct: number of global reductions
+   Global: entire computation
+   Stage: stages of a computation. Set stages with PetscLogStagePush() and PetscLogStagePop().
+      %T - percent time in this phase         %F - percent flop in this phase
+      %M - percent messages in this phase     %L - percent message lengths in this phase
+      %R - percent reductions in this phase
+   Total Mflop/s: 10e-6 * (sum of flop over all processors)/(max time over all processors)
+------------------------------------------------------------------------------------------------------------------------
+Event                Count      Time (sec)     Flop                              --- Global ---  --- Stage ----  Total
+                   Max Ratio  Max     Ratio   Max  Ratio  Mess   AvgLen  Reduct  %T %F %M %L %R  %T %F %M %L %R Mflop/s
+------------------------------------------------------------------------------------------------------------------------
+
+--- Event Stage 0: Main Stage
+
+BuildTwoSided          4 1.0 5.4489e-01 13.8 0.00e+00 0.0 4.1e+03 4.0e+00 4.0e+00  1  0 12  0  4   1  0 12  0  5     0
+BuildTwoSidedF         2 1.0 5.4438e-01 14.0 0.00e+00 0.0 2.7e+03 1.8e+05 2.0e+00  1  0  8 28  2   1  0  8 28  2     0
+MatMult               18 1.0 2.6800e-01 1.1 2.64e+08 1.1 2.7e+04 4.3e+04 1.0e+00  1 64 80 70  1   1 64 80 70  1 124389
+MatConvert             1 1.0 1.2685e-01 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 2.0e+00  0  0  0  0  2   0  0  0  0  2     0
+MatAssemblyBegin       3 1.0 6.0379e-01 5.7 0.00e+00 0.0 2.7e+03 1.8e+05 2.0e+00  1  0  8 28  2   1  0  8 28  2     0
+MatAssemblyEnd         3 1.0 1.8744e-01 1.5 1.87e+05 2.9 0.0e+00 0.0e+00 6.0e+00  0  0  0  0  6   0  0  0  0  7    94
+MatGetRowIJ            2 1.0 3.1480e-05 16.8 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+MatView                1 1.0 5.8317e-04 6.2 0.00e+00 0.0 0.0e+00 0.0e+00 1.0e+00  0  0  0  0  1   0  0  0  0  1     0
+VecTDot               36 1.0 5.5504e-02 2.2 3.68e+07 1.2 0.0e+00 0.0e+00 3.6e+01  0  9  0  0 36   0  9  0  0 44 83186
+VecNorm               19 1.0 1.8475e-01 44.5 1.94e+07 1.2 0.0e+00 0.0e+00 1.9e+01  0  5  0  0 19   0  5  0  0 23 13190
+VecCopy                2 1.0 2.7548e-03 1.2 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecSet                20 1.0 1.2142e-02 1.1 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecAXPY               36 1.0 4.7552e-02 1.2 3.68e+07 1.2 0.0e+00 0.0e+00 0.0e+00  0  9  0  0  0   0  9  0  0  0 97097
+VecAYPX               17 1.0 1.9698e-02 1.2 1.74e+07 1.2 0.0e+00 0.0e+00 0.0e+00  0  4  0  0  0   0  4  0  0  0 110690
+VecScatterBegin       19 1.0 1.6157e-02 2.3 0.00e+00 0.0 3.1e+04 3.9e+04 2.0e+00  0  0 92 72  2   0  0 92 72  2     0
+VecScatterEnd         19 1.0 3.7817e-02 15.3 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFSetGraph             3 1.0 1.5669e-03 2.9 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFSetUp                2 1.0 3.5649e-03 1.3 0.00e+00 0.0 5.4e+03 7.7e+03 2.0e+00  0  0 16  2  2   0  0 16  2  2     0
+SFPack                19 1.0 1.0138e-02 3.2 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFUnpack              19 1.0 5.0781e-05 4.1 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+KSPSetUp               1 1.0 2.9604e-03 1.2 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+KSPSolve               1 1.0 4.0058e+00 1.0 3.74e+08 1.1 2.7e+04 4.3e+04 5.6e+01 13 90 80 70 56  13 90 80 70 68 11780
+PCSetUp                1 1.0 3.3353e+00 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 2.0e+00 11  0  0  0  2  11  0  0  0  2     0
+PCApply               19 1.0 3.6398e+00 1.1 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00 12  0  0  0  0  12  0  0  0  0     0
+
+--- Event Stage 1: Unknown
+
+------------------------------------------------------------------------------------------------------------------------
+
+Object Type          Creations   Destructions. Reports information only for process 0.
+
+--- Event Stage 0: Main Stage
+
+              Matrix     4              4
+           Index Set     6              6
+   IS L to G Mapping     3              3
+              Vector    12             12
+   Star Forest Graph     3              3
+       Krylov Solver     1              1
+      Preconditioner     1              1
+              Viewer     2              1
+
+--- Event Stage 1: Unknown
+
+========================================================================================================================
+Average time to get PetscTime(): 3.3e-08
+Average time for MPI_Barrier(): 7.262e-06
+Average time for zero size MPI_Send(): 1.57337e-06
+#PETSc Option Table entries:
+--ndofs 500000
+--problem_type poisson
+--scaling_type weak
+-ksp_rtol 1.0e-8
+-ksp_type cg
+-ksp_view
+-log_view
+-options_left
+-pc_hypre_boomeramg_agg_nl 4
+-pc_hypre_boomeramg_agg_num_paths 2
+-pc_hypre_boomeramg_strong_threshold 0.7
+-pc_hypre_type boomeramg
+-pc_type hypre
+#End of PETSc Option Table entries
+Compiled without FORTRAN kernels
+Compiled with full precision matrices (default)
+sizeof(short) 2 sizeof(int) 4 sizeof(long) 8 sizeof(void*) 8 sizeof(PetscScalar) 8 sizeof(PetscInt) 4
+Configure options: --with-blaslapack-dir=/opt/apps/resif/aion/2020b/epyc/software/OpenBLAS/0.3.12-GCC-10.2.0/lib --COPTFLAGS="-O3 -march=znver2" --CXXOPTFLAGS="-O3 -march=znver2" --FOPTFLAGS="-O3 -march=znver2" --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90 --with-make-np=16 --with-mpiexec=srun --download-metis --download-parmetis --download-scalapack --download-hypre --download-mumps --with-scalar-type=real --with-debugging=0 --with-shared-libraries --with-fortran-bindings=no --prefix=/scratch/users/jhale//fenicsx-aion-intel-64-0.6.0-r3
+-----------------------------------------
+Libraries compiled on 2023-04-28 12:46:36 on aion-0323 
+Machine characteristics: Linux-4.18.0-372.32.1.el8_6.x86_64-x86_64-with-glibc2.2.5
+Using PETSc directory: /scratch/users/jhale/fenicsx-aion-intel-64-0.6.0-r3
+Using PETSc arch: 
+-----------------------------------------
+
+Using C compiler: mpicc  -fPIC -Wall -Wwrite-strings -Wno-unknown-pragmas -Wno-lto-type-mismatch -fstack-protector -fvisibility=hidden -O3 -march=znver2   
+Using Fortran compiler: mpif90  -fPIC -Wall -ffree-line-length-none -ffree-line-length-0 -Wno-lto-type-mismatch -Wno-unused-dummy-argument -O3 -march=znver2     
+-----------------------------------------
+
+Using include paths: -I/scratch/users/jhale/fenicsx-aion-intel-64-0.6.0-r3/include
+-----------------------------------------
+
+Using C linker: mpicc
+Using Fortran linker: mpif90
+Using libraries: -Wl,-rpath,/scratch/users/jhale/fenicsx-aion-intel-64-0.6.0-r3/lib -L/scratch/users/jhale/fenicsx-aion-intel-64-0.6.0-r3/lib -lpetsc -Wl,-rpath,/scratch/users/jhale/fenicsx-aion-intel-64-0.6.0-r3/lib -L/scratch/users/jhale/fenicsx-aion-intel-64-0.6.0-r3/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/OpenBLAS/0.3.12-GCC-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/OpenBLAS/0.3.12-GCC-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/UCX/1.9.0-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/UCX/1.9.0-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/OpenMPI/4.0.5-GCC-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/OpenMPI/4.0.5-GCC-10.2.0/lib -Wl,-rpath,/mnt/irisgpfs/apps/resif/aion/2020b/epyc/software/GCCcore/10.2.0/lib/gcc/x86_64-pc-linux-gnu/10.2.0 -L/mnt/irisgpfs/apps/resif/aion/2020b/epyc/software/GCCcore/10.2.0/lib/gcc/x86_64-pc-linux-gnu/10.2.0 -Wl,-rpath,/mnt/irisgpfs/apps/resif/aion/2020b/epyc/software/GCCcore/10.2.0/lib/gcc -L/mnt/irisgpfs/apps/resif/aion/2020b/epyc/software/GCCcore/10.2.0/lib/gcc -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/Bison/3.7.1-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/Bison/3.7.1-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/Boost/1.74.0-GCC-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/Boost/1.74.0-GCC-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/OpenBLAS/0.3.12-GCC-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/OpenBLAS/0.3.12-GCC-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/Python/3.8.6-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/Python/3.8.6-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/libffi/3.3-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/libffi/3.3-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/GMP/6.2.0-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/GMP/6.2.0-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/SQLite/3.33.0-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/SQLite/3.33.0-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/Tcl/8.6.10-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/Tcl/8.6.10-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/libreadline/8.0-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/libreadline/8.0-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/flex/2.6.4-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/flex/2.6.4-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/libarchive/3.4.3-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/libarchive/3.4.3-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/cURL/7.72.0-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/cURL/7.72.0-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/bzip2/1.0.8-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/bzip2/1.0.8-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/ncurses/6.2-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/ncurses/6.2-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/HDF5/1.10.7-gompi-2020b/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/HDF5/1.10.7-gompi-2020b/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/Szip/2.1.1-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/Szip/2.1.1-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/OpenMPI/4.0.5-GCC-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/OpenMPI/4.0.5-GCC-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/hwloc/2.2.0-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/hwloc/2.2.0-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/libpciaccess/0.16-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/libpciaccess/0.16-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/libxml2/2.9.10-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/libxml2/2.9.10-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/XZ/5.2.5-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/XZ/5.2.5-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/numactl/2.0.13-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/numactl/2.0.13-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/binutils/2.35-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/binutils/2.35-GCCcore-10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/zlib/1.2.11-GCCcore-10.2.0/lib64 -L/opt/apps/resif/aion/2020b/epyc/software/zlib/1.2.11-GCCcore-10.2.0/lib64 -Wl,-rpath,/mnt/irisgpfs/apps/resif/aion/2020b/epyc/software/GCCcore/10.2.0/lib64 -L/mnt/irisgpfs/apps/resif/aion/2020b/epyc/software/GCCcore/10.2.0/lib64 -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/Bison/3.7.1-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/Bison/3.7.1-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/Boost/1.74.0-GCC-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/Boost/1.74.0-GCC-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/Python/3.8.6-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/Python/3.8.6-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/libffi/3.3-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/libffi/3.3-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/GMP/6.2.0-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/GMP/6.2.0-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/SQLite/3.33.0-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/SQLite/3.33.0-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/Tcl/8.6.10-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/Tcl/8.6.10-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/libreadline/8.0-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/libreadline/8.0-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/flex/2.6.4-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/flex/2.6.4-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/libarchive/3.4.3-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/libarchive/3.4.3-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/cURL/7.72.0-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/cURL/7.72.0-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/bzip2/1.0.8-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/bzip2/1.0.8-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/ncurses/6.2-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/ncurses/6.2-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/HDF5/1.10.7-gompi-2020b/lib -L/opt/apps/resif/aion/2020b/epyc/software/HDF5/1.10.7-gompi-2020b/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/Szip/2.1.1-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/Szip/2.1.1-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/UCX/1.9.0-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/UCX/1.9.0-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/hwloc/2.2.0-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/hwloc/2.2.0-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/libpciaccess/0.16-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/libpciaccess/0.16-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/libxml2/2.9.10-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/libxml2/2.9.10-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/XZ/5.2.5-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/XZ/5.2.5-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/numactl/2.0.13-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/numactl/2.0.13-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/binutils/2.35-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/binutils/2.35-GCCcore-10.2.0/lib -Wl,-rpath,/opt/apps/resif/aion/2020b/epyc/software/zlib/1.2.11-GCCcore-10.2.0/lib -L/opt/apps/resif/aion/2020b/epyc/software/zlib/1.2.11-GCCcore-10.2.0/lib -Wl,-rpath,/mnt/irisgpfs/apps/resif/aion/2020b/epyc/software/GCCcore/10.2.0/lib -L/mnt/irisgpfs/apps/resif/aion/2020b/epyc/software/GCCcore/10.2.0/lib -lHYPRE -ldmumps -lmumps_common -lpord -lpthread -lscalapack -lopenblas -lpthread -lparmetis -lmetis -lm -lstdc++ -ldl -lmpi_usempif08 -lmpi_usempi_ignore_tkr -lmpi_mpifh -lmpi -lgfortran -lm -lgfortran -lm -lgcc_s -lquadmath -lstdc++ -ldl
+-----------------------------------------
+
+#PETSc Option Table entries:
+--ndofs 500000
+--problem_type poisson
+--scaling_type weak
+-ksp_rtol 1.0e-8
+-ksp_type cg
+-ksp_view
+-log_view
+-options_left
+-pc_hypre_boomeramg_agg_nl 4
+-pc_hypre_boomeramg_agg_num_paths 2
+-pc_hypre_boomeramg_strong_threshold 0.7
+-pc_hypre_type boomeramg
+-pc_type hypre
+#End of PETSc Option Table entries
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 3 unused database options. They are:
+Option left: name:--ndofs value: 500000
+Option left: name:--problem_type value: poisson
+Option left: name:--scaling_type value: weak
+srun: debug:  kvs_put processing time min=1000000, max=0 ave=0 (usec)
+srun: Sent KVS info to 4 nodes, up to 32 tasks per node
+srun: debug:  kvs_xmit time 1580 usec
+srun: debug:  kvs_put processing time min=1000000, max=0 ave=0 (usec)
+srun: Sent KVS info to 4 nodes, up to 32 tasks per node
+srun: debug:  kvs_xmit time 33905 usec
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0265: tasks 97-99: Completed
+srun: debug:  task 97 done
+srun: debug:  task 98 done
+srun: debug:  task 99 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 65-67: Completed
+srun: debug:  task 65 done
+srun: debug:  task 66 done
+srun: debug:  task 67 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0262: tasks 33-35: Completed
+srun: debug:  task 33 done
+srun: debug:  task 34 done
+srun: debug:  task 35 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 1-3: Completed
+srun: debug:  task 1 done
+srun: debug:  task 2 done
+srun: debug:  task 3 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0265: tasks 100-102: Completed
+srun: debug:  task 100 done
+srun: debug:  task 101 done
+srun: debug:  task 102 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 68-69: Completed
+srun: debug:  task 68 done
+srun: debug:  task 69 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0262: tasks 36-38: Completed
+srun: debug:  task 36 done
+srun: debug:  task 37 done
+srun: debug:  task 38 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 4-5: Completed
+srun: debug:  task 4 done
+srun: debug:  task 5 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 70-71: Completed
+srun: debug:  task 70 done
+srun: debug:  task 71 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 6-7: Completed
+srun: debug:  task 6 done
+srun: debug:  task 7 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0265: tasks 103-105: Completed
+srun: debug:  task 103 done
+srun: debug:  task 104 done
+srun: debug:  task 105 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0262: tasks 39-40: Completed
+srun: debug:  task 39 done
+srun: debug:  task 40 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 72-73: Completed
+srun: debug:  task 72 done
+srun: debug:  task 73 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 8-9: Completed
+srun: debug:  task 8 done
+srun: debug:  task 9 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0265: tasks 106-108: Completed
+srun: debug:  task 106 done
+srun: debug:  task 107 done
+srun: debug:  task 108 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0262: tasks 41-43: Completed
+srun: debug:  task 41 done
+srun: debug:  task 42 done
+srun: debug:  task 43 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 74-76: Completed
+srun: debug:  task 74 done
+srun: debug:  task 75 done
+srun: debug:  task 76 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 10-11: Completed
+srun: debug:  task 10 done
+srun: debug:  task 11 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0265: tasks 109-111: Completed
+srun: debug:  task 109 done
+srun: debug:  task 110 done
+srun: debug:  task 111 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0262: tasks 44-45: Completed
+srun: debug:  task 44 done
+srun: debug:  task 45 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 12-13: Completed
+srun: debug:  task 12 done
+srun: debug:  task 13 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 77-78: Completed
+srun: debug:  task 77 done
+srun: debug:  task 78 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0265: tasks 112-113: Completed
+srun: debug:  task 112 done
+srun: debug:  task 113 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0262: tasks 46-48: Completed
+srun: debug:  task 46 done
+srun: debug:  task 47 done
+srun: debug:  task 48 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 79-80: Completed
+srun: debug:  task 79 done
+srun: debug:  task 80 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 14-15: Completed
+srun: debug:  task 14 done
+srun: debug:  task 15 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0265: tasks 114-115: Completed
+srun: debug:  task 114 done
+srun: debug:  task 115 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 81-82: Completed
+srun: debug:  task 81 done
+srun: debug:  task 82 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 16-17: Completed
+srun: debug:  task 16 done
+srun: debug:  task 17 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0262: tasks 49-51: Completed
+srun: debug:  task 49 done
+srun: debug:  task 50 done
+srun: debug:  task 51 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0265: tasks 116-117: Completed
+srun: debug:  task 116 done
+srun: debug:  task 117 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 83-84: Completed
+srun: debug:  task 83 done
+srun: debug:  task 84 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 18-20: Completed
+srun: debug:  task 18 done
+srun: debug:  task 19 done
+srun: debug:  task 20 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0262: tasks 52-53: Completed
+srun: debug:  task 52 done
+srun: debug:  task 53 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0265: tasks 118-119: Completed
+srun: debug:  task 118 done
+srun: debug:  task 119 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 85-86: Completed
+srun: debug:  task 85 done
+srun: debug:  task 86 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 21-22: Completed
+srun: debug:  task 21 done
+srun: debug:  task 22 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0265: tasks 120-121: Completed
+srun: debug:  task 120 done
+srun: debug:  task 121 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0262: tasks 54-55: Completed
+srun: debug:  task 54 done
+srun: debug:  task 55 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 87-88: Completed
+srun: debug:  task 87 done
+srun: debug:  task 88 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0265: tasks 122-123: Completed
+srun: debug:  task 122 done
+srun: debug:  task 123 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0262: tasks 56-57: Completed
+srun: debug:  task 56 done
+srun: debug:  task 57 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 23-24: Completed
+srun: debug:  task 23 done
+srun: debug:  task 24 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 89-90: Completed
+srun: debug:  task 89 done
+srun: debug:  task 90 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0265: tasks 124-125: Completed
+srun: debug:  task 124 done
+srun: debug:  task 125 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 25-26: Completed
+srun: debug:  task 25 done
+srun: debug:  task 26 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0262: tasks 58-59: Completed
+srun: debug:  task 58 done
+srun: debug:  task 59 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 91-92: Completed
+srun: debug:  task 91 done
+srun: debug:  task 92 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 27-28: Completed
+srun: debug:  task 27 done
+srun: debug:  task 28 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0265: tasks 96,126-127: Completed
+srun: debug:  task 96 done
+srun: debug:  task 126 done
+srun: debug:  task 127 done
+srun: launch/slurm: _task_finish: Received task exit notification for 3 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0262: tasks 60-62: Completed
+srun: debug:  task 60 done
+srun: debug:  task 61 done
+srun: debug:  task 62 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 93-94: Completed
+srun: debug:  task 93 done
+srun: debug:  task 94 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 29-30: Completed
+srun: debug:  task 29 done
+srun: debug:  task 30 done
+2023-04-28 15:33:00.329 (  33.497s) [RANK: 0         ]             loguru.cpp:526   INFO| atexit
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0264: tasks 64,95: Completed
+srun: debug:  task 64 done
+srun: debug:  task 95 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0262: tasks 32,63: Completed
+srun: debug:  task 32 done
+srun: debug:  task 63 done
+srun: launch/slurm: _task_finish: Received task exit notification for 2 tasks of StepId=720167.0 (status=0x0000).
+srun: launch/slurm: _task_finish: aion-0261: tasks 0,31: Completed
+srun: debug:  task 0 done
+srun: debug:  task 31 done
+srun: debug:  IO thread exiting
+srun: debug:  mpi/pmix_v4: _conn_readable: (null) [0]: pmixp_agent.c:105:     false, shutdown
+srun: debug:  mpi/pmix_v4: _pmix_abort_thread: (null) [0]: pmixp_agent.c:355: Abort thread exit
