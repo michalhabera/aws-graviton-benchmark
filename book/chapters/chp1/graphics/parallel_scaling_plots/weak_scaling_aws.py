@@ -8,14 +8,14 @@ plt.rcParams["font.family"] = "sans-serif"
 plt.rcParams["font.sans-serif"] = "Avenir"
 plt.rcParams["font.size"] = 7
 
-runs = ["312", "314", "319", "490"]
+runs = ["18", "19", "20", "21", "26"]
 metrics = ["Create boundary conditions",
            "Create RHS function",
            "Assemble matrix",
            "Assemble vector", "Create Mesh",
            "FunctionSpace", "Solve"]
 
-files = [f"results/poisson/mpi_test_{run}.log" for run in runs]
+files = [f"output/mpi_test_v3_{run}.log" for run in runs]
 
 results = []
 for f in files:
@@ -46,5 +46,5 @@ plt.ylabel("time [s]")
 # plt.title("Weak scaling, Poisson, ~500k dofs per process. Big nodes. 50% utilisation.", fontsize=9)
 plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left", mode="expand", ncol=4)
 plt.tight_layout()
-plt.savefig("output/weak_scaling_aws_big_poisson.pdf")
-plt.savefig("output/weak_scaling_aws_big_poisson.png", dpi=600)
+plt.savefig("output/weak_scaling_aws_c7gn_poisson.pdf")
+plt.savefig("output/weak_scaling_aws_c7gn_poisson.png", dpi=600)

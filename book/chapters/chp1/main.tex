@@ -316,7 +316,7 @@ The Poisson equation solver benchmark consists of the following measured steps:
 \end{enumerate}
 %
 Weak scaling results (constant workload of approx. \SI{5e+5} degrees-of-freedom
-per process) are shown in \autoref{fig:weak-scaling}. Both Aion and AWS c7g show
+per process) are shown in \autoref{fig:weak-scaling}. Both Aion and AWS c7gn show
 almost constant times for mesh and function space creation. Moreover, matrix
 assembly has the most ideal weak parallel scalability due to the cell-local
 nature of the assembly loop and negligible amount of MPI communication during
@@ -333,8 +333,8 @@ benchmarked instances.
 
     \begin{subfigure}{.7\textwidth}
         \centering
-        \includegraphics{chapters/chp1/graphics/parallel_scaling_plots/output/weak_scaling_aws_big_poisson.pdf}
-        \caption{AWS c7g, \SI{5e+5} degrees-of-freedom per process, 50 \% utilisation (32 processes per node).}
+        \includegraphics{chapters/chp1/graphics/parallel_scaling_plots/output/weak_scaling_aws_c7gn_poisson.pdf}
+        \caption{AWS c7gn, \SI{5e+5} degrees-of-freedom per process, 50 \% utilisation (32 processes per node).}
         \label{fig:weak-scaling-aws}
     \end{subfigure}
     \caption{Weak parallel scalability of the Poisson equation solver.}
