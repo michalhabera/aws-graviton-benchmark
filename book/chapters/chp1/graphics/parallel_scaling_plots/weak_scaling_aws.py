@@ -8,7 +8,7 @@ plt.rcParams["font.family"] = "sans-serif"
 plt.rcParams["font.sans-serif"] = "Avenir"
 plt.rcParams["font.size"] = 7
 
-runs = ["18", "19", "20", "21", "26"]
+runs = ["19", "20", "21", "26"]
 metrics = ["Create boundary conditions",
            "Create RHS function",
            "Assemble matrix",
