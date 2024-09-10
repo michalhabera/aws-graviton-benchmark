@@ -1,0 +1,37 @@
+machine,problem,compiler,version,flags,degree,fcomp,scalar,batch_size,rank,cell_type,ncells,time
+aarch64, Laplacian, gcc, 13, "-Ofast -mcpu=neoverse-v1", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0358783
+aarch64, Laplacian, gcc, 13, "-Ofast -mcpu=neoverse-v1", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0359036
+aarch64, Laplacian, gcc, 13, "-Ofast -mcpu=neoverse-v1", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0358821
+aarch64, Laplacian, gcc, 13, "-Ofast -mcpu=neoverse-v1", 8, ffcx, double, None, tetrahedron, 1, 60606, 1.83991
+aarch64, Laplacian, gcc, 13, "-Ofast -mcpu=neoverse-v1", 8, ffcx, double, None, tetrahedron, 1, 60606, 1.83603
+aarch64, Laplacian, gcc, 13, "-Ofast -mcpu=neoverse-v1", 8, ffcx, double, None, tetrahedron, 1, 60606, 1.84205
+aarch64, Laplacian, gcc, 13, "-Ofast -mcpu=neoverse-v1 -fno-tree-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0358942
+aarch64, Laplacian, gcc, 13, "-Ofast -mcpu=neoverse-v1 -fno-tree-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0359123
+aarch64, Laplacian, gcc, 13, "-Ofast -mcpu=neoverse-v1 -fno-tree-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0359062
+aarch64, Laplacian, gcc, 13, "-Ofast -mcpu=neoverse-v1 -fno-tree-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 3.36134
+aarch64, Laplacian, gcc, 13, "-Ofast -mcpu=neoverse-v1 -fno-tree-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 3.36621
+aarch64, Laplacian, gcc, 13, "-Ofast -mcpu=neoverse-v1 -fno-tree-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 3.36594
+aarch64, Laplacian, gcc, 13, "-O2 -fno-tree-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.077611
+aarch64, Laplacian, gcc, 13, "-O2 -fno-tree-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0776743
+aarch64, Laplacian, gcc, 13, "-O2 -fno-tree-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0776602
+aarch64, Laplacian, gcc, 13, "-O2 -fno-tree-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 3.43651
+aarch64, Laplacian, gcc, 13, "-O2 -fno-tree-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 3.43691
+aarch64, Laplacian, gcc, 13, "-O2 -fno-tree-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 3.43947
+aarch64, Laplacian, clang, 18.1.3, "-Ofast -mcpu=neoverse-v1", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0514169
+aarch64, Laplacian, clang, 18.1.3, "-Ofast -mcpu=neoverse-v1", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0513849
+aarch64, Laplacian, clang, 18.1.3, "-Ofast -mcpu=neoverse-v1", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0513865
+aarch64, Laplacian, clang, 18.1.3, "-Ofast -mcpu=neoverse-v1", 8, ffcx, double, None, tetrahedron, 1, 60606, 1.86521
+aarch64, Laplacian, clang, 18.1.3, "-Ofast -mcpu=neoverse-v1", 8, ffcx, double, None, tetrahedron, 1, 60606, 1.86341
+aarch64, Laplacian, clang, 18.1.3, "-Ofast -mcpu=neoverse-v1", 8, ffcx, double, None, tetrahedron, 1, 60606, 1.86611
+aarch64, Laplacian, clang, 18.1.3, "-Ofast -mcpu=neoverse-v1 -fno-slp-vectorize -fno-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0419091
+aarch64, Laplacian, clang, 18.1.3, "-Ofast -mcpu=neoverse-v1 -fno-slp-vectorize -fno-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0418914
+aarch64, Laplacian, clang, 18.1.3, "-Ofast -mcpu=neoverse-v1 -fno-slp-vectorize -fno-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0419188
+aarch64, Laplacian, clang, 18.1.3, "-Ofast -mcpu=neoverse-v1 -fno-slp-vectorize -fno-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 3.2149
+aarch64, Laplacian, clang, 18.1.3, "-Ofast -mcpu=neoverse-v1 -fno-slp-vectorize -fno-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 3.21416
+aarch64, Laplacian, clang, 18.1.3, "-Ofast -mcpu=neoverse-v1 -fno-slp-vectorize -fno-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 3.21569
+aarch64, Laplacian, clang, 18.1.3, "-O2 -fno-slp-vectorize -fno-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0655385
+aarch64, Laplacian, clang, 18.1.3, "-O2 -fno-slp-vectorize -fno-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0655428
+aarch64, Laplacian, clang, 18.1.3, "-O2 -fno-slp-vectorize -fno-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.065568
+aarch64, Laplacian, clang, 18.1.3, "-O2 -fno-slp-vectorize -fno-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 3.29493
+aarch64, Laplacian, clang, 18.1.3, "-O2 -fno-slp-vectorize -fno-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 3.29647
+aarch64, Laplacian, clang, 18.1.3, "-O2 -fno-slp-vectorize -fno-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 3.29428

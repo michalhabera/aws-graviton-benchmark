@@ -1,0 +1,37 @@
+machine,problem,compiler,version,flags,degree,fcomp,scalar,batch_size,rank,cell_type,ncells,time
+x86_64, Laplacian, gcc, 13, "-Ofast -march=znver2 -mtune=znver2", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.047964
+x86_64, Laplacian, gcc, 13, "-Ofast -march=znver2 -mtune=znver2", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0468294
+x86_64, Laplacian, gcc, 13, "-Ofast -march=znver2 -mtune=znver2", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0469983
+x86_64, Laplacian, gcc, 13, "-Ofast -march=znver2 -mtune=znver2", 8, ffcx, double, None, tetrahedron, 1, 60606, 1.37311
+x86_64, Laplacian, gcc, 13, "-Ofast -march=znver2 -mtune=znver2", 8, ffcx, double, None, tetrahedron, 1, 60606, 1.37698
+x86_64, Laplacian, gcc, 13, "-Ofast -march=znver2 -mtune=znver2", 8, ffcx, double, None, tetrahedron, 1, 60606, 1.36947
+x86_64, Laplacian, gcc, 13, "-Ofast -march=znver2 -mtune=znver2 -fno-tree-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0530043
+x86_64, Laplacian, gcc, 13, "-Ofast -march=znver2 -mtune=znver2 -fno-tree-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.053307
+x86_64, Laplacian, gcc, 13, "-Ofast -march=znver2 -mtune=znver2 -fno-tree-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0531685
+x86_64, Laplacian, gcc, 13, "-Ofast -march=znver2 -mtune=znver2 -fno-tree-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 5.0448
+x86_64, Laplacian, gcc, 13, "-Ofast -march=znver2 -mtune=znver2 -fno-tree-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 5.04156
+x86_64, Laplacian, gcc, 13, "-Ofast -march=znver2 -mtune=znver2 -fno-tree-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 5.04191
+x86_64, Laplacian, gcc, 13, "-O2 -fno-tree-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.117142
+x86_64, Laplacian, gcc, 13, "-O2 -fno-tree-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.116303
+x86_64, Laplacian, gcc, 13, "-O2 -fno-tree-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.116229
+x86_64, Laplacian, gcc, 13, "-O2 -fno-tree-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 4.23044
+x86_64, Laplacian, gcc, 13, "-O2 -fno-tree-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 4.22451
+x86_64, Laplacian, gcc, 13, "-O2 -fno-tree-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 4.23862
+x86_64, Laplacian, clang, 18.1.3, "-Ofast -march=znver2 -mtune=znver2", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0504709
+x86_64, Laplacian, clang, 18.1.3, "-Ofast -march=znver2 -mtune=znver2", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0505992
+x86_64, Laplacian, clang, 18.1.3, "-Ofast -march=znver2 -mtune=znver2", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0505421
+x86_64, Laplacian, clang, 18.1.3, "-Ofast -march=znver2 -mtune=znver2", 8, ffcx, double, None, tetrahedron, 1, 60606, 1.20125
+x86_64, Laplacian, clang, 18.1.3, "-Ofast -march=znver2 -mtune=znver2", 8, ffcx, double, None, tetrahedron, 1, 60606, 1.21571
+x86_64, Laplacian, clang, 18.1.3, "-Ofast -march=znver2 -mtune=znver2", 8, ffcx, double, None, tetrahedron, 1, 60606, 1.18121
+x86_64, Laplacian, clang, 18.1.3, "-Ofast -march=znver2 -mtune=znver2 -fno-slp-vectorize -fno-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0488647
+x86_64, Laplacian, clang, 18.1.3, "-Ofast -march=znver2 -mtune=znver2 -fno-slp-vectorize -fno-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0487964
+x86_64, Laplacian, clang, 18.1.3, "-Ofast -march=znver2 -mtune=znver2 -fno-slp-vectorize -fno-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.0488887
+x86_64, Laplacian, clang, 18.1.3, "-Ofast -march=znver2 -mtune=znver2 -fno-slp-vectorize -fno-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 4.97994
+x86_64, Laplacian, clang, 18.1.3, "-Ofast -march=znver2 -mtune=znver2 -fno-slp-vectorize -fno-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 4.95295
+x86_64, Laplacian, clang, 18.1.3, "-Ofast -march=znver2 -mtune=znver2 -fno-slp-vectorize -fno-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 4.98532
+x86_64, Laplacian, clang, 18.1.3, "-O2 -fno-slp-vectorize -fno-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.100245
+x86_64, Laplacian, clang, 18.1.3, "-O2 -fno-slp-vectorize -fno-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.100378
+x86_64, Laplacian, clang, 18.1.3, "-O2 -fno-slp-vectorize -fno-vectorize", 1, ffcx, double, None, tetrahedron, 1, 2500000, 0.10289
+x86_64, Laplacian, clang, 18.1.3, "-O2 -fno-slp-vectorize -fno-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 4.10006
+x86_64, Laplacian, clang, 18.1.3, "-O2 -fno-slp-vectorize -fno-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 4.10213
+x86_64, Laplacian, clang, 18.1.3, "-O2 -fno-slp-vectorize -fno-vectorize", 8, ffcx, double, None, tetrahedron, 1, 60606, 4.09858
