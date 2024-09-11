@@ -212,11 +212,11 @@ functions at quadrature points and have no arithmetic operations. Computations
 independent of the quadrature loop contain more intense arithmetic operations
 (e.g. determinant of the Jacobian), but are executed only once.
 
-The most critical part of the code is contained in the quadrature loop body. For
-the eight-order Laplace operator there is \lstinline{NUM_QUAD_POINTS = 214} and
-\lstinline{NUM_DOFS = 165}. There are two inner-most loops with vectorization
-potential: coefficient evaluation and tensor assignment. Both contain a set of
-multiply-add operations.
+The most performance critical part of the code is contained in the quadrature
+loop body. For the eight-order Laplace operator there is
+\lstinline{NUM_QUAD_POINTS = 214} and \lstinline{NUM_DOFS = 165}. There are two
+inner-most loops with vectorization potential: coefficient evaluation and
+tensor assignment. Both contain a set of multiply-add operations.
 
 For the finite element kernel benchmarks we compiled the kernels with
 LLVM/clang 18.1.3 and GCC 13.2.0. Full details are given in
