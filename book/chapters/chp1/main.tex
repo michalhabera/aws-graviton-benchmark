@@ -18,16 +18,16 @@ software on Amazon Web Services (AWS) c7g and c7gn instances with Graviton3
 processors. Graviton3 processors are based on the ARM64 instruction set and
 provide Scalable Vector Extensions (SVE) for single instruction, multiple data
 (SIMD) operations. Comparing clang 18 and GCC 13 series compilers for compiling
-a high-order laplace finite element kernel our results show that GCC emitted
+a high-order Laplace finite element kernel our results show that GCC emitted
 more automatically vectorised loops than clang. The runtime performance of the
 GCC compiled kernel was 20 \% faster than the clang compiled kernel. The c7gn
-instances include a fast Elastic Fabric Adaptor (EFA) interconnect with a
-bandwidth of $\SI{200}{\giga\byte\per\second}$ for low-latency high-bandwidth
-Message Passing Interface (MPI) based parallel communication.  We tested
-multi-node weak scalability of a Poisson solver up to 512 MPI processes. We
-find the overall performance and weak scalability of the c7gn-based cluster is
-similar to a dedicated AMD EPYC Rome x86-64 cluster installed at the University
-of Luxembourg.
+instances include a Elastic Fabric Adaptor (EFA) interconnect with a bandwidth
+of $\SI{200}{\giga\byte\per\second}$ for low-latency and high-bandwidth Message
+Passing Interface (MPI) based parallel communication.  We tested multi-node
+weak scalability of a Poisson solver up to 512 MPI processes. We find the
+overall performance and weak scalability of the c7gn-based cluster is similar
+to a dedicated AMD EPYC Rome x86-64 cluster installed at the University of
+Luxembourg.
 }
 
 \section*{Introduction}
