@@ -52,12 +52,12 @@ finite element problem in the Unified Form Language
 into a low-level C kernel that computes the finite element tensor on any given
 cell of the finite element mesh of the problem domain.
 
-One important aspect for achieving strong kernel performance at runtime is
-ensuring the assembly code of the compiled kernel contains calls to single
-instruction multiple data (SIMD) operations. SIMD operations can apply the same
-operation to multiple data items. Widely available SIMD standards include
-Streaming SIMD Extensions (SSE), Advanced Vector Extensions (AVX), Neon and
-Scalable Vector Extensions (SVE). 
+One  aspect of strong kernel performance at runtime is ensuring the assembly
+code of the compiled kernel contains calls to single instruction multiple data
+(SIMD) operations. SIMD operations can apply the same operation to multiple
+data items. Widely available SIMD standards include Streaming SIMD Extensions
+(SSE), Advanced Vector Extensions (AVX), Neon and Scalable Vector Extensions
+(SVE). 
 
 Ensuring that the compiled kernels contain SIMD instructions can be acheived in
 a number of different ways. One option is to include compiler intrinsics in the
@@ -66,27 +66,27 @@ provide excellent performance, but is inherently non-portable across SIMD
 standards. Another option is to use a portable SIMD abstraction library e.g.
 Google's Highway or SIMD Everywhere, that provides portable SIMD-like
 abstractions on top of compiler intrinsics. A third option, and the one
-currently used in FEniCSx, is to ensure that the generated C code is amenable
+currently used by FEniCSx, is to ensure that the generated C code is amenable
 to the compiler applying automatic vectorisation, a process that automatically
 converts a scalar program into a vectorised program.
  
 Consequently to achieve good performance on Graviton3 it is important to verify
 that the latest compilers do automatically emit ARM SIMD instructions (Scalable
 Vector Extensions (SVE) and/or Neon) when compiling the generated C finite
-element kernels and 
+element kernels and additionally that these kernels acheive reasonable runtime
+performance. 
 
-DOLFINx, the finite element problem solving environment of the FEniCS Project,
-also supports parallel assembly of global finite element data strucures (sparse
-matrices, vectors) using the Message Passing Interface (MPI). The finite
-element mesh is partitioned between MPI processes and each process is
+In addition to SIMD parallelisation at the kernel level, DOLFINx, the finite
+element problem solving environment of the FEniCS Project, also supports
+shared-memory parallel assembly of global finite element data structures
+(sparse matrices and vectors) using the Message Passing Interface (MPI). The
+finite element mesh is partitioned between MPI processes and each process is
 responsible for assembling contributions from its own partition of the mesh.
 Communication between MPI processes is then required to ensure a consistent
 representation of the finite element linear system at degrees of freedom
 located at the partition boundaries.
 
-Does a Poisson solver implemented using the FEniCS Project scale when running
-with MPI-based distributed memory parallelism across the AWS Elastic Fabric
-Adapter?
+
 
 \section*{Methodology and Results}
 In this section we present benchmark results. AWS c7g instances are compared to
@@ -351,29 +351,29 @@ Results for the parallel scalability were produced using performance test codes
 for FEniCSx \citep{Wells2023} built against DOLFINx 0.6.0 and PETSc 3.18
 \citep{petsc} with the Spack package manager using GCC 12.2.0. We setup Spack to
 use a version of OpenMPI provided by AWS which includes the appropriate
-libfabric with support for the EFA interconnect.
+libfabric with native support for the EFA interconnect.
 
 The Poisson equation solver benchmark consists of the following measured steps:
 \begin{enumerate}
     \item Create mesh. Create a unit cube mesh and discretise using linear
     tetrahedral cells. Partition the mesh with Parmetis partitioner and
-    distribute. Compute cell-to-edge connectivities.
-    \item Create function space. Create scalar-valued, globally continuous,
-    piecewise linear function space on the mesh.
+    distribute.
+    \item Create function space. Create a scalar-valued, globally $C^0$
+    continuous, piecewise linear function space on the mesh.
     \item Assemble matrix. Execute the local Poisson equation kernel over the
-    mesh and assemble PETSc MATMPIAIJ (distributed compressed sparse row)
+    mesh and assemble into a PETSc MATMPIAIJ (distributed compressed sparse row)
     matrix.
     \item Solve. Run Conjugate Gradient (CG) solver with a classical algebraic
     multigrid (BoomerAMG \citep{hypre}) preconditioner.
 \end{enumerate}
 %
 Weak scaling results (constant workload of approx. \SI{5e+5} degrees-of-freedom
-per process) are shown in \autoref{fig:weak-scaling}. Both Aion and AWS c7gn show
-almost constant times for mesh and function space creation. Moreover, matrix
-assembly has the most ideal weak parallel scalability due to the cell-local
-nature of the assembly loop and negligible amount of MPI communication during
-matrix finalisation. The solution step shows small increase (30 \%) for both
-benchmarked instances.
+per process) are shown in \autoref{fig:weak-scaling}. Both Aion and AWS c7gn
+show almost constant times for mesh and function space creation. Moreover,
+matrix assembly has the most ideal weak parallel scalability due to the
+cell-local nature of the assembly loop and negligible amount of MPI
+communication during matrix finalisation. The solve step shows small
+increase (30 \%) for both clusters.
 
 \begin{figure}
     \begin{subfigure}{.7\textwidth}
@@ -396,18 +396,18 @@ benchmarked instances.
 \section*{Conclusion}
 
 Benchmarks for memory bandwidth, local finite element kernels and parallel
-scalability of Poisson solver were executed on nodes Aion and on AWS c7g
+scalability of Poisson solver were executed on nodes Aion and on AWS c7g(n)
 instances.
 
 Memory bandwidth measured using STREAM MPI confirms higher memory transfer rate
-of AWS c7g, but superior total bandwidth of ~\SI{310}{\giga\byte\per\second} per
-Aion node.
+of AWS c7g(n), but a superior total bandwidth of ~\SI{310}{\giga\byte\per\second}
+per Aion node.
 
 In terms of auto-vectorization capabilities of GCC and clang, both produced
 optimized instructions for the targeted microarchitectures (Zen 2 for Aion and
 Neoverse V1 for AWS c7g). This observation was confirmed with performance
-benchmarks based on local finite element kernels for Laplace (stiffness)
-operator action for low (memory bound) and high (compute bound) orders. Both
+benchmarks based on local finite element kernels for the Laplace (stiffness)
+operator for low (memory bound) and high (compute bound) orders. Both
 GCC 13.2.0 and clang 18.1.3 emitted vector instructions on SVE \SI{256}{bit}
 registers on AWS c7g. Automatic loop vectorization was effective on two identified
 loops in the generated C code.
