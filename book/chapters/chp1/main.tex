@@ -37,13 +37,12 @@ to write finite element solvers for problems arising in fields that involve the
 solution of partial differential equations (PDEs), including mathematics, biology,
 physics, engineering, geophysics and mechanics.
 
-AWS Graviton3-based instances aim to provide a cost effective compute
-resources, particularly for scientific computing and machine-learning
-applications. Particularly appealing for running scientific computing codes
-such as the FEniCS Project are Graviton3's support for Scalable Vector
-Extension (SVE) instructions and instances including an Elastic Fabric Adaptor
-(EFA) interconnect for high-bandwidth low-latency communications between
-instances.
+AWS Graviton3-based instances aim to provide a cost effective compute resources
+with a focus on scientific computing and machine-learning applications.
+Particularly appealing for running scientific computing codes such as the
+FEniCS Project is Graviton3's support for Scalable Vector Extension (SVE)
+instructions and instances including an Elastic Fabric Adaptor (EFA)
+interconnect for high-bandwidth low-latency communications between instances.
 
 A key technology in the FEniCS Project is the use of automatic code generation
 (compilation) to reduce the tedious and error-prone work associated with
@@ -63,18 +62,19 @@ Scalable Vector Extensions (SVE).
 
 Ensuring that the compiled kernels contain SIMD instructions can be acheived in
 a number of different ways. One option is to include compiler intrinsics in the
-generated C code to directly call platform-specific SIMD operations. This can
+generated C code that directly call platform-specific SIMD operations. This can
 provide excellent performance, but is inherently non-portable across SIMD
-standards. Another option is to use a library e.g. Google's Highway, that
-provides portable SIMD abstractions on top of compiler intrinsics. A third
-option, and the one currently pursued by FEniCSx, is to ensure that the
-generated C code is amenable to the compiler applying automatic vectorisation
-a process which converts a scalar
-
-Do the latest compilers automatically emit ARM SIMD instructions (Scalable
+standards. Another option is to use a portable SIMD abstraction library e.g.
+Google's Highway or SIMD Everywhere, that provides portable SIMD-like
+abstractions on top of compiler intrinsics. A third option, and the one
+currently used in FEniCSx, is to ensure that the generated C code is amenable
+to the compiler applying automatic vectorisation, a process that automatically
+converts a scalar program into a vectorised program.
+ 
+Consequently to achieve good performance on Graviton3 it is important to verify
+that the latest compilers do automatically emit ARM SIMD instructions (Scalable
 Vector Extensions (SVE) and/or Neon) when compiling the generated C finite
-element kernels, and what is the runtime performance of the compiled
-finite element kernels?
+element kernels and 
 
 DOLFINx, the finite element problem solving environment of the FEniCS Project,
 also supports parallel assembly of global finite element data strucures (sparse
