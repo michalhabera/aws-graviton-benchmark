@@ -47,5 +47,8 @@ for (compiler, degree), group in data.groupby(["compiler", "degree"]):
     plt.xticks(fontsize=8, labels=xlabels, ticks=xs)
     plt.ylabel("time [s]")
     plt.legend()
-    # plt.tight_layout()
+    if degree == 1:
+        plt.ylim((0.0, 0.12))
+    elif degree == 8:
+        plt.ylim((0.0, 6.0))
     plt.savefig(f"local_operator_{compiler.strip()}_deg{degree}.pdf", bbox_inches="tight")
