@@ -16,7 +16,7 @@ J.~S.~Hale \email{jack.hale@uni.lu} \at Institute of Computational Engineering, 
 We show performance results executing the FEniCS Project finite element software
 on Amazon Web Services (AWS) c7g and c7gn instances with Graviton3 processors.
 Graviton3 processors implement the ARMv8.4-A instruction set and provide
-Scalable Vector Extensions (SVE) for single instruction, multiple data (SIMD)
+Scalable Vector Extensions (SVE) for Single Instruction Multiple Data (SIMD)
 operations. Comparing clang 18 and GCC 13 series compilers for compiling a
 high-order Laplace finite element kernel our results show that both compilers
 emitted FMLA instructions on SVE registers for automatically vectorized loops.
@@ -57,18 +57,10 @@ code of the compiled kernel contains calls to single instruction multiple data
 (SIMD) operations that are widely avaiable on modern CPUs. SIMD operations can
 apply the same operation to multiple data items. Commonly available SIMD
 standards include Streaming SIMD Extensions (SSE), Advanced Vector Extensions
-(AVX), Neon and Scalable Vector Extensions (SVE). 
-
-Ensuring that the compiled kernels contain SIMD instructions can be acheived in
-a number of different ways. One option is to include compiler intrinsics in the
-generated C code that directly call platform-specific SIMD operations. This can
-provide excellent performance, but is inherently non-portable across SIMD
-standards. Another option is to use a portable SIMD abstraction library e.g.
-Google's Highway or SIMD Everywhere, that provides portable SIMD-like
-abstractions on top of platform-specific compiler intrinsics. A third option,
-and the one currently used by FEniCSx, is to ensure that the generated C code
-is amenable to the compiler applying automatic vectorisation, a process that
-automatically converts a scalar program into a vectorised program.
+(AVX), Neon and Scalable Vector Extensions (SVE).  The current strategy of FFCX
+to ensure that its kernels take advantage of is amenable to the compiler applying
+automatic vectorisation, a process that automatically converts a scalar program
+into a vectorised program.
  
 Consequently for user's to achieve good performance when using FEniCSx on
 Graviton3 it is important to verify that the latest compilers do automatically
@@ -87,18 +79,18 @@ located at the partition boundaries.
 
 
 \section*{Methodology and Results}
-In this section we present benchmark results. AWS c7g instances are compared to
-Aion computing instances available at the University of Luxembourg HPC
-facilities \citep{VCPKVO_HPCCT22}. These instances have different hardware
-configuration, see \autoref{tab:aion-aws-config}. The purpose of the comparison
-to ascertain an ARM-based cloud compute cluster can be broadly competitive with
-a relatively modern x86-64 cluster.
+In this section we present the benchmark methodology and results. 
+
+\subsection*{Systems}
+AWS c7g and c7gn instances are compared to Aion computing instances available
+at the University of Luxembourg HPC facilities \citep{VCPKVO_HPCCT22}. These
+instances have different hardware configuration, see
+\autoref{tab:aion-aws-config} for full details.
 
 The FEniCS Project components are written in a mixture of Python, modern-style
 C++20 and Standard C17. All computationally intensive parts (core data
 structures and algorithms for finite element linear system assembly) of DOLFINx
 are written in a mixture of C++20 and Standard C17.
-
 
 \begin{table}
   \footnotesize
@@ -106,12 +98,16 @@ are written in a mixture of C++20 and Standard C17.
   \begin{tabular}{l|l|l}
                               & Aion node                                                          & AWS c7g instance \\ \hline \hline
     Processor                 & \makecell[l]{2 x (AMD Epyc ROME 7H12, \\ 64 cores @ 2.6 GHz)}      & \makecell[l]{1 x (Graviton3, \\ 64 cores @ 2.6 GHz)} \\ \hline
-    Architecture              & x86\_64, Zen 2 (AVX2)                                              & ARMv8.5, Neoverse V1 (SVE) \\ \hline
-    Memory                    & \makecell[l]{256 GB DDR4 \\ 3200 MT/s = 25.6 GB/s \\ 8 NUMA nodes} & \makecell[l]{128 GB DDR5 \\ 4800 MT/s = 38.4 GB/s \\ Unified Memory Access (no NUMA) } \\ \hline
-    Total mem. bandwidth      & 2 x 200 GB/s                                                       & 1 x 300 GB/s \\ \hline
+    Architecture              & x86\_64, Zen 2 (AVX2)                                              & ARMv8.4-A, Neoverse V1 (SVE) \\ \hline
+    Memory                    & \makecell[l]{256 GB DDR4 \\ 3200 MT/s = 25.6 GB/s \\ 8 NUMA nodes} & \makecell[l]{128 GB DDR5 \\ 4800 MT/s = 38.4 GB/s  \\ Unified Memory Access (no NUMA) } \\ \hline
+    Total mem. bandwidth      & 2 x 200 GB/s                                                       & 1 x 300 GB/s  \\ \hline
   \end{tabular}
   \vspace{5pt}
-  \caption{Configuration of the Aion nodes (University of Luxembourg HPC) and AWS c7g (Amazon) instances. The c7gn instance used in the weak scaling tests additionally includes a $\SI{200}{\giga\byte\per\second}$ interconnect.}
+  \caption{Configuration of the Aion nodes (University of Luxembourg HPC) and
+	AWS c7g (Amazon) instances. The c7gn instance used in the Poisson weak
+	scaling test has the same hardware as c7g with the addition of a
+	$\SI{200}{\giga\byte\per\second}$ interconnect between instances for
+	MPI-based communication.}
   \label{tab:aion-aws-config}
 \end{table}
 
@@ -120,23 +116,23 @@ are written in a mixture of C++20 and Standard C17.
 Low-order finite element methods are typically memory bandwidth constrained as
 the time taken to load and store data from main memory (e.g. the mesh geometry)
 dominates the time taken to perform the arithmatic operations to compute the
-finite element cell tensor itself. Understanding the memory bandwidth
-characteristics of a processor is therefore important for ensuring optimal
-performance.
+finite element cell tensor. Understanding the memory bandwidth characteristics
+of a processor is therefore important for ensuring optimal performance.
 
-STREAM and STREAM MPI \citep{McCalpin1995,McCalpin2007} are the industry standard
-benchmarks for measuring sustained memory bandwidth performance. It estimates
-memory bandwidth from memory intense operations (copy, scale, add) on large
-arrays. In \autoref{fig:stream-single} results for the copy operation for
-single-node benchmark are shown. For the single-node benchmark theoretical peak
-memory bandwidth of $\SI{400}{\giga\byte\per\second}$ for Aion and
-$\SI{300}{\giga\byte\per\second}$ for AWS c7g are reached within 80 \%, which is
-considered a reasonable outcome of the STREAM benchmark. Bandwidth saturation is
-observed around 20 \% of the node utilisation. Both curves show different
-characteristics of the saturation point due to different memory access
-configuration. On the Aion instances there are 8 non-unified memory access
-(NUMA) nodes of 16 cores each, while AWS c7g was setup with unified memory
-access.
+STREAM and STREAM MPI \citep{McCalpin1995,McCalpin2007} are the industry
+standard benchmarks for measuring sustained memory bandwidth performance. They
+estimate memory bandwidth from memory intense operations (copy, scale, add) on
+large contiguous arrays. In \autoref{fig:stream-single} results for the
+copy operation for single-node benchmark are shown. For the single-node
+benchmark theoretical peak memory bandwidth of
+$\SI{400}{\giga\byte\per\second}$ for Aion and
+$\SI{300}{\giga\byte\per\second}$ for AWS c7g are reached within 80 \%, which
+is considered a reasonable outcome of the STREAM benchmark. Bandwidth
+saturation is observed around 20 \% of the node utilisation. Both curves show
+different characteristics of the saturation point due to different memory
+access configuration. On the Aion instances there are 8 non-unified memory
+access (NUMA) nodes of 16 cores each, while AWS c7g was setup with unified
+memory access.
 
 In terms of multi-node scalability, low utilisation (8 processes on 8 nodes
 each) helps to escape the bandwidth limitations as expected, see
@@ -145,7 +141,7 @@ each) helps to escape the bandwidth limitations as expected, see
 \begin{figure}
     \begin{subfigure}{.5\textwidth}
         \includegraphics{chapters/chp1/graphics/stream_plots/stream_single_node.pdf}
-        \caption{Single-node.}
+	\caption{Single-node. Theoretical peak bandwidth of each system show as dashed line.}
         \label{fig:stream-single}
     \end{subfigure}%
     \begin{subfigure}{.5\textwidth}
@@ -161,36 +157,37 @@ each) helps to escape the bandwidth limitations as expected, see
 In order to measure the performance of a standard FEniCS user finite element
 code we used the Local Finite Element Operator Benchmarks repository
 \citep{Baratta2023}. The benchmark measures execution time for local finite
-element kernel generated by the FEniCS Form Compiler (FFCx), \citep{baratta2023dolfinx}.
-Two types of kernels were generated for the purpose of this paper. Matrix-free
-three-dimensional laplace kernel represents a finite element discretisation of
-the action of laplace (stiffness) operator with spatially varying material
-property $\kappa(x)$, i.e.
+element kernel generated by the FEniCS Form Compiler (FFCx)
+\citep{kirby_compiler_2006}. We generate a matrix-free three-dimensional
+Laplace kernel represents a finite element discretisation of the action of
+Laplace operator with spatially varying material property $\kappa(x)$
 \begin{align}
     v_i = A_{ij} w_j, \quad
     A_{ij} = \int_K \kappa J_{mk} J_{mn} \nabla_k \phi_i \nabla_n \phi_j |\det J| \mathrm dx,
 \end{align}
 where $K$ is a fixed reference tetrahedron, $w_j \in \mathbb{R}^{n}$ is a fixed,
-prescribed vector and $J$ is a Jacobian transformation matrix. The generated
-kernel assembles a double precision vector $v_i \in \mathbb{R}^{n}$, where $n =
-4$ for first-order discretization (low-order) and $n = 165$ for eight-order
-discretization (high-order). Low-order kernels are expected to be memory
-bandwidth limited, while high-order kernels have higher arithmetic intesity. In
-addition, the matrix-free (operator action) version requires fewer copy
-operations in comparison to the assembly of a matrix, increasing the ratio of
-floating-point operations to memory loads and stores. Consequently for the
-high-order kernels there is the scope for significant performance increases if
-the compiler can automatically emit SIMD instructions.
+prescribed vector and $J$ is a Jacobian transformation matrix.
+
+The generated kernel calculates a double precision vector $v_i \in
+\mathbb{R}^{n}$, where $n = 4$ for first-order discretization (low-order) and
+$n = 165$ for eight-order discretization (high-order). Low-order kernels are
+expected to be memory bandwidth limited, while high-order kernels have higher
+arithmetic intesity. In addition, the matrix-free (operator action) version
+requires fewer load and store operations in comparison to the assembly of a
+matrix, increasing the ratio of floating-point operations to memory loads and
+stores. Consequently for the high-order kernels there is the scope for
+significant performance increases if the compiler can automatically emit SIMD
+operations.
 
 \subsubsection*{Generated code structure}
 
-Compiler (loop) SIMD auto-vectorization is usually performed for inner-most loops
-with compile-time known bounds. The analysis of FFCx autogenerated code is
-required to understand the potential and missed optimizations.
+Compiler (loop) SIMD auto-vectorization is usually performed for inner-most
+loops with compile-time known bounds. The analysis of FFCx autogenerated code
+is required to understand the potential and missed optimizations.
 
 \lstset{style=CStyle}
 \begin{lstlisting}[language=c,
-    caption=FFCx generated finite element kernel.,
+    caption=Abbreviated FFCx generated finite element kernel.,
     basicstyle=\ttfamily\footnotesize,
     keywordstyle=\ttb\color{deepblue}\footnotesize,
     label=lst:c-code]
@@ -219,25 +216,22 @@ void kernel(double* restrict A, const double* restrict w, ...){
 }
 \end{lstlisting}
 
-An example generated C code is shown in Code Listing \ref{lst:c-code}. Firstly,
-there are arrays defining finite element basis functions at quadrature points
-and have no arithmetic operations. Computations independent on the quadrature
-loop contain more intense arithmetic operations (e.g. determinant of the
-jacobian), but are executed only once.
+An abbreviated example of generated C code is shown in Code Listing
+\ref{lst:c-code}. Firstly, there are arrays defining finite element basis
+functions at quadrature points and have no arithmetic operations. Computations
+independent of the quadrature loop contain more intense arithmetic operations
+(e.g. determinant of the Jacobian), but are executed only once.
 
 The most critical part of the code is contained in the quadrature loop body. For
-the eight-order laplace operator there is \lstinline{NUM_QUAD_POINTS = 214} and
+the eight-order Laplace operator there is \lstinline{NUM_QUAD_POINTS = 214} and
 \lstinline{NUM_DOFS = 165}. There are two inner-most loops with vectorization
 potential: coefficient evaluation and tensor assignment. Both contain a set of
 multiply-add operations.
 
-It is worth noting, that Vector Length Agnostic (VLA) programming model of the
-SVE on Graviton3 would allow for auto-vectorization of loops without compile-time
-known bounds, \citep{svevla2020}. Unfortunately, there are no such loops in the C code
-generated from the FEniCS Form Compiler.
-
-Different compilers and compiler options were used to assess the performance
-differences on the AWS c7g instances, see \autoref{tab:compilers-kernels}.
+For the finite element kernel benchmarks we compiled the kernels with
+LLVM/clang 18.1.3 and GCC 13.2.0 for the purpose of comparing the generated
+assembly code and comparing runtime performance. Full details are given in
+\autoref{tab:compiler-kernels}.
 
 \begin{table}
     \centering
@@ -257,19 +251,15 @@ differences on the AWS c7g instances, see \autoref{tab:compilers-kernels}.
     \label{tab:compilers-kernels}
 \end{table}
 
-For the finite element kernel benchmarks we compiled the kernels with
-LLVM/clang 18.1.3 and GCC 13.2.0 for the purpose of comparing the generated
-assembly code and comparing runtime performance.
-
 Results for kernel benchmarks are included in \autoref{fig:local-deg1} and
 \autoref{fig:local-deg8}. Low-order kernels show no dependence on compiler
 vectorization setup. On the other hand, AWS c7g shows 1.3x speed-up over
 Aion due to higher memory bandwidth for a single process (DDR5 vs. DDR4).
 
-High-order kernels, which are expected to benefit from compiler optimization,
+High-order kernels, which are expected to benefit from SIMD instructions,
 show this trend clearly. Both clang and GCC auto-vectorizers perform well,
 producing a noticeable speed-up (\textgreater 2x) in the most optimized setting. The
-vectorization speed-up (\textgreater 4x) is more significant of the Aion instance.
+vectorization speed-up (\textgreater 4x) is more significant with the Aion nodes.
 
 \begin{figure}
     \begin{subfigure}{.5\textwidth}
