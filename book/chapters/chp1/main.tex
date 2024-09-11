@@ -13,26 +13,25 @@ J.~S.~Hale \email{jack.hale@uni.lu} \at Institute of Computational Engineering, 
 \maketitle
 
 \abstract{
-We show performance results executing the FEniCS Project finite element
-software on Amazon Web Services (AWS) c7g and c7gn instances with Graviton3
-processors. Graviton3 processors implement the on the ARMv8.4-A instruction set and
-provide Scalable Vector Extensions (SVE) for single instruction, multiple data
-(SIMD) operations. Comparing clang 18 and GCC 13 series compilers for compiling
-a high-order Laplace finite element kernel our results show that GCC emitted
-more automatically vectorised loops than clang. The runtime performance of the
-GCC compiled kernel was 20 \% faster than the clang compiled kernel. The c7gn
-instances include a Elastic Fabric Adaptor (EFA) interconnect with a bandwidth
-of $\SI{200}{\giga\byte\per\second}$ for low-latency and high-bandwidth Message
-Passing Interface (MPI) based parallel communication.  We tested multi-node
-weak scalability of a Poisson solver up to 512 MPI processes. We find the
-overall performance and weak scalability of the c7gn-based cluster is similar
-to a dedicated AMD EPYC Rome x86-64 cluster installed at the University of
-Luxembourg.
+We show performance results executing the FEniCS Project finite element software
+on Amazon Web Services (AWS) c7g and c7gn instances with Graviton3 processors.
+Graviton3 processors implement the ARMv8.4-A instruction set and provide
+Scalable Vector Extensions (SVE) for single instruction, multiple data (SIMD)
+operations. Comparing clang 18 and GCC 13 series compilers for compiling a
+high-order Laplace finite element kernel our results show that both compilers
+emitted FMLA instructions on SVE registers for automatically vectorized loops.
+The c7gn instances include a Elastic Fabric Adaptor (EFA) interconnect with a
+bandwidth of $\SI{200}{\giga\byte\per\second}$ for low-latency and
+high-bandwidth Message Passing Interface (MPI) based parallel communication.  We
+tested multi-node weak scalability of a Poisson solver up to 512 MPI processes.
+We find the overall performance and weak scalability of the c7gn-based cluster
+is similar to a dedicated AMD EPYC Rome x86-64 cluster installed at the
+University of Luxembourg.
 }
 
 \section*{Introduction}
 
-The FEniCS Project~\cite{alnaes2015fenics,baratta_dolfinx_2023} has been used
+The FEniCS Project~\citep{alnaes2015fenics,baratta_dolfinx_2023} has been used
 to write finite element solvers for problems arising in fields that involve the
 solution of partial differential equations (PDEs), including mathematics, biology,
 physics, engineering, geophysics and mechanics.
@@ -48,8 +47,8 @@ A key technology in the FEniCS Project is the use of automatic code generation
 (compilation) to reduce the tedious and error-prone work associated with
 building a finite element solver for a particular PDE. The user expresses their
 finite element problem in the Unified Form Language
-(UFL)~\cite{alnaes_unified_2014} and then the FEniCSx Form Compiler
-(FFCx)~\cite{kirby_compiler_2006} translates the UFL description of the problem
+(UFL)~\citep{alnaes_unified_2014} and then the FEniCSx Form Compiler
+(FFCx)~\citep{kirby_compiler_2006} translates the UFL description of the problem
 into a low-level C kernel that computes the finite element tensor on any given
 cell of the finite element mesh of the problem domain.
 
@@ -425,7 +424,7 @@ toolchain is ready for the ARM64 transition, and the engineering work done by
 AWS on their Graviton3-based instances.
 
 \section*{Supplementary material}
-Raw data and plotting scripts are archived at \cite{}.
+Raw data and plotting scripts are archived at \citep{}.
 
 \begin{acknowledgement}
 This project has received compute resources from Amazon Web Services (AWS)
