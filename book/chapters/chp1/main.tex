@@ -52,12 +52,12 @@ finite element problem in the Unified Form Language
 into a low-level C kernel that computes the finite element tensor on any given
 cell of the finite element mesh of the problem domain.
 
-One  aspect of strong kernel performance at runtime is ensuring the assembly
+One aspect of strong kernel performance at runtime is ensuring the assembly
 code of the compiled kernel contains calls to single instruction multiple data
-(SIMD) operations. SIMD operations can apply the same operation to multiple
-data items. Widely available SIMD standards include Streaming SIMD Extensions
-(SSE), Advanced Vector Extensions (AVX), Neon and Scalable Vector Extensions
-(SVE). 
+(SIMD) operations that are widely avaiable on modern CPUs. SIMD operations can
+apply the same operation to multiple data items. Commonly available SIMD
+standards include Streaming SIMD Extensions (SSE), Advanced Vector Extensions
+(AVX), Neon and Scalable Vector Extensions (SVE). 
 
 Ensuring that the compiled kernels contain SIMD instructions can be acheived in
 a number of different ways. One option is to include compiler intrinsics in the
@@ -65,16 +65,15 @@ generated C code that directly call platform-specific SIMD operations. This can
 provide excellent performance, but is inherently non-portable across SIMD
 standards. Another option is to use a portable SIMD abstraction library e.g.
 Google's Highway or SIMD Everywhere, that provides portable SIMD-like
-abstractions on top of compiler intrinsics. A third option, and the one
-currently used by FEniCSx, is to ensure that the generated C code is amenable
-to the compiler applying automatic vectorisation, a process that automatically
-converts a scalar program into a vectorised program.
+abstractions on top of platform-specific compiler intrinsics. A third option,
+and the one currently used by FEniCSx, is to ensure that the generated C code
+is amenable to the compiler applying automatic vectorisation, a process that
+automatically converts a scalar program into a vectorised program.
  
-Consequently to achieve good performance on Graviton3 it is important to verify
-that the latest compilers do automatically emit ARM SIMD instructions (Scalable
-Vector Extensions (SVE) and/or Neon) when compiling the generated C finite
-element kernels and additionally that these kernels acheive reasonable runtime
-performance. 
+Consequently for user's to achieve good performance when using FEniCSx on
+Graviton3 it is important to verify that the latest compilers do automatically
+emit SVE and/or Neon SIMD instructions when compiling the generated C finite
+element kernels and that these kernels acheive reasonable runtime performance. 
 
 In addition to SIMD parallelisation at the kernel level, DOLFINx, the finite
 element problem solving environment of the FEniCS Project, also supports
@@ -85,7 +84,6 @@ responsible for assembling contributions from its own partition of the mesh.
 Communication between MPI processes is then required to ensure a consistent
 representation of the finite element linear system at degrees of freedom
 located at the partition boundaries.
-
 
 
 \section*{Methodology and Results}
