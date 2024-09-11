@@ -53,10 +53,11 @@ tensor.
 One aspect of strong kernel performance at runtime is ensuring the assembly
 code of the compiled kernel contains calls to single instruction multiple data
 (SIMD) operations. SIMD operations can apply the same operation to multiple
-data items. The current strategy of FFCx is to ensure that its kernels are
-amenable to the compiler applying automatic vectorisation, a process that
-automatically converts a scalar program into a vectorised equivalent that uses
-SIMD operatios.
+data items. For a recent overview of SIMD programming strategies see e.g.
+\citep{rocke_evaluation_2023}. The current strategy of FFCx is to ensure
+that its kernels are amenable to the compiler applying automatic vectorisation,
+a process that automatically converts a scalar program into a vectorised
+equivalent that uses SIMD operations.
  
 Consequently for user's to achieve good performance when using FEniCSx on
 Graviton3 it is important to verify that the latest compilers do automatically
@@ -70,6 +71,10 @@ shared-memory parallel assembly of global finite element data structures
 full details see \cite{baratta_dolfinx_2023}. For user's to run large-scale
 DOLFINx simulations on AWS it is important to verify that the EFA interconnect
 provides sufficient performance for parallel scalability.
+
+The contribution of this chapter is to examine both SIMD performance and
+multi-node parallel scaling of the FEniCS Project software on Amazon's
+Graviton3 based instances. 
 
 \section*{Methodology and Results}
 
@@ -410,5 +415,3 @@ any Author Accepted Manuscript version arising from this submission.
 
 \bibliographystyle{spbasic}
 \bibliography{chapters/chp1/bibliography.bib}
-
-
