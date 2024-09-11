@@ -383,7 +383,7 @@ increase (30 \%) for both clusters.
 \section*{Conclusion}
 
 Benchmarks for memory bandwidth, local finite element kernels and parallel
-scalability of Poisson solver were executed on nodes Aion and on AWS c7g(n)
+scalability of Poisson solver were executed on Aion nodes and on AWS c7g(n)
 instances.
 
 Memory bandwidth measured using STREAM MPI confirms higher memory transfer rate
@@ -396,9 +396,9 @@ Neoverse V1 for AWS c7g). This observation was confirmed with performance
 benchmarks based on local finite element kernels for the Laplace
 operator for low (memory bound) and high (compute bound) orders.
 
-MPI-based distributed memory Poisson equation solver shows good weak scaling on
-both instances, with results comparable to the in-house University of Luxembourg
-Aion system.
+The MPI-based distributed memory Poisson equation solver shows good weak
+scaling on the c7gn-based cluster, with results comparable to the in-house
+University of Luxembourg Aion system.
 
 Executing the FEniCS Project on ARM64, and more specifically on the Graviton3
 CPU, has proved to be straightforward. There were no ARM64, or Graviton3,
@@ -412,8 +412,8 @@ Raw data and plotting scripts are archived at \cite{}.
 
 \begin{acknowledgement}
 This project has received compute resources from Amazon Web Services (AWS)
-through the first and second University of Luxembourg/AWS collaborative
-Graviton3 call.
+through the first and second collaborative University of Luxembourg and
+AWS Graviton3 call.
 
 This research was funded in whole, or in part, by the National Research Fund
 (FNR), grant reference COAT/17205623. For the purpose of open access, and in
