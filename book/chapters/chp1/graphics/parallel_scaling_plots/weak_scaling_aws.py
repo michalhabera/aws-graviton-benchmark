@@ -42,7 +42,7 @@ df = df[["Create\n mesh", "Create\n function space", "Assemble\n matrix", "Solve
 df.plot(kind="bar", figsize=(4, 2.2))
 plt.ylim([0.0, 20.0])
 plt.xlabel("Num. processes")
-plt.ylabel("time [s]")
+plt.ylabel("Time [s]")
 # plt.title("Weak scaling, Poisson, ~500k dofs per process. Big nodes. 50% utilisation.", fontsize=9)
 plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left", mode="expand", ncol=4)
 plt.tight_layout()
