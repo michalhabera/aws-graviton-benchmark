@@ -45,7 +45,7 @@ for (compiler, degree), group in data.groupby(["compiler", "degree"]):
         plt.bar(xs - shift[i], group[machine], width=width, label=args.labels[i])
 
     plt.xticks(fontsize=8, labels=xlabels, ticks=xs)
-    plt.ylabel("time [s]")
+    plt.ylabel("Time [s]")
     plt.legend()
     if degree == 1:
         plt.ylim((0.0, 0.12))
