@@ -111,36 +111,32 @@ dominates the time taken to perform the arithmetic operations to compute the
 finite element cell tensor. Understanding the memory bandwidth characteristics
 of a processor is therefore important for ensuring optimal performance.
 
-STREAM and STREAM MPI \citep{McCalpin1995,McCalpin2007} are the industry
+STREAM  \citep{McCalpin1995,McCalpin2007} is the industry
 standard benchmarks for measuring sustained memory bandwidth performance. They
 estimate memory bandwidth from memory intense operations (copy, scale, add) on
-large contiguous arrays. In \autoref{fig:stream-single} results for the copy
-operation for single-node benchmark are shown. For the single-node benchmark
-theoretical peak memory bandwidth of $\SI{400}{\giga\byte\per\second}$ for Aion
-and $\SI{300}{\giga\byte\per\second}$ for AWS c7g are reached within 80 \%,
-which is considered a reasonable outcome of the STREAM benchmark. Bandwidth
+large contiguous arrays.
+
+In \autoref{fig:stream-single} results for the copy operation for single-node
+benchmark are shown. For the single-node benchmark theoretical peak memory
+bandwidth of $\SI{400}{\giga\byte\per\second}$ for Aion and
+$\SI{300}{\giga\byte\per\second}$ for AWS c7g are reached within 80 \%, which
+is considered a reasonable outcome of the STREAM benchmark. Bandwidth
 saturation is observed around 20 \% of the node utilisation. Both curves show
 different characteristics of the saturation point due to different memory
 access configuration. On the Aion instances there are 8 non-unified memory
 access (NUMA) nodes of 16 cores each, while AWS c7g instances are setup with
 unified memory access.
 
-In terms of multi-node scalability, low utilisation (8 processes on 8 nodes
-each) helps to escape the bandwidth limitations as expected, see
-\autoref{fig:stream-multiple}.
+%In terms of multi-node scalability, low utilisation (8 processes on 8 nodes
+%each) helps to escape the bandwidth limitations as expected, see
+%\autoref{fig:stream-multiple}.
 
 \begin{figure}
-    \begin{subfigure}{.5\textwidth}
+\begin{center}
         \includegraphics{chapters/chp1/graphics/stream_plots/stream_single_node.pdf}
-	\caption{Single-node. Theoretical peak bandwidth of each system show as dashed line.}
+\end{center}
+	\caption{Single-node STREAM benchmark. Theoretical peak bandwidth of each system show as dashed line.}
         \label{fig:stream-single}
-    \end{subfigure}%
-    \begin{subfigure}{.5\textwidth}
-        \includegraphics{chapters/chp1/graphics/stream_plots/stream_multi_node.pdf}
-        \caption{Multi-node.}
-        \label{fig:stream-multiple}
-    \end{subfigure}
-    \caption{STREAM benchmark.}
 \end{figure}
 
 \subsection*{Finite element kernels}
