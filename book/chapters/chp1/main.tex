@@ -54,13 +54,10 @@ cell of the finite element mesh of the problem domain.
 
 One aspect of strong kernel performance at runtime is ensuring the assembly
 code of the compiled kernel contains calls to single instruction multiple data
-(SIMD) operations that are widely avaiable on modern CPUs. SIMD operations can
-apply the same operation to multiple data items. Commonly available SIMD
-standards include Streaming SIMD Extensions (SSE), Advanced Vector Extensions
-(AVX), Neon and Scalable Vector Extensions (SVE).  The current strategy of FFCX
-to ensure that its kernels take advantage of is amenable to the compiler applying
-automatic vectorisation, a process that automatically converts a scalar program
-into a vectorised program.
+(SIMD) operations. SIMD operations can apply the same operation to multiple
+data items. The current strategy of FFCX to ensure that its kernels are
+amenable to the compiler applying automatic vectorisation, a process that
+automatically converts a scalar program into a vectorised equivalent.
  
 Consequently for user's to achieve good performance when using FEniCSx on
 Graviton3 it is important to verify that the latest compilers do automatically
@@ -76,7 +73,6 @@ responsible for assembling contributions from its own partition of the mesh.
 Communication between MPI processes is then required to ensure a consistent
 representation of the finite element linear system at degrees of freedom
 located at the partition boundaries.
-
 
 \section*{Methodology and Results}
 In this section we present the benchmark methodology and results. 
@@ -229,9 +225,8 @@ potential: coefficient evaluation and tensor assignment. Both contain a set of
 multiply-add operations.
 
 For the finite element kernel benchmarks we compiled the kernels with
-LLVM/clang 18.1.3 and GCC 13.2.0 for the purpose of comparing the generated
-assembly code and comparing runtime performance. Full details are given in
-\autoref{tab:compiler-kernels}.
+LLVM/clang 18.1.3 and GCC 13.2.0. Full details are given in
+\autoref{tab:compilers-kernels}.
 
 \begin{table}
     \centering
@@ -251,15 +246,16 @@ assembly code and comparing runtime performance. Full details are given in
     \label{tab:compilers-kernels}
 \end{table}
 
-Results for kernel benchmarks are included in \autoref{fig:local-deg1} and
+Results for kernel benchmarks are shown in \autoref{fig:local-deg1} and
 \autoref{fig:local-deg8}. Low-order kernels show no dependence on compiler
 vectorization setup. On the other hand, AWS c7g shows 1.3x speed-up over
 Aion due to higher memory bandwidth for a single process (DDR5 vs. DDR4).
 
-High-order kernels, which are expected to benefit from SIMD instructions,
-show this trend clearly. Both clang and GCC auto-vectorizers perform well,
-producing a noticeable speed-up (\textgreater 2x) in the most optimized setting. The
-vectorization speed-up (\textgreater 4x) is more significant with the Aion nodes.
+High-order kernels, which are expected to benefit from SIMD operations, show a
+clear link between compiler settings and performance. Both clang and GCC
+auto-vectorizers perform well, producing a noticeable speed-up (\textgreater
+2x) in the most optimized setting. The vectorization speed-up (\textgreater 4x)
+is more significant with the Aion nodes.
 
 \begin{figure}
     \begin{subfigure}{.5\textwidth}
@@ -297,19 +293,19 @@ vectorization speed-up (\textgreater 4x) is more significant with the Aion nodes
 
 Optimization reports (\texttt{-Rpass=loop-vectorize} for clang,
 \texttt{-fopt-info-vec-optimized}) for GCC and the inspection of the generated
-assembly reveal:
-\begin{itemize}
-    \item For the low-order operator action the compiler optimization level
-    \lstinline{-Ofast} makes constant folding more effective and pre-computes
-    more operations at compile-time (partial sums of the static constant arrays)
-    \citep{GodboltArmClangDeg1}.
-    \item On Graviton3, both GCC and clang generate SVE FMLA and FMAD (fused
-    Multiply-Add) instructions \citep{ArmReferenceManual} for both the
-    coefficient evaluation and tensor assignment loops
-    \citep{GodboltArmClang,GodboltArmGCC}. Assembly excerpt for the coeffient
-    evaluation is show below. As expected, there are two contiguous loads LD1D
-    into two of the available SVE Z0-Z31 registers followed by a Multiply-Add
-    instruction.
+assembly reveal that the low-order operator action the compiler optimization
+level \lstinline{-Ofast} makes constant folding more effective and pre-computes
+more operations at compile-time (partial sums of the static constant arrays)
+\citep{GodboltArmClangDeg1}.
+
+On Graviton3, both GCC and clang generate SVE FMLA and FMAD (fused
+Multiply-Add) instructions \citep{ArmReferenceManual} for both the
+coefficient evaluation and tensor assignment loops
+\citep{GodboltArmClang,GodboltArmGCC}. Assembly excerpt for the coeffient
+evaluation is show below. As expected, there are two contiguous loads LD1D
+into two of the available SVE Z0-Z31 registers followed by a Multiply-Add
+instruction.
+
 \begin{lstlisting}[
     basicstyle=\ttfamily\footnotesize,
     keywordstyle=\ttb\color{deepblue}\footnotesize]
@@ -319,27 +315,27 @@ fmla    z3.d, p0/m, z25.d, z0.d
 ...
 faddv   d1, p1, z1.d
 \end{lstlisting}
-    The result is accumulated into an SVE register Z3 which is then horizontally
-    summed outside of the vectorized loop (FADDV). Here P0 is a predicate
-    register without any constraints on the available elements.
-    \item On Aion, both GCC and clang vectorize both coefficient evaluation and
-    tensor assignment loops and rely on the \lstinline{VFMADD231PD} instructions
-    on the YMM registers, i.e. vectorization width of 4 doubles
-    \citep{Godboltx86Clang,Godboltx86GCC}.
-\end{itemize}
+The result is accumulated into an SVE register Z3 which is then horizontally
+summed outside of the vectorized loop (FADDV). Here P0 is a predicate
+register without any constraints on the available elements.
 
-We have verified that AWS Graviton3 c7g instances offer the expected
-\SI{256}{bit} maximum vector width using \lstinline{svcntb()} function from the
-ARM C SVE library \citep{ArmCLangExtensions}. This matches the AVX2 vector width
-on the Aion instaces.
+On Aion, both GCC and clang vectorize both coefficient evaluation and tensor
+assignment loops and rely on the \lstinline{VFMADD231PD} instructions on the
+YMM registers, i.e. vectorization width of 4 doubles
+\citep{Godboltx86Clang,Godboltx86GCC}.
+
+%We have verified that AWS Graviton3 c7g instances offer the expected
+%\SI{256}{bit} maximum vector width using \lstinline{svcntb()} function from the
+%ARM C SVE library \citep{ArmCLangExtensions}. This matches the AVX2 vector width
+%on the Aion instaces.
 
 \subsection*{Parallel scalability}
 
 Results for the parallel scalability were produced using performance test codes
 for FEniCSx \citep{Wells2023} built against DOLFINx 0.6.0 and PETSc 3.18
-\citep{petsc} with the Spack package manager using GCC 12.2.0. We setup Spack to
-use a version of OpenMPI provided by AWS which includes the appropriate
-libfabric with native support for the EFA interconnect.
+\citep{petsc} with the Spack package manager setup to use GCC 12.2.0. We setup
+Spack to use a version of OpenMPI provided by AWS which includes the
+appropriate libfabric with native support for the EFA interconnect.
 
 The Poisson equation solver benchmark consists of the following measured steps:
 \begin{enumerate}
@@ -391,14 +387,14 @@ Memory bandwidth measured using STREAM MPI confirms higher memory transfer rate
 of AWS c7g(n), but a superior total bandwidth of ~\SI{310}{\giga\byte\per\second}
 per Aion node.
 
-In terms of auto-vectorization capabilities of GCC and clang, both produced
-optimized instructions for the targeted microarchitectures (Zen 2 for Aion and
-Neoverse V1 for AWS c7g). This observation was confirmed with performance
-benchmarks based on local finite element kernels for the Laplace (stiffness)
-operator for low (memory bound) and high (compute bound) orders. Both
-GCC 13.2.0 and clang 18.1.3 emitted vector instructions on SVE \SI{256}{bit}
-registers on AWS c7g. Automatic loop vectorization was effective on two identified
-loops in the generated C code.
+In terms of auto-vectorization capabilities of GCC 13.2.0 and clang 18.1.3,
+both produced optimized instructions for the targeted microarchitectures (Zen 2
+for Aion and Neoverse V1 for AWS c7g). This observation was confirmed with
+performance benchmarks based on local finite element kernels for the Laplace
+(stiffness) operator for low (memory bound) and high (compute bound) orders.
+Both GCC and clang emitted vector instructions on SVE \SI{256}{bit} registers
+and loop vectorization was effective on two identified loops in the generated C
+code.
 
 The MPI-based distributed memory Poisson equation solver shows good weak
 scaling on the c7gn-based cluster, with results comparable to the in-house
