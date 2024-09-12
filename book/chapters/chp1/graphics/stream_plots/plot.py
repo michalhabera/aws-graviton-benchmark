@@ -30,7 +30,7 @@ def parse_bandwidth(files):
 
 bws = parse_bandwidth(files)
 
-plt.figure(figsize=(2.3, 1.9))
+plt.figure(figsize=(3, 1.9))
 for file, (name, style, max_bw) in files.items():
     num_procs = len(bws[file])
     p = plt.plot(range(1, num_procs+1), bws[file], style, label=name)
