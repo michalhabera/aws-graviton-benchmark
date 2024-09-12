@@ -19,13 +19,13 @@ data = pd.DataFrame()
 flags_map = {" \"-O2 -fno-slp-vectorize -fno-vectorize\"": "O2, no vec.",
              " \"-O2 -fno-tree-vectorize\"": "O2, no vec.",
              " \"-Ofast -march=znver2 -mtune=znver2 -fno-slp-vectorize -fno-vectorize\"": "Ofast, native, no vec.",
-             " \"-Ofast -march=znver2 -mtune=znver2\"": "Ofast, native, vectorized",
+             " \"-Ofast -march=znver2 -mtune=znver2\"": "Ofast, native, vectorised",
              " \"-Ofast -march=znver2 -mtune=znver2 -fno-tree-vectorize\"": "Ofast, native, no vec.",
-             " \"-Ofast -mcpu=neoverse-v1\"": "Ofast, native, vectorized",
+             " \"-Ofast -mcpu=neoverse-v1\"": "Ofast, native, vectorised",
              " \"-Ofast -mcpu=neoverse-v1 -fno-tree-vectorize\"": "Ofast, native, no vec.",
              " \"-Ofast -mcpu=neoverse-v1 -fno-slp-vectorize -fno-vectorize\"": "Ofast, native, no vec."}
 
-xlabels = ["O2, no vec.", "Ofast, native,\n no vec.", "Ofast, native,\n vectorized"]
+xlabels = ["O2, no vec.", "Ofast, native,\n no vec.", "Ofast, native,\n vectorised"]
 xs = np.arange(len(xlabels))
 
 for machine in args.machines:
