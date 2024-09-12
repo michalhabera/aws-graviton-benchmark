@@ -18,15 +18,15 @@ software on Amazon Web Services (AWS) c7g and c7gn instances with Graviton3
 processors. Graviton3 processors implement the ARMv8.4-A instruction set and
 provide Scalable Vector Extensions (SVE) for Single Instruction Multiple Data
 (SIMD) operations. Comparing clang 18 and GCC 13 series compilers for compiling
-an automatically generated high-order Laplace finite element kernel our results
-show that both compilers emitted FMLA instructions on SVE registers for
-automatically vectorised loops. The c7gn instances include a Elastic Fabric
-Adaptor (EFA) interconnect with a bandwidth of
+an FFCx generated high-order Laplace finite element kernel our results show
+that both compilers emitted automatically vectorised loops with fused
+multiply-add instructions on SVE registers. The AWS c7gn instances include a
+Elastic Fabric Adaptor (EFA) interconnect with a bandwidth of
 $\SI{200}{\giga\byte\per\second}$ for low-latency and high-bandwidth
-communication.  We tested multi-node weak scalability of a Poisson solver up to
-512 MPI processes. We find the overall performance and weak scalability of the
-c7gn-based cluster is similar to a dedicated AMD EPYC Rome x86-64 cluster
-installed at the University of Luxembourg.
+communication.  We tested multi-node weak scalability of a DOLFINx Poisson
+solver up to 512 MPI processes. We find the overall performance and weak
+scalability of the c7gn-based cluster is similar to a dedicated AMD EPYC Rome
+x86-64 cluster installed at the University of Luxembourg.
 }
 
 \section*{Introduction}
@@ -38,10 +38,10 @@ physics, engineering, geophysics and mechanics.
 
 AWS Graviton3-based instances aim to provide a cost effective compute resources
 with a focus on scientific computing and machine-learning applications.
-Particularly appealing for running scientific computing codes such as the
-FEniCS Project is Graviton3's support for Scalable Vector Extension (SVE)
+Particularly appealing for running scientific computing codes, such as the
+FEniCS Project, is Graviton3's support for Scalable Vector Extension (SVE)
 instructions and instances including an Elastic Fabric Adaptor (EFA)
-interconnect for high-bandwidth low-latency communications between instances.
+interconnect for high-bandwidth low-latency communication between instances.
 
 A key technology in the FEniCS Project is the use of automatic code generation
 (compilation). The user expresses their finite element problem in the Unified
@@ -69,7 +69,7 @@ element problem solving environment of the FEniCS Project, also supports
 shared-memory parallel assembly of global finite element data structures
 (sparse matrices and vectors) using the Message Passing Interface (MPI), for
 full details see \cite{baratta_dolfinx_2023}. For user's to run large-scale
-DOLFINx simulations on AWS it is important to verify that the EFA interconnect
+DOLFINx simulations on AWS it is necessary to verify that the EFA interconnect
 provides sufficient performance for parallel scalability.
 
 The contribution of this chapter is to examine both SIMD performance and
@@ -121,19 +121,15 @@ measuring sustained memory bandwidth performance. They estimate memory bandwidth
 from memory intense operations (copy, scale, add) on large contiguous arrays.
 
 In \autoref{fig:stream-single} results for the copy operation for single-node
-benchmark are shown. For the single-node benchmark theoretical peak memory
-bandwidth of $\SI{400}{\giga\byte\per\second}$ for Aion and
-$\SI{300}{\giga\byte\per\second}$ for AWS c7g are reached within 80 \%, which
-is considered a reasonable outcome of the STREAM benchmark. Bandwidth
-saturation is observed around 20 \% of the node utilisation. Both curves show
-different characteristics of the saturation point due to different memory
-access configuration. On the Aion instances there are 8 non-unified memory
-access (NUMA) nodes of 16 cores each, while AWS c7g instances are setup with
-unified memory access.
-
-%In terms of multi-node scalability, low utilisation (8 processes on 8 nodes
-%each) helps to escape the bandwidth limitations as expected, see
-%\autoref{fig:stream-multiple}.
+benchmark are shown. For the single-node benchmark $\SI{80}{\percent}$ of
+the theoretical peak memory bandwidth of $\SI{400}{\giga\byte\per\second}$ for Aion
+and $\SI{300}{\giga\byte\per\second}$ for AWS c7g is reached. This is considered a
+reasonable outcome of the STREAM benchmark. Bandwidth saturation is observed
+at around $\SI{20}{\percent}$ of the node utilisation. Both curves show different
+characteristics of the saturation point due to different memory access
+configuration. On the Aion instances there are 8 non-unified memory access
+(NUMA) nodes of 16 cores each, while AWS c7g instances are setup with unified
+memory access.
 
 \begin{figure}
 \begin{center}
@@ -156,8 +152,9 @@ Laplace operator $A_{ij}$ with spatially varying material property $\kappa(x)$
     v_i = A_{ij} w_j, \quad
     A_{ij} = \int_K \kappa J_{mk} J_{mn} \nabla_k \phi_i \nabla_n \phi_j |\det J| \mathrm dx,
 \end{align}
-where $K$ is a fixed reference tetrahedron, $w_j \in \mathbb{R}^{n}$ is a fixed,
-prescribed vector and $J$ is a Jacobian transformation matrix.
+where $K$ is a fixed reference tetrahedron, $w_j \in \mathbb{R}^{n}$ is a
+fixed, prescribed vector, $J$ is a Jacobian transformation matrix and $\phi$
+are finite element basis functions.
 
 The generated kernel calculates a double precision vector $v_i \in
 \mathbb{R}^{n}$, where $n = 4$ for first-order discretization (low-order) and
@@ -217,8 +214,9 @@ independent of the quadrature loop contain more intense arithmetic operations
 The most performance critical part of the code is contained in the quadrature
 loop body. For the eight-order Laplace operator there is
 \lstinline{NUM_QUAD_POINTS = 214} and \lstinline{NUM_DOFS = 165}. There are two
-inner-most loops with vectorisation potential: coefficient evaluation and
-tensor assignment. Both contain a set of multiply-add operations.
+inner-most loops: coefficient evaluation and tensor assignment. Both contain a
+set of multiply-add operations which are candidates for automatic vectorisation
+via fused multiply-add operations in both SVE (Graviton3) and AVX2 (AMD EPYC).
 
 For the finite element kernel benchmarks we compiled the kernels with
 LLVM/clang 18.1.3 and GCC 13.2.0. Full details are given in
@@ -242,16 +240,17 @@ LLVM/clang 18.1.3 and GCC 13.2.0. Full details are given in
     \label{tab:compilers-kernels}
 \end{table}
 
-Results for kernel benchmarks are shown in \autoref{fig:local-deg1} and
-\autoref{fig:local-deg8}. Low-order kernels show no dependence on compiler
-vectorisation setup. On the other hand, AWS c7g shows 1.3x speed-up over
-Aion due to higher memory bandwidth for a single process (DDR5 vs. DDR4).
+Results for kernel benchmarks are shown in \autoref{fig:local-deg1}
+\autoref{fig:local-deg8}. Low-order kernels (\autoref{fig:local-deg1}) show no
+dependence on compiler vectorisation setup. On the other hand, AWS c7g shows
+1.3x speed-up over Aion which we attribute to higher memory bandwidth for a
+single process.
 
-High-order kernels, which are expected to benefit from SIMD operations, show a
-clear link between compiler settings and performance. Both clang and GCC
-auto-vectorisers perform well, producing a noticeable speed-up (\textgreater
-2x) in the most optimised setting. The vectorisation speed-up (\textgreater 4x)
-is more significant with the Aion nodes.
+High-order kernels (\autoref{fig:local-deg8}), which are expected to benefit from
+SIMD operations, show a clear link between compiler settings and performance.
+Both clang and GCC auto-vectorisers perform well, producing a noticeable
+speed-up (\textgreater 2x) in the most optimised setting. The vectorisation
+speed-up (\textgreater 4x) is more significant with the Aion nodes.
 
 \begin{figure}
     \begin{subfigure}{.5\textwidth}
@@ -291,16 +290,13 @@ Optimisation reports (\texttt{-Rpass=loop-vectorize} for clang,
 \texttt{-fopt-info-vec-optimized} for GCC) and the inspection of the generated
 assembly reveal that the low-order operator action the compiler optimisation
 level \lstinline{-Ofast} makes constant folding more effective and pre-computes
-more operations at compile-time (partial sums of the static constant arrays)
+more operations at compile-time (e.g. partial sums of the static constant arrays)
 \citep{GodboltArmClangDeg1}.
 
 On Graviton3, both GCC and clang generate SVE FMLA and FMAD (fused
-Multiply-Add) instructions \citep{ArmReferenceManual} for both the
-coefficient evaluation and tensor assignment loops
-\citep{GodboltArmClang,GodboltArmGCC}. Assembly excerpt for the coefficient
-evaluation is show below. As expected, there are two contiguous loads LD1D
-into two of the available SVE Z0-Z31 registers followed by a Multiply-Add
-instruction.
+Multiply-Add) instructions \citep{ArmReferenceManual} for both the coefficient
+evaluation and tensor assignment loops \citep{GodboltArmClang,GodboltArmGCC}.
+An assembly excerpt for the coefficient evaluation is shown below.
 \begin{lstlisting}[
     basicstyle=\ttfamily\footnotesize,
     keywordstyle=\ttb\color{deepblue}\footnotesize]
@@ -310,6 +306,9 @@ fmla    z3.d, p0/m, z25.d, z0.d
 ...
 faddv   d1, p1, z1.d
 \end{lstlisting}
+As expected, there are two contiguous loads LD1D into two of the available SVE
+Z0-Z31 registers followed by a fused Multiply-Add instruction.
+
 The result is accumulated into an SVE register Z3 which is then horizontally
 summed outside of the vectorised loop (FADDV). Here P0 is a predicate
 register without any constraints on the available elements.
@@ -356,19 +355,21 @@ increase (30 \%) for both clusters.
 
 \begin{figure}
     \begin{subfigure}{.7\textwidth}
-        \centering
+	\begin{center}
         \includegraphics{chapters/chp1/graphics/parallel_scaling_plots/output/weak_scaling_aion_poisson.pdf}
         \caption{Aion, \SI{5e+5} degrees-of-freedom per process, 25 \% utilisation (32 processes per node).}
         \label{fig:weak-scaling-aion}
+	\end{center}
     \end{subfigure}
 
     \begin{subfigure}{.7\textwidth}
-        \centering
+	\begin{center}
         \includegraphics{chapters/chp1/graphics/parallel_scaling_plots/output/weak_scaling_aws_c7gn_poisson.pdf}
         \caption{AWS c7gn, \SI{5e+5} degrees-of-freedom per process, 50 \% utilisation (32 processes per node).}
         \label{fig:weak-scaling-aws}
+	\end{center}
     \end{subfigure}
-    \caption{Weak parallel scalability of the Poisson equation solver.}
+    \caption{Weak parallel scalability of the DOLFINx Poisson equation solver on Aion and AWS c7gn systems.}
     \label{fig:weak-scaling}
 \end{figure}
 
