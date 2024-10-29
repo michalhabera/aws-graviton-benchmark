@@ -307,21 +307,15 @@ fmla    z3.d, p0/m, z25.d, z0.d
 faddv   d1, p1, z1.d
 \end{lstlisting}
 As expected, there are two contiguous loads LD1D into two of the available SVE
-Z0-Z31 registers followed by a fused Multiply-Add instruction.
-
-The result is accumulated into an SVE register Z3 which is then horizontally
-summed outside of the vectorised loop (FADDV). Here P0 is a predicate
-register without any constraints on the available elements.
+Z0-Z31 registers followed by a fused Multiply-Add instruction. The result is
+accumulated into an SVE register Z3 which is then horizontally summed outside
+of the vectorised loop (FADDV). Here P0 is a predicate register without any
+constraints on the available elements.
 
 On Aion, both GCC and clang vectorise both coefficient evaluation and tensor
 assignment loops and rely on the \lstinline{VFMADD231PD} instructions on the
 YMM registers, i.e. vectorisation width of 4 doubles
 \citep{Godboltx86Clang,Godboltx86GCC}.
-
-%We have verified that AWS Graviton3 c7g instances offer the expected
-%\SI{256}{bit} maximum vector width using \lstinline{svcntb()} function from the
-%ARM C SVE library \citep{ArmCLangExtensions}. This matches the AVX2 vector width
-%on the Aion instances.
 
 \subsection*{Parallel scalability}
 
@@ -392,26 +386,21 @@ The MPI-based distributed memory Poisson equation solver shows good weak
 scaling on the c7gn-based cluster, with results comparable to the in-house
 University of Luxembourg Aion system.
 
-%Executing the FEniCS Project on ARM64, and more specifically on the Graviton3
-%CPU, has proved to be straightforward. There were no ARM64, or Graviton3,
-%specific adjustments required. Credit for this can largely be attributed to the
-%dedicated work of the Open Source community in ensuring that the entire HPC
-%toolchain is ready for the ARM64 transition, and the engineering work done by
-%AWS on their Graviton3-based instances.
-
-\section*{Supplementary material}
+\begin{acknowledgement}
 Raw data and plotting scripts are archived at \citep{habera_2024_13748405}.
 
-\begin{acknowledgement}
 This project has received compute resources from Amazon Web Services (AWS)
 through the first and second collaborative University of Luxembourg and
-AWS Graviton3 call.
+AWS Graviton3 call. The experiments presented in this paper were
+carried out using the HPC facilities of the University of Luxembourg
+~\cite{VCPKVO_HPCCT22} {\small -- see \url{https://hpc.uni.lu}}
 
-This research was funded in whole, or in part, by the National Research Fund
-(FNR), grant reference COAT/17205623. For the purpose of open access, and in
-fulfillment of the obligations arising from the grant agreement, the author has
-applied a Creative Commons Attribution 4.0 International (CC BY 4.0) license to
-any Author Accepted Manuscript version arising from this submission.
+This research was funded in whole, or in part, by the National Research
+Fund (FNR), grant reference COAT/17205623. For the purpose of open
+access, and in fulfillment of the obligations arising from the grant
+agreement, the author has applied a Creative Commons Attribution 4.0
+International (CC BY 4.0) license to any Author Accepted Manuscript
+version arising from this submission.
 \end{acknowledgement}
 
 \bibliographystyle{spbasic}
