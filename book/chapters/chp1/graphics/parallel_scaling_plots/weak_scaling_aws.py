@@ -5,7 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 plt.rcParams["font.family"] = "sans-serif"
-plt.rcParams["font.sans-serif"] = "Times"
+plt.rcParams["font.sans-serif"] = "Times New Roman"
 plt.rcParams["font.size"] = 7
 
 runs = ["19", "20", "21", "26"]
@@ -31,16 +31,28 @@ for f in files:
             found = re.findall(time_match, text)
             assert(len(found) == 1)
             result[m] = float(found[0])
+
+        its_match = r"\*\*\* Number of Krylov iterations: (.[0-9])"
+        found = re.findall(its_match, text)
+        assert(len(found) == 1)
+        result["Krylov iterations"] = int(found[0])
+
         results.append(result)
 
 df = pd.DataFrame.from_dict(results)
 df = df.set_index("rank")
+
+print(df.iloc[:]["Create Mesh"] / df.iloc[0]["Create Mesh"])
+print(df.iloc[:]["Assemble matrix"] / df.iloc[0]["Assemble matrix"])
+print(df.iloc[:]["Solve"] / df.iloc[0]["Solve"])
+print(df.iloc[:]["Krylov iterations"] / df.iloc[0]["Krylov iterations"])
+
 df = df.rename(columns={"Create Mesh": "Create\n mesh", "FunctionSpace": "Create\n function space",
                         "Assemble matrix": "Assemble\n matrix"})
-df = df[["Create\n mesh", "Create\n function space", "Assemble\n matrix", "Solve"]]
+df = df[["Create\n mesh", "Assemble\n matrix", "Solve"]]
 
 df.plot(kind="bar", figsize=(4, 2.2))
-plt.ylim([0.0, 20.0])
+plt.ylim([0.0, 17])
 plt.xlabel("Num. processes")
 plt.ylabel("Time [s]")
 # plt.title("Weak scaling, Poisson, ~500k dofs per process. Big nodes. 50% utilisation.", fontsize=9)
