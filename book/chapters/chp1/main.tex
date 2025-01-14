@@ -25,7 +25,7 @@ manual tuning. Testing a distributed memory parallel DOLFINx Poisson solver
 with up to 512 Message Passing Interface (MPI) processes, we found that the
 performance and scalability of the AWS instances are comparable to a dedicated
 AMD EPYC Rome cluster installed at the University of Luxembourg. These findings
-demonstrate that ARM-based cloud instances, exemplified by the AWS Graviton3,
+demonstrate that ARM-based cloud instances, exemplified by AWS Graviton3,
 can be competitive for parallel, distributed memory finite element analysis.}
 
 \section*{Introduction}
@@ -36,12 +36,12 @@ solution of partial differential equations (PDEs), including mathematics,
 biology, physics, engineering, geophysics and mechanics.
 
 Exploring ARM-based processors and cloud computing instances for executing
-FEniCSx is worthwhile due to ARMs potential advantages in cost-effectiveness,
-energy efficiency and scalability with respect to x86-64-based
-machines~\cite{simakov_are_2023,suarez_comprehensive_2024}. Examples of
-adoption of ARM in the HPC space include the Isambard project (Isambard 3,
-NVIDIA Grace, \citep{isambard}), Mont-Blanc project (Phase 3, Cavium
-Thunder X2, \citep{Rajovic2016}), Fugaku supercomputer (Fujitsu A64FX,
+FEniCS Project-based solvers is worthwhile due to ARMs potential advantages in
+cost-effectiveness, energy efficiency and scalability with respect to
+x86-64-based machines~\cite{simakov_are_2023,suarez_comprehensive_2024}.
+Examples of adoption of ARM in the HPC space include the Isambard project
+(Isambard 3, NVIDIA Grace, \citep{isambard}), Mont-Blanc project (Phase 3,
+Cavium Thunder X2, \citep{Rajovic2016}), Fugaku supercomputer (Fujitsu A64FX,
 \citep{fugaku}) and Astra supercomputer (Cavium Thunder X2, \citep{astra}). The
 publically available cloud services with ARM instances include Amazon Web
 Services (AWS) (Graviton3 CPU based on Neoverse V1 and Graviton4 CPU with
@@ -51,11 +51,11 @@ Neoverse N2, \citep{microsoft_azure}).
 
 AWS Graviton3-based instances aim to provide a cost effective compute resources
 particularly for scientific computing and machine-learning applications by
-offering both Scalable Vector Extension (SVE) instructions and the Elastic
-Fabric Adaptor (EFA) interconnect for high-bandwidth low-latency communication
-between instances. This makes AWS's cloud offering particularly appealing for
-executing scientific computing codes, like the FEniCS Project, based on
-distributed memory parallelism.
+offering both Scalable Vector Extension (SVE) instructions for Single
+Instruction Multiple Data (SIMD) parallelism and the Elastic Fabric Adaptor
+(EFA) interconnect for high-bandwidth low-latency communication between
+instances. This makes the AWS cloud offering particularly appealing for executing
+scientific computing codes, like the FEniCS Project.
 
 A key technology in the FEniCS Project is the use of automatic code generation
 (compilation). The user expresses their finite element problem in the Unified
