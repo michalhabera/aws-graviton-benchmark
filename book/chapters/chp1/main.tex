@@ -12,24 +12,20 @@ J.~S.~Hale \email{jack.hale@uni.lu} \at Institute of Computational Engineering, 
 
 \maketitle
 
-\abstract{ The main goal of this study is to evaluate the suitability of
-ARM-based cloud instances for finite element computations. We show performance
-results executing the FEniCS Project finite element software on AWS c7g and c7gn
-instances with Graviton3 processors. These processors support ARMv8.4-A
-instruction set with Scalable Vector Extensions (SVE) for efficient data
-operations. Both clang 18 and GCC 13 compilers successfully generated optimized
-code using SVE instructions. Testing the DOLFINx Poisson solver with up to 512
-MPI processes, we found that the performance and scalability of the AWS
-instances are comparable to a dedicated AMD EPYC Rome cluster at the University
-of Luxembourg. These findings demonstrate that ARM-based cloud instances,
-specifically AWS Graviton3, are viable for high-performance computing (HPC)
-tasks such as parallel, distributed memory finite element analysis. The ability
-of both clang and GCC compilers to effectively utilize SVE instructions ensures
-that users can achieve optimized performance without extensive manual tuning.
-Additionally, the comparable performance and scalability to traditional x86-64
-clusters suggest that cloud-based solutions can be a cost-effective and flexible
-alternative for HPC workloads, providing similar computational power and
-efficiency. }
+\abstract{The overall goal of this study is to evaluate the suitability of
+ARM-based cloud computing instances for finite element computations.
+Specifically, we show performance results executing the FEniCS Project finite
+element software on AWS c7g and c7gn instances with Graviton3 processors. These
+processors support ARMv8.4-A instruction set with Scalable Vector Extensions
+(SVE) for efficient data operations. Both clang 18 and GCC 13 compilers
+successfully generated optimized code using SVE instructions which ensures that
+users can achieve optimized performance without extensive manual tuning.
+Testing a distributed memory parallel DOLFINx Poisson solver with up to 512 MPI
+processes, we found that the performance and scalability of the AWS instances
+are comparable to a dedicated AMD EPYC Rome cluster at the University of
+Luxembourg. These findings demonstrate that ARM-based cloud instances,
+specifically AWS Graviton3, are competitive for parallel, distributed memory
+finite element analysis.}
 
 \section*{Introduction}
 
