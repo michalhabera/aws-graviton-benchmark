@@ -360,7 +360,7 @@ proprietary EFA interconnect.
 The Poisson equation solver benchmark consists of the following measured steps:
 \begin{enumerate}
     \item Create mesh. Create a unit cube mesh and discretise using linear
-    tetrahedral cells. Partition the mesh with Parmetis partitioner
+    tetrahedral cells. Partition the mesh with Parmetis 4.0.3 partitioner
     \citep{Karypis1998} and distribute.
     \item Assemble matrix. Execute the local Poisson equation kernel over the
     mesh and assemble into a PETSc MATMPIAIJ (distributed compressed sparse row)
