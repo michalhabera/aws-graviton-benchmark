@@ -13,19 +13,20 @@ J.~S.~Hale \email{jack.hale@uni.lu} \at Institute of Computational Engineering, 
 \maketitle
 
 \abstract{The overall goal of this study is to evaluate the suitability of
-ARM-based cloud computing instances for finite element computations.
+ARM-based cloud computing instances for executing finite element computations.
 Specifically, we show performance results executing the FEniCS Project finite
-element software on AWS c7g and c7gn instances with Graviton3 processors. These
-processors support ARMv8.4-A instruction set with Scalable Vector Extensions
-(SVE) for efficient data operations. Both clang 18 and GCC 13 compilers
-successfully generated optimized code using SVE instructions which ensures that
-users can achieve optimized performance without extensive manual tuning.
-Testing a distributed memory parallel DOLFINx Poisson solver with up to 512 MPI
-processes, we found that the performance and scalability of the AWS instances
-are comparable to a dedicated AMD EPYC Rome cluster at the University of
-Luxembourg. These findings demonstrate that ARM-based cloud instances,
-specifically AWS Graviton3, are competitive for parallel, distributed memory
-finite element analysis.}
+element software on Amazon Web Services (AWS) c7g and c7gn instances with
+Graviton3 processors. These processors support ARMv8.4-A instruction set with
+Scalable Vector Extensions (SVE) for efficient data operations and the Elastic
+Fabric Adaptor (EFA) for communications between instances. Both clang 18 and
+GCC 13 compilers successfully generated optimized code using SVE instructions
+which ensures that users can achieve optimized performance without extensive
+manual tuning. Testing a distributed memory parallel DOLFINx Poisson solver
+with up to 512 Message Passing Interface (MPI) processes, we found that the
+performance and scalability of the AWS instances are comparable to a dedicated
+AMD EPYC Rome cluster installed at the University of Luxembourg. These findings
+demonstrate that ARM-based cloud instances, exemplified by the AWS Graviton3,
+can be competitive for parallel, distributed memory finite element analysis.}
 
 \section*{Introduction}
 
@@ -34,24 +35,28 @@ to write finite element solvers for problems arising in fields that involve the
 solution of partial differential equations (PDEs), including mathematics,
 biology, physics, engineering, geophysics and mechanics.
 
-Exploring ARM-based processors and cloud computing instances for FEniCSx is
-worthwhile due to their potential advantages in cost-effectiveness, energy
-efficiency, and scalability. The examples of adoption of ARM in the HPC
-community include the Isambard project (NVIDIA Grace, \citep{isambard}),
-Mont-Blanc project (Cavium Thunder X2, \citep{Rajovic2016}), Fugaku
-supercomputer (Fujitsu A64FX, \citep{fugaku}) and Astra supercomputer at Sandia
-National Laboratories (Cavium Thunder X2, \citep{astra}). The commercially
-available cloud services include Amazon Web Services (AWS) (Graviton3 CPU based
-on Neoverse V1 and Graviton4 CPU with Neoverse V2), Google Cloud (Axion CPU
-based on Neoverse V2, \citep{google_arm_compute}) and Microsoft Azure (Azure
-Cobalt 100 implementing Neoverse N2, \citep{microsoft_azure}).
+Exploring ARM-based processors and cloud computing instances for executing
+FEniCSx is worthwhile due to ARMs potential advantages in cost-effectiveness,
+energy efficiency and scalability with respect to x86-64-based
+machines~\cite{simakov_are_2023,suarez_comprehensive_2024}. Examples of
+adoption of ARM in the HPC space include the Isambard project (Isambard 3,
+NVIDIA Grace, \citep{isambard}), Mont-Blanc project (Phase 3, Cavium
+Thunder X2, \citep{Rajovic2016}), Fugaku supercomputer (Fujitsu A64FX,
+\citep{fugaku}) and Astra supercomputer (Cavium Thunder X2, \citep{astra}). The
+publically available cloud services with ARM instances include Amazon Web
+Services (AWS) (Graviton3 CPU based on Neoverse V1 and Graviton4 CPU with
+Neoverse V2), Google Cloud (Axion CPU based on Neoverse V2,
+\citep{google_arm_compute}) and Microsoft Azure (Azure Cobalt 100 implementing
+Neoverse N2, \citep{microsoft_azure}).
 
 AWS Graviton3-based instances aim to provide a cost effective compute resources
-with a focus on scientific computing and machine-learning applications.
-Particularly appealing for running scientific computing codes, such as the
-FEniCS Project, is Graviton3's support for Scalable Vector Extension (SVE)
-instructions and instances including an Elastic Fabric Adaptor (EFA)
-interconnect for high-bandwidth low-latency communication between instances.
+particularly for scientific computing and machine-learning applications. Unique
+amongst the publically available cloud providers offerings are instances
+offering both Scalable Vector Extension (SVE) instructions and the Elastic
+Fabric Adaptor (EFA) interconnect for high-bandwidth low-latency communication
+between instances. This makes AWS's cloud offering particularly appealing
+for executing scientific computing codes, like the FEniCS Project, based on
+distributed memory parallelism.
 
 A key technology in the FEniCS Project is the use of automatic code generation
 (compilation). The user expresses their finite element problem in the Unified
@@ -82,9 +87,9 @@ full details see \cite{baratta_dolfinx_2023}. For user's to run large-scale
 DOLFINx simulations on AWS it is necessary to verify that the EFA interconnect
 provides sufficient performance for parallel scalability.
 
-The contribution of this chapter is to examine both SIMD performance and
-multi-node parallel scaling of the FEniCS Project software on Amazon's
-Graviton3 based instances. 
+In summary, the contribution of this chapter is to examine both SIMD
+performance and multi-node parallel scaling of the FEniCS Project software on
+Amazon's Graviton3 based instances. 
 
 \section*{Methodology and Results}
 
