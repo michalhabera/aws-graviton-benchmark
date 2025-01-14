@@ -29,7 +29,7 @@ Message Passing Interface (MPI) processes, we found that the performance and
 scalability of the AWS instances are comparable to a dedicated AMD EPYC Rome
 cluster installed at the University of Luxembourg. These findings demonstrate
 that ARM-based cloud computing instances, exemplified by AWS Graviton3, can be
-competitive for parallel, distributed memory finite element analysis.}
+competitive for distributed memory parallel finite element analysis.}
 
 \section*{Introduction}
 
@@ -436,9 +436,10 @@ generation Graviton4 instances provide an improved Neoverse V2 instruction set,
 which has a smaller SVE vector length of 128 bits,
 \citep{ArmReferenceManualNeoverseV2}, and may require further investigation.
 
-\begin{acknowledgement}
+\section*{Supplementary material}
 Raw data and plotting scripts are archived at \citep{habera_2024_13748405}.
 
+\begin{acknowledgement}
 This project has received compute resources from Amazon Web Services (AWS)
 through the first and second collaborative University of Luxembourg and
 AWS Graviton3 call. The experiments presented in this paper were
