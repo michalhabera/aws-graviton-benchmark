@@ -427,16 +427,16 @@ Results for the in-house University of Luxembourg Aion system are slightly
 superior with almost constant ($< 5 \%$) time per iteration for 512 processes.
 
 Based on our results, we conclude that AWS Graviton3 instances are a viable
-alternative for high-performance computing tasks in the FEniCSx based finite
-element workflows. These instances are likely to be particularly cost-effective
-for organisations and users with infrequent large scale computational
-demands~\cite{emeras_amazon_2016}.
+alternative for high-performance computing tasks using the FEniCS Project
+automated finite element solver. These instances are likely to be particularly
+interesting for users with infrequent or highly elastic large-scale
+computational demands~\cite{emeras_amazon_2016}.
 
-Future work on other more complex problems (e.g. linear elasticity) and
-performance benchmarks of direct solvers is planned. Additionally, the latest
-generation Graviton4 instances provide an improved Neoverse V2 instruction set,
-which has a smaller SVE vector length of 128 bits,
-\citep{ArmReferenceManualNeoverseV2}, and may require further investigation.
+In future work we plan to work on other more complex problems (e.g. linear
+elasticity) and performance benchmarks of direct solvers. Additionally, the
+latest generation Graviton4 instances provide an improved Neoverse V2
+instruction set, which has a smaller SVE vector length of 128 bits,
+\citep{ArmReferenceManualNeoverseV2}, which warrants further investigation.
 
 \section*{Supplementary material}
 Raw data and plotting scripts are archived at \citep{habera_2024_13748405}.
