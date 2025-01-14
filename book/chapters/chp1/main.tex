@@ -50,12 +50,11 @@ Neoverse V2), Google Cloud (Axion CPU based on Neoverse V2,
 Neoverse N2, \citep{microsoft_azure}).
 
 AWS Graviton3-based instances aim to provide a cost effective compute resources
-particularly for scientific computing and machine-learning applications. Unique
-amongst the publically available cloud providers offerings are instances
+particularly for scientific computing and machine-learning applications by
 offering both Scalable Vector Extension (SVE) instructions and the Elastic
 Fabric Adaptor (EFA) interconnect for high-bandwidth low-latency communication
-between instances. This makes AWS's cloud offering particularly appealing
-for executing scientific computing codes, like the FEniCS Project, based on
+between instances. This makes AWS's cloud offering particularly appealing for
+executing scientific computing codes, like the FEniCS Project, based on
 distributed memory parallelism.
 
 A key technology in the FEniCS Project is the use of automatic code generation
@@ -65,14 +64,15 @@ Compiler (FFCx)~\citep{kirby_compiler_2006} compiles the UFL description of the
 problem into a low-level C kernel for computing the cell-local finite element
 tensor.
 
-One aspect of good performance of a compute-bound kernel is ensuring the assembly
-code of the compiled kernel contains calls to Single Instruction Multiple Data
-(SIMD) operations. SIMD operations can apply the same operation to multiple data
-items. For a recent overview of SIMD programming strategies see e.g.
-\citep{rocke_evaluation_2023}. The current strategy of FFCx is to ensure that
-its kernels are amenable to the compiler applying automatic vectorisation, a
-process that automatically converts a scalar program into a vectorised
-equivalent that uses SIMD operations.
+One aspect of good performance of a compute-bound kernel is ensuring the
+assembly code of the compiled kernel contains calls to Single Instruction
+Multiple Data (SIMD) operations. SIMD operations can apply the same operation
+to multiple data items in a single CPU clock cycle. For a recent overview of
+SIMD programming strategies see e.g. \citep{rocke_evaluation_2023}. The current
+strategy of FFCx with respect to SIMD is to ensure that its kernels are
+amenable to the compiler applying automatic vectorisation, a process that
+automatically converts a scalar program into a vectorised equivalent that uses
+SIMD operations.
  
 Consequently for user's to achieve good performance when using FEniCSx on
 Graviton3 it is important to verify that the latest compilers do automatically
