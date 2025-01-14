@@ -1,6 +1,6 @@
 Compile `stream_mpi.c` with
 ```
-mpicc stream_mpi.c -o stream_mpi -Ofast -DSTREAM_ARRAY_SIZE=16000000
+mpicc stream_mpi.c -o stream_mpi -Ofast -DSTREAM_ARRAY_SIZE=256000000
 ```
 and run
 ```
