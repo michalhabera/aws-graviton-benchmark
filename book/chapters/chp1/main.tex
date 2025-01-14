@@ -49,13 +49,13 @@ Neoverse V2), Google Cloud (Axion CPU based on Neoverse V2,
 \citep{google_arm_compute}) and Microsoft Azure (Azure Cobalt 100 implementing
 Neoverse N2, \citep{microsoft_azure}).
 
-AWS Graviton3-based instances aim to provide a cost effective compute resources
-particularly for scientific computing and machine-learning applications by
-offering both Scalable Vector Extension (SVE) instructions for Single
-Instruction Multiple Data (SIMD) parallelism and the Elastic Fabric Adaptor
-(EFA) interconnect for high-bandwidth low-latency communication between
-instances. This makes the AWS cloud offering particularly appealing for executing
-scientific computing codes, like the FEniCS Project.
+AWS Graviton3-based instances aim to provide cost effective compute resources
+for scientific computing and machine-learning applications by offering both
+Scalable Vector Extension (SVE) instructions for Single Instruction Multiple
+Data (SIMD) parallelism and the Elastic Fabric Adaptor (EFA) interconnect for
+high-bandwidth low-latency communication between instances. This makes the AWS
+cloud offering particularly appealing for executing scientific computing codes,
+like the FEniCS Project.
 
 A key technology in the FEniCS Project is the use of automatic code generation
 (compilation). The user expresses their finite element problem in the Unified
@@ -74,7 +74,7 @@ amenable to the compiler applying automatic vectorisation, a process that
 automatically converts a scalar program into a vectorised equivalent that uses
 SIMD operations.
  
-Consequently for user's to achieve good performance when using FEniCSx on
+Consequently for users to achieve good performance when using FEniCSx on
 Graviton3 it is important to verify that the latest compilers do automatically
 emit SVE and/or Neon SIMD instructions when compiling the generated C finite
 element kernels and that these kernels achieve reasonable runtime performance. 
