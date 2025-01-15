@@ -15,23 +15,23 @@ J.~S.~Hale \email{jack.hale@uni.lu} \at Institute of Computational Engineering, 
 \maketitle
 
 \abstract{ARM architecture central processing units are increasingly prevalent
-in high performance computers due to their energy efficiency, scalability
-and cost-effectiveness. The overall goal of this study is to evaluate the
+in high performance computers due to their energy efficiency, scalability and
+cost-effectiveness. The overall goal of this study is to evaluate the
 suitability of ARM-based cloud computing instances for executing finite element
 computations. Specifically, we show performance results executing the FEniCS
 Project finite element software on Amazon Web Services (AWS) c7g and c7gn
 instances with Graviton3 processors. These processors support ARMv8.4-A
 instruction set with Scalable Vector Extensions (SVE) for Single Instruction
-Multiple Data (SIMD) operations and the Elastic Fabric Adaptor (EFA) for
-communications between instances. Both clang 18 and GCC 13 compilers
-successfully generated optimized code using SVE instructions which ensures that
-users can achieve optimized performance without extensive manual tuning.
-Testing a distributed memory parallel DOLFINx Poisson solver with up to 512
-Message Passing Interface (MPI) processes, we found that the performance and
-scalability of the AWS instances are comparable to a dedicated AMD EPYC Rome
-cluster installed at the University of Luxembourg. These findings demonstrate
-that ARM-based cloud computing instances, exemplified by AWS Graviton3, can be
-competitive for distributed memory parallel finite element analysis.}
+Multiple Data operations and the Elastic Fabric Adaptor for communications
+between instances. Both clang 18 and GCC 13 compilers successfully generated
+optimized code using SVE instructions which ensures that users can achieve
+optimized performance without extensive manual tuning. Testing a distributed
+memory parallel DOLFINx Poisson solver with up to 512 Message Passing Interface
+processes, we found that the performance and scalability of the AWS instances
+are comparable to a dedicated AMD EPYC Rome cluster installed at the University
+of Luxembourg. These findings demonstrate that ARM-based cloud computing
+instances, exemplified by AWS Graviton3, can be competitive for distributed
+memory parallel finite element analysis.}
 
 \section*{Introduction}
 
