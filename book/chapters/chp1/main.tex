@@ -367,9 +367,14 @@ The Poisson equation solver benchmark consists of the following measured steps:
     \item Assemble matrix. Execute the local Poisson equation kernel over the
     mesh and assemble into a PETSc MATMPIAIJ (distributed compressed sparse row)
     matrix.
-    \item Solve. Run Conjugate Gradient (CG) solver with a classical algebraic
+    \item Solve linear system. Run Conjugate Gradient (CG) solver with a classical algebraic
     multigrid (BoomerAMG \citep{hypre}) preconditioner.
 \end{enumerate}
+Creating the mesh (including partitioning), assembling matrices and solving the
+resulting linear system are typically the most expensive steps in a finite
+element solve, and also contain significant parallel communication steps that
+can highlight issues in either the finite element solver, or the underlying MPI
+hardware/software stack. 
 %
 Weak scaling results (constant workload of approx. \SI{5e+5} degrees-of-freedom
 per process) are shown in \autoref{fig:weak-scaling}. Both Aion and AWS c7gn
