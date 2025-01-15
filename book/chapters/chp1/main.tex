@@ -372,9 +372,9 @@ The Poisson equation solver benchmark consists of the following measured steps:
 \end{enumerate}
 Creating the mesh (including partitioning), assembling matrices and solving the
 resulting linear system are typically the most expensive steps in a finite
-element solve, and also contain significant parallel communication steps that
+element solve. They also contain significant parallel communication steps that
 can highlight issues in either the finite element solver, or the underlying MPI
-hardware/software stack. 
+hardware/software stack, leading to poor parallel scaling. 
 %
 Weak scaling results (constant workload of approx. \SI{5e+5} degrees-of-freedom
 per process) are shown in \autoref{fig:weak-scaling}. Both Aion and AWS c7gn
